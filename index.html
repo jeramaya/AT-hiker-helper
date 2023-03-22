@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>A.T. Hiking Helper</title>
+        <meta charset="utf-8">
+        <link href="style.css" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <h1>A.T. Hiking Helper</h1>
+        </header>
+        <div class = "welcome">
+            <h1>Welcome</h1>
+        </div>
+        <button type="button" class="account-button1" onclick="login_openForm()">Login</button> 
+        <button type="button" class="account-button2" onclick="setup_account_openForm()">Sign up</button>
+        <div class = "description">
+            <p>
+                <mark>Welcome to Appalachian Trail Hiking Helper. We built this website to</mark>
+                <mark>provide an interactive map of the Appalachian Trail to help make</mark> 
+                <mark>planning hiking trips on the A.T. easier and safer for everyone.</mark>
+                <br>
+                <mark>Please log in or create an account to view the map.</mark>
+            </p>
+        </div>
+        <div class="form setup-account-form" id="setup-account">
+            <form action="/action_page.php">
+                <div>
+                    <h1>Create Account</h1>
+                    <button type="button" class="cancel" onclick="setup_account_closeForm()">X</button>
+                </div>
+                <label for="user"><b>Username</b></label>
+                <input type="text" placeholder="Enter username" name="user" required>
+                <label for="email"><b>Email</b></label>
+                <input type="text" placeholder="Enter email" name="email" required>
+                <label for="password"><b>Password</b></label>
+                <input type="password" placeholder="Enter password" name="password" id = "pwd1" required>
+                <label for="password"><b>Re-enter Password</b></label>
+                <input type="password" placeholder="Re-enter password" name="password" id = "pwd2" required>
+                <div id = "b0"></div>
+                <button type="button" onClick = "create_account_validate()">Create Account</button>
+                <button type="button" onclick="setup_account_closeForm()">Close</button>
+            </form>
+        </div>
+        <div class="form login-form" id="login">
+            <form action="/action_page.php">
+                <div>
+                    <h1>Login</h1>
+                    <button type="button" class="cancel" onclick="login_closeForm()">X</button>
+                </div>
+                <label for="user"><b>Username</b></label>
+                <input type="text" placeholder="Enter username" name="user" id = "user" required>
+                <label for="password"><b>Password</b></label>
+                <input type="password" placeholder="Enter password" name="password" id = "password" required>
+                <div id = "b1"></div>
+                    <button type="button" onclick= "forgot_password_openForm()" id = "b1">Forgot Password</button>
+                    <button type="button" onclick="login_validate()">Login</button>
+                    <button type="button" onclick="login_closeForm()">Close</button>
+                
+            </form>
+        </div>
+        <div class="form forgot-password-form" id="forgot-password">
+            <form action="/action_page.php">
+                <div>
+                    <h1>Change Password</h1>
+                    <button type="button" class="cancel" onclick="forgot_password_closeForm()">X</button>
+                </div>
+                <label for="forgot-password"><b>Email</b></label>
+                <input type="text" placeholder="Enter email" name="email" id ="email" required>
+                <button type="button" onclick= "verify_code_openForm()">Send</button>
+            </form>
+        </div>
+        <div class="form verify-code-form" id="verify-code">
+            <form action="/action_page.php">
+                <div>
+                    <h1>Change Password</h1>
+                    <button type="button" class="cancel" onclick="verify_code_closeForm()">X</button>
+                </div>
+                <label for="verify"><b>Code</b></label>
+                <input type="text" placeholder="Enter code" name="number" id = "verifyCode" required>
+                <div id = "b3"></div>
+                <button type="button" onclick= "change_password_openForm()">Check</button>
+            </form>
+        </div>
+        <div class="form change-password-form" id="change-password">
+            <form action="/action_page.php">
+                <div>
+                    <h1>Change Password</h1>
+                    <button type="button" class="cancel" onclick="change_password_closeForm()">X</button>
+                </div>
+                <label for="password"><b>Enter Password</b></label>
+                <input type="password" placeholder="Enter password" name="password" id ="password1" required>
+                <label for="password"><b>Re-enter Password</b></label>
+                <input type="password" placeholder="Re-enter password" name="password" id ="password2" required>
+                <div id = "b4"></div>
+                <button type="button" onclick="change_password_validate()">Change Password</button>
+            </form>
+        </div>
+        <button id="youtube" type = "button" onclick="location.href='https://youtube.com';"><img src="youtube-logo-2431.png"></button>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="script.js"></script>
+        
+        <footer>
+            <div class = "footer-text">
+                Created by: A.T. Hiking Helper.Copyright &copy; 2023 A.T. Hiking Helper. All rights reserved.<br>
+                <a href="mailto:yourfirstname@yourlastname.com">yourfirstname@yourlastname.com</a>
+            </div>
+        </footer>
+    </body>
+</html>
