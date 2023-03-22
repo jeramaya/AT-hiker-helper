@@ -1,0 +1,16 @@
+
+        #map {
+            height: 500px;
+            width: 500px;
+            margin: auto;
+            border: solid;
+}
+#sidebar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 300px;
+    background-color: #fff;
+    /* Add other styling as needed */
+}
