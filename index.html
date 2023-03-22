@@ -13,7 +13,7 @@
             <h1>Welcome</h1>
         </div>
         <button type="button" class="account-button1" onclick="login_openForm()">Login</button> 
-        <button type="button" class="account-button2" onclick="setup_account_openForm()">Sign up</button>
+        <button type="button" class="account-button2" onclick="setup_account_openForm()">Create Account</button>
         <div class = "description">
             <p>
                 <mark>Welcome to Appalachian Trail Hiking Helper. We built this website to</mark>
@@ -30,16 +30,16 @@
                     <button type="button" class="cancel" onclick="setup_account_closeForm()">X</button>
                 </div>
                 <label for="user"><b>Username</b></label>
-                <input type="text" placeholder="Enter username" name="user" required>
+                <input  id = "full_name" type="text" placeholder="Enter username" name="user" required>
                 <label for="email"><b>Email</b></label>
-                <input type="text" placeholder="Enter email" name="email" required>
+                <input id = "email" type="text" placeholder="Enter email" name="email" required>
                 <label for="password"><b>Password</b></label>
                 <input type="password" placeholder="Enter password" name="password" id = "pwd1" required>
                 <label for="password"><b>Re-enter Password</b></label>
                 <input type="password" placeholder="Re-enter password" name="password" id = "pwd2" required>
                 <div id = "b0"></div>
                 <button type="button" onClick = "create_account_validate()">Create Account</button>
-                <button type="button" onclick="setup_account_closeForm()">Close</button>
+                <button type="button" onclick= "setup_account_closeForm()">Close</button>
             </form>
         </div>
         <div class="form login-form" id="login">
@@ -48,8 +48,8 @@
                     <h1>Login</h1>
                     <button type="button" class="cancel" onclick="login_closeForm()">X</button>
                 </div>
-                <label for="user"><b>Username</b></label>
-                <input type="text" placeholder="Enter username" name="user" id = "user" required>
+                <label for="user"><b>Email</b></label>
+                <input type="text" placeholder="Enter Email" name="user" id = "user" required>
                 <label for="password"><b>Password</b></label>
                 <input type="password" placeholder="Enter password" name="password" id = "password" required>
                 <div id = "b1"></div>
@@ -97,7 +97,15 @@
             </form>
         </div>
         <button id="youtube" type = "button" onclick="location.href='https://youtube.com';"><img src="youtube-logo-2431.png"></button>
-        
+         <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+
+        <!--  SDKs for Firebase 
+            https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+
+    
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="script.js"></script>
         
