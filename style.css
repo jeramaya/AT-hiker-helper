@@ -207,7 +207,7 @@ footer {
     */
 }
 
-footer .text {
+.footer-text {
     position: absolute;
     left: 34vw;
     top: 10px;
@@ -238,7 +238,7 @@ form {
 
 form h1 {
   display: inline-block;
-  margin: 0px 325px 20px 20px;
+  margin: 0px 25px 20px 20px;
 }
 
 form .cancel {
@@ -268,6 +268,18 @@ form input[type=text], form input[type=password] {
 form input[type=text]:focus, form input[type=password]:focus {
   background-color: #ddd;
   outline: none;
+}
+
+#message {
+    background-color:#ff000029;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    /*line-height: 44px;
+    /*text-align: center;*/
+
+    color: #ff0000;
 }
 
 form button {
@@ -324,3 +336,5 @@ form button:hover {
   left: 0px;
   top: -20px;
 }
+
+

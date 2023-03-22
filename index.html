@@ -34,10 +34,11 @@
                 <label for="email"><b>Email</b></label>
                 <input type="text" placeholder="Enter email" name="email" required>
                 <label for="password"><b>Password</b></label>
-                <input type="password" placeholder="Enter password" name="password" required>
+                <input type="password" placeholder="Enter password" name="password" id = "pwd1" required>
                 <label for="password"><b>Re-enter Password</b></label>
-                <input type="password" placeholder="Re-enter password" name="password" required>
-                <button type="submit">Create Account</button>
+                <input type="password" placeholder="Re-enter password" name="password" id = "pwd2" required>
+                <div id = "b0"></div>
+                <button type="button" onClick = "create_account_validate()">Create Account</button>
                 <button type="button" onclick="setup_account_closeForm()">Close</button>
             </form>
         </div>
@@ -48,33 +49,36 @@
                     <button type="button" class="cancel" onclick="login_closeForm()">X</button>
                 </div>
                 <label for="user"><b>Username</b></label>
-                <input type="text" placeholder="Enter username" name="user" required>
+                <input type="text" placeholder="Enter username" name="user" id = "user" required>
                 <label for="password"><b>Password</b></label>
-                <input type="password" placeholder="Enter password" name="password" required>
-                <button type="button" onclick= "forgot_password_openForm()">Forgot Password</button>
-                <button type="submit">Login</button>
-                <button type="button" onclick="login_closeForm()">Close</button>
+                <input type="password" placeholder="Enter password" name="password" id = "password" required>
+                <div id = "b1"></div>
+                    <button type="button" onclick= "forgot_password_openForm()" id = "b1">Forgot Password</button>
+                    <button type="button" onclick="login_validate()">Login</button>
+                    <button type="button" onclick="login_closeForm()">Close</button>
+                
             </form>
         </div>
         <div class="form forgot-password-form" id="forgot-password">
             <form action="/action_page.php">
                 <div>
-                    <h1>Change password</h1>
+                    <h1>Change Password</h1>
                     <button type="button" class="cancel" onclick="forgot_password_closeForm()">X</button>
                 </div>
                 <label for="forgot-password"><b>Email</b></label>
-                <input type="text" placeholder="Enter email" name="forgot-password" required>
+                <input type="text" placeholder="Enter email" name="email" id ="email" required>
                 <button type="button" onclick= "verify_code_openForm()">Send</button>
             </form>
         </div>
         <div class="form verify-code-form" id="verify-code">
             <form action="/action_page.php">
                 <div>
-                    <h1>Verify code</h1>
+                    <h1>Change Password</h1>
                     <button type="button" class="cancel" onclick="verify_code_closeForm()">X</button>
                 </div>
-                <label for="verify-code"><b>Code</b></label>
-                <input type="text" placeholder="Enter code" name="verify-code" required>
+                <label for="verify"><b>Code</b></label>
+                <input type="text" placeholder="Enter code" name="number" id = "verifyCode" required>
+                <div id = "b3"></div>
                 <button type="button" onclick= "change_password_openForm()">Check</button>
             </form>
         </div>
@@ -85,16 +89,20 @@
                     <button type="button" class="cancel" onclick="change_password_closeForm()">X</button>
                 </div>
                 <label for="password"><b>Enter Password</b></label>
-                <input type="password" placeholder="Enter password" name="email" required>
-                <label for="password"><b>Reenter Password</b></label>
-                <input type="password" placeholder="Re-enter password" name="password" required>
-                <button type="button" onclick="login_openForm()">Change Password</button>
+                <input type="password" placeholder="Enter password" name="password" id ="password1" required>
+                <label for="password"><b>Re-enter Password</b></label>
+                <input type="password" placeholder="Re-enter password" name="password" id ="password2" required>
+                <div id = "b4"></div>
+                <button type="button" onclick="change_password_validate()">Change Password</button>
             </form>
         </div>
         <button id="youtube" type = "button" onclick="location.href='https://youtube.com';"><img src="youtube-logo-2431.png"></button>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="script.js"></script>
+        
         <footer>
-            <div class = "text">
+            <div class = "footer-text">
                 Created by: A.T. Hiking Helper.Copyright &copy; 2023 A.T. Hiking Helper. All rights reserved.<br>
                 <a href="mailto:yourfirstname@yourlastname.com">yourfirstname@yourlastname.com</a>
             </div>
