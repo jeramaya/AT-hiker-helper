@@ -19,6 +19,8 @@ header {
 
 }
 
+
+
 header h1 {
     position: absolute;
     width: 482px;
@@ -210,7 +212,15 @@ footer {
     height: 182px;
     */
 }
-
+#b1{
+  background:none;
+  border:none;
+  margin-bottom:10px;
+  width: 850px;
+  padding:0;
+  cursor: pointer;
+  color:blue;
+}
 .footer-text {
     position: absolute;
     left: 34vw;
@@ -277,8 +287,12 @@ form input[type=text]:focus, form input[type=password]:focus {
   background-color: #ddd;
   outline: none;
 }
+#b0{
+  width: fit-content;
+}
 
 #message {
+    width:480px;
     background-color:#ff000029;
     font-family: 'Inter';
     font-style: normal;

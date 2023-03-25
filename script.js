@@ -12,6 +12,8 @@ var firebaseConfig = {
   // Initialize variables
   const auth = firebase.auth()
   const database = firebase.database()
+
+  var NAME
   
   // Set up our register function
   function register () {
@@ -19,7 +21,7 @@ var firebaseConfig = {
     email = document.getElementById('email').value
     password = document.getElementById('password').value
     full_name = document.getElementById('full_name').value
-   
+    
     // Validate input fields
     if (validate_email(email) == false || validate_password(password) == false) {
       alert('Email or Password is incorrect')
@@ -89,7 +91,7 @@ var firebaseConfig = {
       database_ref.child('users/' + user.uid).update(user_data)
   
       // DOne
-      alert('User Logged In!!')
+     
   
     })
     .catch(function(error) {
@@ -216,12 +218,17 @@ function create_account_validate() {
         email = document.getElementById('email').value
         password = document.getElementById('pwd1').value
         full_name = document.getElementById('full_name').value
+        NAME = email;
        
         // Validate input fields
-        if (validate_email(email) == false || validate_password(password) == false) {
-          alert('Email or Password is incorrect')
+        if (validate_email(email) == false) {
+          document.querySelector('#b0').insertAdjacentHTML("afterbegin","<p id = 'message'>Invalid Email</p>");
           return
           // Don't continue running the code
+        }
+        if(validate_password(password) == false){
+          document.querySelector('#b0').insertAdjacentHTML("afterbegin","<p id = 'message'>Invalid Password</p>");
+
         }
        
        
@@ -245,7 +252,7 @@ function create_account_validate() {
           database_ref.child('users/' + user.uid).set(user_data)
       
           // DOne
-          alert('User Created!!')
+          
           
           location.href="Mainpage.html";
         })
@@ -254,7 +261,7 @@ function create_account_validate() {
           var error_code = error.code
           var error_message = error.message
       
-          alert(error_message)
+          document.querySelector('#b0').insertAdjacentHTML("afterbegin","<p id = 'message'>"+error_message+ "</p>");
         })
     }
     else
@@ -270,7 +277,7 @@ function login_validate() {
 
     email = document.getElementById('user').value
     password = document.getElementById('password').value
-  
+    NAME = email
     // Validate input fields
     if (validate_email(email) == false || validate_password(password) == false) {
         $('#message').remove();
@@ -296,7 +303,7 @@ function login_validate() {
       database_ref.child('users/' + user.uid).update(user_data)
   
       // DOne
-      alert('User Logged In!!')
+      
       
       location.href="Mainpage.html";
   
@@ -306,7 +313,9 @@ function login_validate() {
       var error_code = error.code
       var error_message = error.message
   
-      alert(error_message)
+    
+      $('#message').remove();
+        document.querySelector('#b1').insertAdjacentHTML("afterbegin","<p id = 'message'>"+error_message+"</p>");
     })
 
 
