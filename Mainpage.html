@@ -319,6 +319,74 @@ form .cancel {
   height: 50px;
 }
 
+.Upload-file  {
+  position: absolute;
+  left: 8px;
+  top: 10%;
+  width: 70%;
+  height: 100px;
+  background-color: #bbbbbb;
+}
+
+.Comment {
+  position: absolute;
+  left: 8px;
+  top: 70%;
+  width: 90%;
+  height: 50px;
+}
+
+.Comment textArea{
+  position: absolute;
+  left: 8px;
+  top: 45%;
+  width: 90%;
+  height: 60px;
+}
+
+
+
+.Current-Location{
+  position: absolute;
+  left: 8px;
+  top: 30%;
+  width: 90%;
+  height: 50px;
+}
+
+.Campsites {
+  position: absolute;
+  left: 8px;
+  top: 40%;
+  width: 90%;
+  height: 50px;
+}
+
+.First-Camp {
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  width: 90%;
+  height: 50px;
+}
+
+.Second-Camp {
+  position: absolute;
+  left: 8px;
+  top: 60%;
+  width: 90%;
+  height: 50px;
+}
+
+.Type  {
+  position: absolute;
+  left: 8px;
+  top: 15%;
+  width: 90%;
+  height: 50px;
+}
+
+
 
 form input[type=text], form input[type=password] {
   /*width: 100%;
@@ -488,7 +556,7 @@ form input[type=text]:focus, form input[type=password]:focus {
   <div class="form Custom-Trip3" id="add_day">
     <form action="/action_page.php">
       <div>
-          <h1>Trip Helper</h1>
+          <h1>Day 1</h1>
           <button type="button" class="cancel">X</button>
       </div>
 
@@ -521,7 +589,7 @@ form input[type=text]:focus, form input[type=password]:focus {
   <div class="form Saved-Trips" id="saved_trips">
     <form action="/action_page.php">
         <div>
-            <h1>Trip Helper</h1>
+            <h1>Saved Trips</h1>
             <button type="button" class="cancel">X</button>
         </div>
         <div class = "Trip1" >
@@ -544,19 +612,32 @@ form input[type=text]:focus, form input[type=password]:focus {
             <h1>Photo</h1>
             <button type="button" class="cancel">X</button>
         </div>
-        <p>Drag file here to upload</p>
-        <input type="file" id="files" name="file" accept="image/png, image/jpeg">
+        <div class = "Upload-file">
+          <p>Drag file here to upload</p>
+          <input type="file" id="files" name="file" accept="image/png, image/jpeg">
+        </div>
 
-        <div>
-          <label for="email"><b>Use Current Location</b></label>
+        
+        <div class = "Current-Location">
+          <label for="email"><b>UseCurrent Location</b></label>
+          <input  id = "trip1" type="checkbox" placeholder="trip1" name="trip1" required>
+        </div>
+        <div class = "Campsites">
+
+          <label for="password"><b>Between two Campsites</b></label>
+          <input  id = "trip2" type="checkbox" placeholder="trip2" name="trip1" required>
+        </div>
+
+        <div class = "First-Camp">
+          <label for="email"><b>First Camp</b></label>
           <select name="Starting Location" id="Starting_Location">
             <option value="Start of trial">Start of trial</option>
             <option value="Start of trial">Start of trial</option>
             <option value="Start of trial">Start of trial</option>
           </select>
         </div>
-        <div>
-          <label for="password"><b>Between two Campasites</b></label>
+        <div class = "Second-Camp">
+          <label for="password"><b>Second Camp</b></label>
             <select name="Starting Location" id="Starting_Location">
               <option value="Start of trial">Start of trial</option>
               <option value="Start of trial">Start of trial</option>
@@ -564,16 +645,13 @@ form input[type=text]:focus, form input[type=password]:focus {
             </select>
           </div>
 
-
-          <label for="email"><b>UseCurrent Location</b></label>
-          <input  id = "trip1" type="checkbox" placeholder="trip1" name="trip1" required>
-        
-          <label for="password"><b>Between two Campsites</b></label>
-          <input  id = "trip2" type="checkbox" placeholder="trip2" name="trip1" required>
           
-          <textarea>
+          <div  class = "Comment">
+            <label for="password"><b>Comment</b></label>
+            <textarea>
 
-          </textarea>
+            </textarea>
+          </div>
 
 
         <button class = "Choose-Trips" type="button">Submit</button>
@@ -588,11 +666,9 @@ form input[type=text]:focus, form input[type=password]:focus {
             <h1>Hazard Report</h1>
             <button type="button" class="cancel">X</button>
         </div>
-        <p>Drag file here to upload</p>
-        <input type="file" id="files" name="file" accept="image/png, image/jpeg">
-
-        <div>
-          <label for="email"><b>Type</b></label>
+        
+        <div class = "Type">
+          <label for="email"><b>Type:</b></label>
           <select name="Starting Location" id="Starting_Location">
             <option value="Start of trial">Path Obstruction</option>
             <option value="Start of trial">Animal Sighting</option>
@@ -600,16 +676,27 @@ form input[type=text]:focus, form input[type=password]:focus {
           </select>
         </div>
 
-        <div>
-          <label for="email"><b>Use Current Location</b></label>
+        
+        <div class = "Current-Location">
+          <label for="email"><b>UseCurrent Location</b></label>
+          <input  id = "trip1" type="checkbox" placeholder="trip1" name="trip1" required>
+        </div>
+        <div class = "Campsites">
+
+          <label for="password"><b>Between two Campsites</b></label>
+          <input  id = "trip2" type="checkbox" placeholder="trip2" name="trip1" required>
+        </div>
+
+        <div class = "First-Camp">
+          <label for="email"><b>First Camp</b></label>
           <select name="Starting Location" id="Starting_Location">
             <option value="Start of trial">Start of trial</option>
             <option value="Start of trial">Start of trial</option>
             <option value="Start of trial">Start of trial</option>
           </select>
         </div>
-        <div>
-          <label for="password"><b>Between two Campasites</b></label>
+        <div class = "Second-Camp">
+          <label for="password"><b>Second Camp</b></label>
             <select name="Starting Location" id="Starting_Location">
               <option value="Start of trial">Start of trial</option>
               <option value="Start of trial">Start of trial</option>
@@ -617,16 +704,12 @@ form input[type=text]:focus, form input[type=password]:focus {
             </select>
           </div>
 
+          <div  class = "Comment">
+            <label for="password"><b>Comment</b></label>
+            <textarea>
 
-          <label for="email"><b>UseCurrent Location</b></label>
-          <input  id = "trip1" type="checkbox" placeholder="trip1" name="trip1" required>
-        
-          <label for="password"><b>Between two Campsites</b></label>
-          <input  id = "trip2" type="checkbox" placeholder="trip2" name="trip1" required>
-          
-          <textarea>
-
-          </textarea>
+            </textarea>
+          </div>
 
 
         <button class = "Choose-Trips" type="button">Submit</button>
