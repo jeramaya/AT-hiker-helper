@@ -191,6 +191,8 @@ form .cancel {
   height: 50px;
 }
 
+
+
 .Distance-of-Hike{
   position: absolute;
   left: 8px;
@@ -207,6 +209,34 @@ form .cancel {
   width:200px;
 }
 
+.Trip1{
+  position: absolute;
+  left: 8px;
+  top: 20%;
+  
+  width: 96%;
+  height: 100px;
+  font-size: 24px;
+  /*padding: 15px 0px;
+  margin: 5px 0 22px 0;*/
+  background-color: #677F5E;
+}
+
+
+.Trip2{
+  position: absolute;
+  left: 8px;
+  top: 43%;
+  
+  width: 96%;
+  height: 100px;
+  font-size: 24px;
+  
+  /*padding: 15px 0px;
+  margin: 5px 0 22px 0;*/
+  background-color: #677F5E;
+}
+
 .Choose-Trips{
   position: absolute;
   left: 59.99%;
@@ -214,6 +244,16 @@ form .cancel {
   border-top-left-radius: 25px;
   width:200px;
 }
+
+.Trip-Name{
+  position: absolute;
+  left: 8px;
+  top: 20%;
+  width: 90%;
+  height: 50px;
+}
+
+
 
 .Add-Gear{
   position: absolute;
@@ -229,6 +269,54 @@ form .cancel {
   top: 89.9%;
   border-top-left-radius: 25px;
   width:200px;
+}
+
+
+.Equipment{
+  position: absolute;
+  left: 8%;
+  top: 30%;
+  width: 90%;
+  height: 50px;
+}
+
+.Equipment input{
+  position: absolute;
+  left: 0px;
+  top: 35px;
+  width: 20%;
+  height: 50px;
+}
+
+.Weight{
+  position: absolute;
+  left: 30%;
+  top: 30%;
+  width:200px;
+}
+
+.Weight input{
+  position: absolute;
+  left: 0px;
+  top: 35px;
+  width: 20%;
+  height: 50px;
+}
+
+.lbs{
+  position: absolute;
+  left: 50%;
+  top: 35%;
+  width:50px;
+  height:50px;
+}
+
+.Day-Title {
+  position: absolute;
+  left: 8px;
+  top: 30%;
+  width: 90%;
+  height: 50px;
 }
 
 
@@ -269,6 +357,14 @@ form input[type=text]:focus, form input[type=password]:focus {
   display: none;
 }
 
+.Share-Photo {
+  display: none;
+}
+
+.Hazrd-Report {
+  display: none;
+}
+
 </style>
 <script src="javascript.js"></script>
 <link href="maincss.css" rel="stylesheet">
@@ -282,17 +378,11 @@ form input[type=text]:focus, form input[type=password]:focus {
 </div>
 
 <div class="topnav">
-  <!--button class = "active" type="button">Trip Helper</button>
-  <button class = "active" type="button">Custom Trip</button>
-  <button class = "active" type="button">Saved Trips</button>
-  <button class = "active" type="button">Share a Photo</button>
-  <button class = "active" type="button">Hazard Report</button-->
-
   <a id ="button" class="active1">Trip Helper</a>
   <a id ="button" class="active2">Custom Trip</a>
   <a id ="button" class="active3">Saved Trips</a>
-  <a id ="button" class="active">Share a Photo</a>
-  <a id ="button" class="active">Hazard Report</a>
+  <a id ="button" class="active4">Share a Photo</a>
+  <a id ="button" class="active5">Hazard Report</a>
 
   <div class="form Trip-Helper" id="trip_helper">
     <form action="/action_page.php">
@@ -336,15 +426,15 @@ form input[type=text]:focus, form input[type=password]:focus {
             <h1>Trip Helper</h1>
             <button type="button" class="cancel">X</button>
         </div>
-        <div class = "Starting-Location" >
+        <div class = "Trip1" >
           <label for="email"><b>Trip 1</b></label>
-          <input  id = "trip1" type="checkbox" placeholder="trip1" name="trip1" required>
-          <p class = "Distance-of-Hike">Total distance: 11.7Ml</p>
+          <input  id = "Trip1" type="checkbox" placeholder="trip1" name="trip1" required>
+          <p>Total distance: 11.7Ml</p>
         </div>
-        <div class = "Ending-Location" >
+        <div class = "Trip2" >
           <label for="password"><b>Trip 2</b></label>
-          <input  id = "trip2" type="checkbox" placeholder="trip2" name="trip1" required>
-          <p class = "Distance-of-Hike">Total distance: 12Ml</p>
+          <input  id = "Trip2" type="checkbox" placeholder="trip2" name="trip1" required>
+          <p>Total distance: 12Ml</p>
         </div>
         <button class = "Choose-Trips" type="button">Choose Trips</button>
     </form>
@@ -355,12 +445,8 @@ form input[type=text]:focus, form input[type=password]:focus {
         <div>
             <h1>Create a Custom</h1>
             <button type="button" class="cancel">X</button>
-        </div>
-        <div class = "Starting-Location" >
-          <label for="email"><b>Trip 1</b></label>
-          <input  id = "trip1" type="text" placeholder="trip1" name="trip1" required>
-          <p class = "Distance-of-Hike">Total distance: 11.7Ml</p>
-        </div>
+        </div>  
+        <input  class = "Trip-Name" id = "trip" type="text" placeholder="Enter Trip Name" name="trip" required>
         <button class = "Add-Gear" type="button">Add Gear</button>
         <button class = "Add-Day" type="button">Add Day</button>
     </form>
@@ -374,14 +460,18 @@ form input[type=text]:focus, form input[type=password]:focus {
             <button type="button" class="cancel">X</button>
         </div>
 
-        <input class = "trip-name"  id = "trip1" type="text" placeholder="Enter trip name" name="trip1" required>
-          
-        <label for="email"><b>Equipment</b></label>
-        <input  id = "trip1" type="text" placeholder="trip1" name="trip1" required>
-        <label for="email"><b>Weight</b></label>
-        <input  id = "trip1" type="text" placeholder="trip1" name="trip1" required>
-        <label for="email"><b>Weight</b></label>
-          <select name="Starting Location" id="Starting_Location">
+        <input class = "Trip-Name"  id = "trip1" type="text" placeholder="Enter trip name" name="trip1" required>
+        
+        <div class = "Equipment">
+          <label for="e"><b>Equipment</b></label>
+          <input  id = "trip1" type="text" placeholder="trip1" name="trip1" required>
+        </div>
+        <div class = "Weight">
+          <label for="w"><b>Weight</b></label>
+          <input  id = "trip1" type="text" placeholder="trip1" name="trip1" required>
+        </div>
+        
+          <select  class = "lbs" name="Starting Location" id="Starting_Location">
             <option value="Start of trial">lbs</option>
             <option value="Start of trial">lbs</option>
             <option value="Start of trial">lbs</option>
@@ -406,7 +496,7 @@ form input[type=text]:focus, form input[type=password]:focus {
       
       
 
-      <input type="text" placeholder="Enter Day title" name="text" required>
+      <input class = "Day-Title" type="text" placeholder="Enter Day title" name="text" required>
       
       <div class = "Starting-Location" >
         <label for="email"><b>Starting Location</b></label>
@@ -434,13 +524,13 @@ form input[type=text]:focus, form input[type=password]:focus {
             <h1>Trip Helper</h1>
             <button type="button" class="cancel">X</button>
         </div>
-        <div class = "Starting-Location" >
-          <label for="email"><b>Trip 1</b></label>
+        <div class = "Trip1" >
+          <label for="trip1"><b>Trip 1</b></label>
           <input  id = "trip1" type="checkbox" placeholder="trip1" name="trip1" required>
           <p class = "Distance-of-Hike">Total distance: 11.7Ml</p>
         </div>
-        <div class = "Ending-Location" >
-          <label for="password"><b>Trip 2</b></label>
+        <div class = "Trip2" >
+          <label for="trip2"><b>Trip 2</b></label>
           <input  id = "trip2" type="checkbox" placeholder="trip2" name="trip1" required>
           <p class = "Distance-of-Hike">Total distance: 12Ml</p>
         </div>
@@ -448,7 +538,7 @@ form input[type=text]:focus, form input[type=password]:focus {
     </form>
   </div>
 
-  <div class="form Share-Photo" id="Share_photo">
+  <div class="form Share-Photo" id="share_photo">
     <form action="/action_page.php">
         <div>
             <h1>Photo</h1>
@@ -492,13 +582,57 @@ form input[type=text]:focus, form input[type=password]:focus {
 
 
 
-  
+  <div class="form Hazrd-Report" id="hazard_report">
+    <form action="/action_page.php">
+        <div>
+            <h1>Hazard Report</h1>
+            <button type="button" class="cancel">X</button>
+        </div>
+        <p>Drag file here to upload</p>
+        <input type="file" id="files" name="file" accept="image/png, image/jpeg">
 
-  <!--a class="active" href="#home">Trip Helper</a-->
-  <!--a href="">Custom Trip</a>
-  <a href="">Saved Trips</a>
-  <a href="">Share a Photo</a>
-  <a href="">Hazard Report</a-->
+        <div>
+          <label for="email"><b>Type</b></label>
+          <select name="Starting Location" id="Starting_Location">
+            <option value="Start of trial">Path Obstruction</option>
+            <option value="Start of trial">Animal Sighting</option>
+            <option value="Start of trial">Other</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="email"><b>Use Current Location</b></label>
+          <select name="Starting Location" id="Starting_Location">
+            <option value="Start of trial">Start of trial</option>
+            <option value="Start of trial">Start of trial</option>
+            <option value="Start of trial">Start of trial</option>
+          </select>
+        </div>
+        <div>
+          <label for="password"><b>Between two Campasites</b></label>
+            <select name="Starting Location" id="Starting_Location">
+              <option value="Start of trial">Start of trial</option>
+              <option value="Start of trial">Start of trial</option>
+              <option value="Start of trial">Start of trial</option>
+            </select>
+          </div>
+
+
+          <label for="email"><b>UseCurrent Location</b></label>
+          <input  id = "trip1" type="checkbox" placeholder="trip1" name="trip1" required>
+        
+          <label for="password"><b>Between two Campsites</b></label>
+          <input  id = "trip2" type="checkbox" placeholder="trip2" name="trip1" required>
+          
+          <textarea>
+
+          </textarea>
+
+
+        <button class = "Choose-Trips" type="button">Submit</button>
+    </form>
+  </div>
+
 </div>
 
 <div style="padding-left:16px"></div>
@@ -717,24 +851,50 @@ $(function() {
 
 $(function() {  
     var clickCount = 0;
-    $('.Share-Photo').click(function () {
+    $('.active4').click(function () {
         if(clickCount%2==0){
-               $('#saved_trips').css({display:'block'});
+               $('#share_photo').css({display:'block'});
                $('#active2').css({background:'#677F5E'});
 
         }else{
-             $('#saved_trips').css({display:'none'});
+             $('#share_photo').css({display:'none'});
              $('#active2').css({background:'#4B5D45'});
          }
         clickCount++;
     });
     $('.cancel').click(function () {
         if(clickCount%2==0){
-               $('#saved_trips').css({display:'none'});
+               $('#share_photo').css({display:'none'});
                $('#active2').css({background:'#677F5E'});
 
         }else{
-             $('#saved_trips').css({display:'none'});
+             $('#share_photo').css({display:'none'});
+             $('#active2').css({background:'#4B5D45'});
+         }
+        clickCount++;
+    });
+});
+
+$(function() {  
+    var clickCount = 0;
+    $('.active5').click(function () {
+        if(clickCount%2==0){
+               $('#hazard_report').css({display:'block'});
+               $('#active2').css({background:'#677F5E'});
+
+        }else{
+             $('#hazard_report').css({display:'none'});
+             $('#active2').css({background:'#4B5D45'});
+         }
+        clickCount++;
+    });
+    $('.cancel').click(function () {
+        if(clickCount%2==0){
+               $('#hazard_report').css({display:'none'});
+               $('#active2').css({background:'#677F5E'});
+
+        }else{
+             $('#hazard_report').css({display:'none'});
              $('#active2').css({background:'#4B5D45'});
          }
         clickCount++;
