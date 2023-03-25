@@ -73,12 +73,5 @@ function initMap() {
     document.getElementById('sidebar-toggle').addEventListener('click', function () {
         sidebar.classList.toggle('collapsed');
     });
-
-    
-
- 
 }
-
-
-
 window.onload = initMap;

@@ -26,6 +26,25 @@ body {
     font-weight:700;
 }
 
+.topnav button {
+  float: left;
+  color: #000000;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 800;
+  /*width:16.5%;*/
+  border-bottom: #000000;
+  border: none;
+  background-color:#677F5E;
+}
+
+.topnav button:hover {
+  background-color: #ddd;
+  color: black;
+}
+
 .topnav a {
   float: left;
   color: #000000;
@@ -34,8 +53,12 @@ body {
   text-decoration: none;
   font-size: 20px;
   font-weight: 800;
-  width:16.5%;
+  /*width:16.5%;*/
   border-bottom: #000000;
+  /*background-color:#677F5E;*/
+  
+  background-color: #4B5D45;
+
 }
 
 .topnav a:hover {
@@ -50,10 +73,366 @@ body {
     
 }
 
-.topnav a.active {
-  background-color: #4B5D45;
+.topnav a.active1 {
+  /*background-color: #4B5D45;*/
+  
+  background-color:#677F5E;
   color: rgb(0, 0, 0);
 }
+
+.topnav a.active1 {
+  /*background-color: #4B5D45;*/
+  
+  background-color:#677F5E;
+  color: rgb(0, 0, 0);
+}
+
+
+
+.form{
+  position: absolute;
+  bottom: 0;
+  right: 15px;
+  z-index: 9;
+  left: 60vw;
+  top: 10vw;
+  width: 500px;
+  height: 550px;
+  border-style: solid;
+  
+  background-color: white;
+}
+
+form {
+  padding: 10px;
+  background-color: white;
+}
+
+form h1 {
+  display: inline-block;
+  margin: 0px 25px 20px 20px;
+}
+
+form .cancel {
+  background-color: red;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 10px;
+  opacity: 0.8;
+
+  position: absolute;
+  left: 450px;
+  top: 10px;
+
+
+}
+
+.Number-of-Days-to-hike {
+  position: absolute;
+  left: 8px;
+  top: 150px;
+
+  width: 96%;
+  height: 50px;
+  font-size: 24px;
+}
+
+.Number-of-Days-to-hike input{
+  position: absolute;
+  left: 0px;
+  top: 35px;
+  width: 20%;
+  height: 50px;
+}
+
+.Starting-Location{
+  position: absolute;
+  left: 8px;
+  top: 45%;
+  
+  width: 96%;
+  height: 50px;
+  font-size: 24px;
+  /*padding: 15px 0px;
+  margin: 5px 0 22px 0;*/
+}
+
+.Starting-Location select{
+  position: absolute;
+  left: 0px;
+  top: 35px;
+  
+  width: 100%;
+  height: 50px;
+  /*padding: 15px 0px;
+  margin: 5px 0 22px 0;*/
+}
+
+.Ending-Location{
+  position: absolute;
+  left: 8px;
+  top: 63%;
+  
+  width: 96%;
+  height: 50px;
+  font-size: 24px;
+  
+  /*padding: 15px 0px;
+  margin: 5px 0 22px 0;*/
+}
+
+.Ending-Location select{
+  position: absolute;
+  left: 0px;
+  top: 35px;
+  width: 100%;
+  height: 50px;
+}
+
+
+
+.Distance-of-Hike{
+  position: absolute;
+  left: 8px;
+  top: 80%;
+  /*border-top-left-radius: 25px;
+  /*width:20px;*/
+}
+
+.Build-Trips{
+  position: absolute;
+  left: 59.99%;
+  top: 89.9%;
+  border-top-left-radius: 25px;
+  width:200px;
+}
+
+.Trip1{
+  position: absolute;
+  left: 8px;
+  top: 20%;
+  
+  width: 96%;
+  height: 100px;
+  font-size: 24px;
+  /*padding: 15px 0px;
+  margin: 5px 0 22px 0;*/
+  background-color: #677F5E;
+}
+
+
+.Trip2{
+  position: absolute;
+  left: 8px;
+  top: 43%;
+  
+  width: 96%;
+  height: 100px;
+  font-size: 24px;
+  
+  /*padding: 15px 0px;
+  margin: 5px 0 22px 0;*/
+  background-color: #677F5E;
+}
+
+.Choose-Trips{
+  position: absolute;
+  left: 59.99%;
+  top: 89.9%;
+  border-top-left-radius: 25px;
+  width:200px;
+}
+
+.Trip-Name{
+  position: absolute;
+  left: 8px;
+  top: 20%;
+  width: 90%;
+  height: 50px;
+}
+
+
+
+.Add-Gear{
+  position: absolute;
+  left: 30.99%;
+  top: 60.9%;
+  border-radius: 25px;
+  width:200px;
+}
+
+.Add-Day{
+  position: absolute;
+  left: 59.99%;
+  top: 89.9%;
+  border-top-left-radius: 25px;
+  width:200px;
+}
+
+
+.Equipment{
+  position: absolute;
+  left: 8%;
+  top: 30%;
+  width: 90%;
+  height: 50px;
+}
+
+.Equipment input{
+  position: absolute;
+  left: 0px;
+  top: 35px;
+  width: 20%;
+  height: 50px;
+}
+
+.Weight{
+  position: absolute;
+  left: 30%;
+  top: 30%;
+  width:200px;
+}
+
+.Weight input{
+  position: absolute;
+  left: 0px;
+  top: 35px;
+  width: 20%;
+  height: 50px;
+}
+
+.lbs{
+  position: absolute;
+  left: 50%;
+  top: 35%;
+  width:50px;
+  height:50px;
+}
+
+.Day-Title {
+  position: absolute;
+  left: 8px;
+  top: 30%;
+  width: 90%;
+  height: 50px;
+}
+
+.Upload-file  {
+  position: absolute;
+  left: 8px;
+  top: 10%;
+  width: 70%;
+  height: 100px;
+  background-color: #bbbbbb;
+}
+
+.Comment {
+  position: absolute;
+  left: 8px;
+  top: 70%;
+  width: 90%;
+  height: 50px;
+}
+
+.Comment textArea{
+  position: absolute;
+  left: 8px;
+  top: 45%;
+  width: 90%;
+  height: 60px;
+}
+
+
+
+.Current-Location{
+  position: absolute;
+  left: 8px;
+  top: 30%;
+  width: 90%;
+  height: 50px;
+}
+
+.Campsites {
+  position: absolute;
+  left: 8px;
+  top: 40%;
+  width: 90%;
+  height: 50px;
+}
+
+.First-Camp {
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  width: 90%;
+  height: 50px;
+}
+
+.Second-Camp {
+  position: absolute;
+  left: 8px;
+  top: 60%;
+  width: 90%;
+  height: 50px;
+}
+
+.Type  {
+  position: absolute;
+  left: 8px;
+  top: 15%;
+  width: 90%;
+  height: 50px;
+}
+
+
+
+form input[type=text], form input[type=password] {
+  /*width: 100%;
+  padding: 15px 0px;
+  margin: 5px 0 22px 0;*/
+  border: none;
+  background: #f1f1f1;
+}
+  
+form input[type=text]:focus, form input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+.Trip-Helper {
+  display: none;
+}
+
+.Trip-Helper2 {
+  display: none;
+}
+
+.Custom-Trip {
+  display: none;
+}
+
+.Custom-Trip2 {
+  display: none;
+}
+
+.Custom-Trip3 {
+  display: none;
+}
+
+.Saved-Trips {
+  display: none;
+}
+
+.Share-Photo {
+  display: none;
+}
+
+.Hazrd-Report {
+  display: none;
+}
+
 </style>
 <script src="javascript.js"></script>
 <link href="maincss.css" rel="stylesheet">
@@ -67,11 +446,276 @@ body {
 </div>
 
 <div class="topnav">
-  <a class="active" href="#home">Trip Helper</a>
-  <a href="">Custom Trip</a>
-  <a href="">Saved Trips</a>
-  <a href="">Share a Photo</a>
-  <a href="">Hazard Report</a>
+  <a id ="button" class="active1">Trip Helper</a>
+  <a id ="button" class="active2">Custom Trip</a>
+  <a id ="button" class="active3">Saved Trips</a>
+  <a id ="button" class="active4">Share a Photo</a>
+  <a id ="button" class="active5">Hazard Report</a>
+
+  <div class="form Trip-Helper" id="trip_helper">
+    <form action="/action_page.php">
+        <div>
+            <h1>Trip Helper</h1>
+            <button type="button" class="cancel">X</button>
+        </div>
+        <p>Welcome to the trip helper. This guide is meant to 
+          pre-build a few possible hikes for you given your 
+          starting and ending locations along with the number 
+          of days you would like to hike</p>
+
+        <div class = "Number-of-Days-to-hike" >
+          <label for="Number"><b>Number of Days to hike</b></label>
+          <input id = "Number" type="number" placeholder="1" name="Number" required>
+        </div>
+        <div class = "Starting-Location" >
+          <label for="email"><b>Starting Location</b></label>
+          <select name="Starting Location" id="Starting_Location">
+            <option value="Start of trial">Start of trial</option>
+            <option value="Start of trial">Start of trial</option>
+            <option value="Start of trial">Start of trial</option>
+          </select>
+        </div>
+        <div class = "Ending-Location" >
+          <label for="password"><b>Ending Location</b></label>
+            <select name="Starting Location" id="Starting_Location">
+              <option value="Start of trial">Start of trial</option>
+              <option value="Start of trial">Start of trial</option>
+              <option value="Start of trial">Start of trial</option>
+            </select></div>
+        <p class = "Distance-of-Hike">Distance of Hike: 11.7</p>
+        <button class = "Build-Trips" type="button">Build Trips</button>
+    </form>
+  </div>
+
+
+  <div class="form Trip-Helper2" id="trip_helper2">
+    <form action="/action_page.php">
+        <div>
+            <h1>Trip Helper</h1>
+            <button type="button" class="cancel">X</button>
+        </div>
+        <div class = "Trip1" >
+          <label for="email"><b>Trip 1</b></label>
+          <input  id = "Trip1" type="checkbox" placeholder="trip1" name="trip1" required>
+          <p>Total distance: 11.7Ml</p>
+        </div>
+        <div class = "Trip2" >
+          <label for="password"><b>Trip 2</b></label>
+          <input  id = "Trip2" type="checkbox" placeholder="trip2" name="trip1" required>
+          <p>Total distance: 12Ml</p>
+        </div>
+        <button class = "Choose-Trips" type="button">Choose Trips</button>
+    </form>
+  </div>
+
+  <div class="form Custom-Trip" id="custom_trip">
+    <form action="/action_page.php">
+        <div>
+            <h1>Create a Custom</h1>
+            <button type="button" class="cancel">X</button>
+        </div>  
+        <input  class = "Trip-Name" id = "trip" type="text" placeholder="Enter Trip Name" name="trip" required>
+        <button class = "Add-Gear" type="button">Add Gear</button>
+        <button class = "Add-Day" type="button">Add Day</button>
+    </form>
+  </div>
+
+
+  <div class="form Custom-Trip2" id="add_gear">
+    <form action="/action_page.php">
+        <div>
+            <h1>Create a Custom Trip</h1>
+            <button type="button" class="cancel">X</button>
+        </div>
+
+        <input class = "Trip-Name"  id = "trip1" type="text" placeholder="Enter trip name" name="trip1" required>
+        
+        <div class = "Equipment">
+          <label for="e"><b>Equipment</b></label>
+          <input  id = "trip1" type="text" placeholder="trip1" name="trip1" required>
+        </div>
+        <div class = "Weight">
+          <label for="w"><b>Weight</b></label>
+          <input  id = "trip1" type="text" placeholder="trip1" name="trip1" required>
+        </div>
+        
+          <select  class = "lbs" name="Starting Location" id="Starting_Location">
+            <option value="Start of trial">lbs</option>
+            <option value="Start of trial">lbs</option>
+            <option value="Start of trial">lbs</option>
+          </select>
+        
+
+        <p class = "">+ Add Gear</p>
+        <p class = "">Total weight</p>
+        
+        <button class = "Add-Day" type="button">Add Day</button>
+    </form>
+  </div>
+
+  <div class="form Custom-Trip3" id="add_day">
+    <form action="/action_page.php">
+      <div>
+          <h1>Day 1</h1>
+          <button type="button" class="cancel">X</button>
+      </div>
+
+      <button class = "Save-Trips" type="button">Save Trips</button>
+      
+      
+
+      <input class = "Day-Title" type="text" placeholder="Enter Day title" name="text" required>
+      
+      <div class = "Starting-Location" >
+        <label for="email"><b>Starting Location</b></label>
+        <select name="Starting Location" id="Starting_Location">
+          <option value="Start of trial">Start of trial</option>
+          <option value="Start of trial">Start of trial</option>
+          <option value="Start of trial">Start of trial</option>
+        </select>
+      </div>
+      <div class = "Ending-Location" >
+        <label for="password"><b>Ending Location</b></label>
+          <select name="Starting Location" id="Starting_Location">
+            <option value="Start of trial">Start of trial</option>
+            <option value="Start of trial">Start of trial</option>
+            <option value="Start of trial">Start of trial</option>
+          </select></div>
+      <p class = "Distance-of-Hike">Distance of Hike: mi</p>
+      <button class = "Add-Day" type="button">Add Day</button>
+  </form>
+  </div>
+
+  <div class="form Saved-Trips" id="saved_trips">
+    <form action="/action_page.php">
+        <div>
+            <h1>Saved Trips</h1>
+            <button type="button" class="cancel">X</button>
+        </div>
+        <div class = "Trip1" >
+          <label for="trip1"><b>Trip 1</b></label>
+          <input  id = "trip1" type="checkbox" placeholder="trip1" name="trip1" required>
+          <p class = "Distance-of-Hike">Total distance: 11.7Ml</p>
+        </div>
+        <div class = "Trip2" >
+          <label for="trip2"><b>Trip 2</b></label>
+          <input  id = "trip2" type="checkbox" placeholder="trip2" name="trip1" required>
+          <p class = "Distance-of-Hike">Total distance: 12Ml</p>
+        </div>
+        <button class = "Choose-Trips" type="button">Choose Trips</button>
+    </form>
+  </div>
+
+  <div class="form Share-Photo" id="share_photo">
+    <form action="/action_page.php">
+        <div>
+            <h1>Photo</h1>
+            <button type="button" class="cancel">X</button>
+        </div>
+        <div class = "Upload-file">
+          <p>Drag file here to upload</p>
+          <input type="file" id="files" name="file" accept="image/png, image/jpeg">
+        </div>
+
+        
+        <div class = "Current-Location">
+          <label for="email"><b>UseCurrent Location</b></label>
+          <input  id = "trip1" type="checkbox" placeholder="trip1" name="trip1" required>
+        </div>
+        <div class = "Campsites">
+
+          <label for="password"><b>Between two Campsites</b></label>
+          <input  id = "trip2" type="checkbox" placeholder="trip2" name="trip1" required>
+        </div>
+
+        <div class = "First-Camp">
+          <label for="email"><b>First Camp</b></label>
+          <select name="Starting Location" id="Starting_Location">
+            <option value="Start of trial">Start of trial</option>
+            <option value="Start of trial">Start of trial</option>
+            <option value="Start of trial">Start of trial</option>
+          </select>
+        </div>
+        <div class = "Second-Camp">
+          <label for="password"><b>Second Camp</b></label>
+            <select name="Starting Location" id="Starting_Location">
+              <option value="Start of trial">Start of trial</option>
+              <option value="Start of trial">Start of trial</option>
+              <option value="Start of trial">Start of trial</option>
+            </select>
+          </div>
+
+          
+          <div  class = "Comment">
+            <label for="password"><b>Comment</b></label>
+            <textarea>
+
+            </textarea>
+          </div>
+
+
+        <button class = "Choose-Trips" type="button">Submit</button>
+    </form>
+  </div>
+
+
+
+  <div class="form Hazrd-Report" id="hazard_report">
+    <form action="/action_page.php">
+        <div>
+            <h1>Hazard Report</h1>
+            <button type="button" class="cancel">X</button>
+        </div>
+        
+        <div class = "Type">
+          <label for="email"><b>Type:</b></label>
+          <select name="Starting Location" id="Starting_Location">
+            <option value="Start of trial">Path Obstruction</option>
+            <option value="Start of trial">Animal Sighting</option>
+            <option value="Start of trial">Other</option>
+          </select>
+        </div>
+
+        
+        <div class = "Current-Location">
+          <label for="email"><b>UseCurrent Location</b></label>
+          <input  id = "trip1" type="checkbox" placeholder="trip1" name="trip1" required>
+        </div>
+        <div class = "Campsites">
+
+          <label for="password"><b>Between two Campsites</b></label>
+          <input  id = "trip2" type="checkbox" placeholder="trip2" name="trip1" required>
+        </div>
+
+        <div class = "First-Camp">
+          <label for="email"><b>First Camp</b></label>
+          <select name="Starting Location" id="Starting_Location">
+            <option value="Start of trial">Start of trial</option>
+            <option value="Start of trial">Start of trial</option>
+            <option value="Start of trial">Start of trial</option>
+          </select>
+        </div>
+        <div class = "Second-Camp">
+          <label for="password"><b>Second Camp</b></label>
+            <select name="Starting Location" id="Starting_Location">
+              <option value="Start of trial">Start of trial</option>
+              <option value="Start of trial">Start of trial</option>
+              <option value="Start of trial">Start of trial</option>
+            </select>
+          </div>
+
+          <div  class = "Comment">
+            <label for="password"><b>Comment</b></label>
+            <textarea>
+
+            </textarea>
+          </div>
+
+
+        <button class = "Choose-Trips" type="button">Submit</button>
+    </form>
+  </div>
+
 </div>
 
 <div style="padding-left:16px"></div>
@@ -98,5 +742,255 @@ body {
   </div>
  
 <script src="https://maps.googleapis.com/maps/api/js?v=3.51&key=AIzaSyD4TP4mVYbaLYkVzDz3EgalWFPGga1UyBM&callback=initMap"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('a#button').click(function() {
+      $(this).toggleClass("active1");
+    });
+  });
+
+  $(function() {  
+    var clickCount = 0;
+    $('.active1').click(function () {
+        if(clickCount%2==0){
+               $('#trip_helper').css({display:'block'});
+               $('#active1').css({background:'#677F5E'});
+
+        }else{
+             $('#trip_helper').css({display:'none'});
+             $('#active1').css({background:'#4B5D45'});
+         }
+        clickCount++;
+    });
+    $('.cancel').click(function () {
+        if(clickCount%2==0){
+               $('#trip_helper').css({display:'none'});
+               $('#active1').css({background:'#677F5E'});
+
+        }else{
+             $('#trip_helper').css({display:'none'});
+             $('#active1').css({background:'#4B5D45'});
+         }
+        clickCount++;
+    });
+});
+
+$(function() {  
+    var clickCount = 0;
+    $('.Build-Trips').click(function () {
+        if(clickCount%2==0){
+               $('#trip_helper2').css({display:'block'});
+               $('#active').css({background:'#677F5E'});
+
+        }else{
+             $('#trip_helper2').css({display:'none'});
+             $('#active2').css({background:'#4B5D45'});
+         }
+        clickCount++;
+    });
+    $('.cancel').click(function () {
+        if(clickCount%2==0){
+               $('#trip_helper2').css({display:'none'});
+               $('#active2').css({background:'#677F5E'});
+
+        }else{
+             $('#trip_helper2').css({display:'none'});
+             $('#active2').css({background:'#4B5D45'});
+         }
+        clickCount++;
+    });
+});
+
+$(function() {  
+    var clickCount = 0;
+    $('.Choose-Trips').click(function () {
+        if(clickCount%2==0){
+               $('#trip_helper2').css({display:'none'});
+               $('#active').css({background:'#677F5E'});
+
+        }else{
+             $('#trip_helper2').css({display:'none'});
+             $('#active2').css({background:'#4B5D45'});
+         }
+        clickCount++;
+    });
+    $('.cancel').click(function () {
+        if(clickCount%2==0){
+               $('#trip_helper2').css({display:'none'});
+               $('#active2').css({background:'#677F5E'});
+
+        }else{
+             $('#trip_helper2').css({display:'none'});
+             $('#active2').css({background:'#4B5D45'});
+         }
+        clickCount++;
+    });
+});
+
+$(function() {  
+    var clickCount = 0;
+    $('.active2').click(function () {
+        if(clickCount%2==0){
+               $('#custom_trip').css({display:'block'});
+               $('#active2').css({background:'#677F5E'});
+
+        }else{
+             $('#custom_trip').css({display:'none'});
+             $('#active2').css({background:'#4B5D45'});
+         }
+        clickCount++;
+    });
+    $('.cancel').click(function () {
+        if(clickCount%2==0){
+               $('#custom_trip').css({display:'none'});
+               $('#active2').css({background:'#677F5E'});
+
+        }else{
+             $('#custom_trip').css({display:'none'});
+             $('#active2').css({background:'#4B5D45'});
+         }
+        clickCount++;
+    });
+});
+
+$(function() {  
+    var clickCount = 0;
+    $('.Add-Gear').click(function () {
+        if(clickCount%2==0){
+               $('#add_gear').css({display:'block'});
+               $('#active2').css({background:'#677F5E'});
+
+        }else{
+             $('#add_gear').css({display:'none'});
+             $('#active2').css({background:'#4B5D45'});
+         }
+        clickCount++;
+    });
+    $('.cancel').click(function () {
+        if(clickCount%2==0){
+               $('#add_gear').css({display:'none'});
+               $('#active2').css({background:'#677F5E'});
+
+        }else{
+             $('#add_gear').css({display:'none'});
+             $('#active2').css({background:'#4B5D45'});
+         }
+        clickCount++;
+    });
+});
+
+$(function() {  
+    var clickCount = 0;
+    $('.Add-Day').click(function () {
+        if(clickCount%2==0){
+               $('#add_day').css({display:'block'});
+               $('#active2').css({background:'#677F5E'});
+
+        }else{
+             $('#add_day').css({display:'none'});
+             $('#active2').css({background:'#4B5D45'});
+         }
+        clickCount++;
+    });
+    $('.cancel').click(function () {
+        if(clickCount%2==0){
+               $('#add_day').css({display:'none'});
+               $('#active2').css({background:'#677F5E'});
+
+        }else{
+             $('#add_day').css({display:'none'});
+             $('#active2').css({background:'#4B5D45'});
+         }
+        clickCount++;
+    });
+});
+
+$(function() {  
+    var clickCount = 0;
+    $('.active3').click(function () {
+        if(clickCount%2==0){
+               $('#saved_trips').css({display:'block'});
+               $('#active2').css({background:'#677F5E'});
+
+        }else{
+             $('#saved_trips').css({display:'none'});
+             $('#active2').css({background:'#4B5D45'});
+         }
+        clickCount++;
+    });
+    $('.cancel').click(function () {
+        if(clickCount%2==0){
+               $('#saved_trips').css({display:'none'});
+               $('#active2').css({background:'#677F5E'});
+
+        }else{
+             $('#saved_trips').css({display:'none'});
+             $('#active2').css({background:'#4B5D45'});
+         }
+        clickCount++;
+    });
+});
+
+$(function() {  
+    var clickCount = 0;
+    $('.active4').click(function () {
+        if(clickCount%2==0){
+               $('#share_photo').css({display:'block'});
+               $('#active2').css({background:'#677F5E'});
+
+        }else{
+             $('#share_photo').css({display:'none'});
+             $('#active2').css({background:'#4B5D45'});
+         }
+        clickCount++;
+    });
+    $('.cancel').click(function () {
+        if(clickCount%2==0){
+               $('#share_photo').css({display:'none'});
+               $('#active2').css({background:'#677F5E'});
+
+        }else{
+             $('#share_photo').css({display:'none'});
+             $('#active2').css({background:'#4B5D45'});
+         }
+        clickCount++;
+    });
+});
+
+$(function() {  
+    var clickCount = 0;
+    $('.active5').click(function () {
+        if(clickCount%2==0){
+               $('#hazard_report').css({display:'block'});
+               $('#active2').css({background:'#677F5E'});
+
+        }else{
+             $('#hazard_report').css({display:'none'});
+             $('#active2').css({background:'#4B5D45'});
+         }
+        clickCount++;
+    });
+    $('.cancel').click(function () {
+        if(clickCount%2==0){
+               $('#hazard_report').css({display:'none'});
+               $('#active2').css({background:'#677F5E'});
+
+        }else{
+             $('#hazard_report').css({display:'none'});
+             $('#active2').css({background:'#4B5D45'});
+         }
+        clickCount++;
+    });
+});
+
+
+
+
+
+
+
+</script>
+
 </body>
 </html>
