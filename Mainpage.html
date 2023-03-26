@@ -46,6 +46,7 @@ body {
 }
 
 .topnav a {
+
   float: left;
   color: #000000;
   text-align: center;
@@ -58,6 +59,11 @@ body {
   /*background-color:#677F5E;*/
   
   /*background-color: #4B5D45;*/
+
+  -webkit-user-select: none; /* Safari */        
+-moz-user-select: none; /* Firefox */
+-ms-user-select: none; /* IE10+/Edge */
+user-select: none; /* Standard */
 
 }
 
@@ -888,7 +894,7 @@ $(function() {
 
         }else{
              $('.Hazard-Report').css({display:'none'});
-             $('.active5').css({background:'#4B5D45'});
+             $('.active5').css({background:'#677F5E'});
          }
         clickCount++;
     });
