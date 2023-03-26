@@ -1,0 +1,339 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url(Mountain-Hiking.jpg) no-repeat;
+    background-size: cover;
+    width: 98vw;
+    height: 95vh;
+    overflow-x: hidden;
+  }
+
+header {
+    background-color: #67805E;
+    border-top: 1px double black;
+	  border-bottom: 1px double black;
+    position: absolute;
+    width: 100vw;
+    height: 119px;
+    left: 0px;
+    top: 0px;
+
+}
+
+header h1 {
+    position: absolute;
+    width: 482px;
+    height: 90px;
+    left: 35px;
+    top: 15px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 58px;
+
+    color: #000000;
+
+  /*
+    text-shadow: 0px 1px 0px #c0c0c0, 0px 2px 0px #b0b0b0, 0px 3px 0px #a0a0a0, 0px 4px 0px #909090, 0px 5px 10px rgba(0, 0, 0, 0.6);
+    box-shadow: 0px 1px 0px #c0c0c0, 0px 2px 0px #b0b0b0, 0px 3px 0px #a0a0a0, 0px 4px 0px #909090, 0px 5px 10px rgba(0, 0, 0, 0.6);
+  */
+}
+
+.welcome {
+    position: absolute;
+    /*width: 419px;
+    height: 182px;
+    */
+    left: 25vw;
+    top: -7vw;
+
+    font-family: 'Sans Serif Collection';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 96px;
+    /*line-height: 236px;*/
+
+    color: #dadada;
+
+    /*border: 1px solid #000000;*/
+
+    text-shadow: 0px 1px 0px #c0c0c0, 0px 2px 0px #b0b0b0, 0px 3px 0px #a0a0a0, 0px 4px 0px #909090, 0px 5px 10px rgba(0, 0, 0, 0.6);
+
+}
+
+
+
+.account-button1 {
+    position: absolute;
+    background: #EBEBEB;
+    border-radius: 25px;
+    width: 231px;
+    height: 91px;
+    left: 10vw;
+    top: 17vw;
+
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border: none;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 77px;
+
+    color: #000000;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.07);
+
+    text-shadow: 0px 1px 0px #c0c0c0, 0px 2px 0px #b0b0b0, 0px 3px 0px #a0a0a0, 0px 4px 0px #909090, 0px 5px 10px rgba(0, 0, 0, 0.6);
+    box-shadow: 0px 1px 0px #c0c0c0, 0px 2px 0px #b0b0b0, 0px 3px 0px #a0a0a0, 0px 4px 0px #909090, 0px 5px 10px rgba(0, 0, 0, 0.6);
+
+}
+
+.account-button2 {
+    position: absolute;
+    background: #EBEBEB;
+    border-radius: 25px;
+    position: absolute;
+    width: 231px;
+    height: 91px;
+    left: 70vw;
+    top: 17vw;
+
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border: none;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 77px;
+
+    color: #000000;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.07);
+
+    text-shadow: 0px 1px 0px #c0c0c0, 0px 2px 0px #b0b0b0, 0px 3px 0px #a0a0a0, 0px 4px 0px #909090, 0px 5px 10px rgba(0, 0, 0, 0.6);
+    box-shadow: 0px 1px 0px #c0c0c0, 0px 2px 0px #b0b0b0, 0px 3px 0px #a0a0a0, 0px 4px 0px #909090, 0px 5px 10px rgba(0, 0, 0, 0.6);
+
+
+}
+
+
+.account-buttons:hover {
+  opacity: 1;
+}
+
+.account-button1:hover {
+  opacity: 1;
+  /*text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.07);*/
+}
+
+.account-button2:hover {
+  opacity: 1;
+  /*text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.07);*/
+}
+
+/*.account-buttons:hover {
+  opacity: 1;
+}*/
+
+.account-button1:active {
+  opacity: 1;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.07);
+}
+
+.account-button2:active {
+  opacity: 1;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.07);
+}
+
+
+.description {
+    position: absolute;
+    width: 1132px;
+    height: 352px;
+    left: 354px;
+    top: 450px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 44px;
+    text-align: center;
+
+    color: #f0f0f0;
+    
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+
+    text-shadow: 0px 1px 0px #c0c0c0, 0px 2px 0px #b0b0b0;
+
+    /*mix-blend-mode: difference;*/
+    
+    /*mix-blend-mode: multiply;*/
+
+  }
+
+.description p mark {
+  background-color: #c1e1db6b;
+  /*opacity: 0.5;*/
+  /*border: none;*/
+  border-radius: 3px;
+  /*mix-blend-mode: difference;*/
+}
+
+footer {
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 99.99vw;
+    height: 86.1px;
+    left: 0px;
+    top: 875px;
+
+    text-align: center;
+
+
+    background: #FFFFFF;
+    border: 1px solid #C2C2C2;
+
+
+    position: absolute;
+    /*width: 419px;
+    height: 182px;
+    */
+}
+
+.footer-text {
+    position: absolute;
+    left: 34vw;
+    top: 10px;
+    font-family: 'Inter';
+    /*font-family: 'Sans Serif Collection';
+    font-style: normal;
+    /*font-weight: 400;*/
+    /*font-size: 96px;*/
+    /*line-height: 236px;*/
+    
+}
+
+.form{
+  position: absolute;
+  bottom: 0;
+  right: 15px;
+  z-index: 9;
+  left: 600px;
+  top: 300px;
+  width: 500px;
+  height: 87px;
+}
+
+form {
+  padding: 10px;
+  background-color: white;
+}
+
+form h1 {
+  display: inline-block;
+  margin: 0px 25px 20px 20px;
+}
+
+form .cancel {
+  background-color: red;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 10px;
+  opacity: 0.8;
+
+  position: absolute;
+  left: 450px;
+  top: 10px;
+
+
+}
+
+form input[type=text], form input[type=password] {
+  width: 100%;
+  padding: 15px 0px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+  
+form input[type=text]:focus, form input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+#message {
+    background-color:#ff000029;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    /*line-height: 44px;
+    /*text-align: center;*/
+
+    color: #ff0000;
+}
+
+form button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+form button:hover {
+  opacity: 1;
+}
+
+
+.login-form {
+  display: none;
+}
+
+.forgot-password-form {
+    display: none;
+}
+
+.verify-code-form {
+  display: none;
+}
+
+.change-password-form {
+  display: none;
+}
+
+.setup-account-form {
+  display: none;
+}
+
+
+#youtube {
+  position: absolute;
+  width: 130px;
+  height: 90px;
+  left: 35px;
+  top: 730px;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0px 1px 0px #c0c0c0, 0px 2px 0px #b0b0b0, 0px 3px 0px #a0a0a0, 0px 4px 0px #909090, 0px 5px 10px rgba(0, 0, 0, 0.6);
+
+}
+
+#youtube img {
+  position: absolute;
+  left: 0px;
+  top: -20px;
+}
+

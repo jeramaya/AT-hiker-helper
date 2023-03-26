@@ -1,0 +1,67 @@
+#map {
+    min-height: 600px;
+    margin: auto;
+    border: solid;
+  }
+  
+  #map-container {
+    position: relative;
+    min-height: 100%;
+    min-width: 100%;
+  }
+  
+  #sidebar {
+    height: 33%;
+    width: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: green;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 10px;
+  }
+  
+  #sidebar label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  #sidebar-content {
+    display: block;
+  }
+  
+  #sidebar.hidden #sidebar-content {
+    display: none;
+  }
+  
+  #sidebar.collapsed {
+    width: 5%;
+    padding: 10px 0;
+    height: 5%;
+  }
+  
+  #sidebar.collapsed label {
+    display: none;
+  }
+  
+  #sidebar.collapsed h2 {
+    display: none;
+  }
+
+  #popup {
+    height: 33%;
+    width: 100px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    background-color: #D9D9D9;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-top: 5%;
+    margin-right: 2%;
+    visibility: hidden;
+  }
