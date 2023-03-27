@@ -1,5 +1,5 @@
 #map {
-    min-height: 600px;
+    height: 750px;
     margin: auto;
     border: solid;
   }
@@ -16,15 +16,18 @@
     top: 0;
     left: 0;
     z-index: 1;
-    background-color: green;
+    background-color:  #67805E;
     padding: 10px;
     border: 1px solid gray;
     border-radius: 10px;
   }
   
   #sidebar label {
-    display: block;
+    display: flex;
+    align-items: center;
     margin-bottom: 5px;
+    background-color: beige;
+   width: auto;
   }
   
   #sidebar-content {
@@ -48,3 +51,15 @@
   #sidebar.collapsed h2 {
     display: none;
   }
+  
+  #sidebar label img {
+    max-width: 30%;
+    height: auto;
+    margin-right: 5px;
+}
+
+
+#sidebar.collapsed input[type="checkbox"] {
+  display: none;
+}
+

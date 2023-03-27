@@ -46,7 +46,6 @@ body {
 }
 
 .topnav a {
-
   float: left;
   color: #000000;
   text-align: center;
@@ -56,10 +55,9 @@ body {
   font-weight: 800;
   /*width:16.5%;*/
   border-bottom: #000000;
-  /*background-color:#677F5E;*/
+  background-color:#677F5E;
   
   /*background-color: #4B5D45;*/
-
   -webkit-user-select: none; /* Safari */        
 -moz-user-select: none; /* Firefox */
 -ms-user-select: none; /* IE10+/Edge */
@@ -79,12 +77,7 @@ user-select: none; /* Standard */
     
 }
 
-/*.topnav a.active1 {
-  /*background-color: #4B5D45;*/
-  /*
-  background-color:#677F5E;
-  color: rgb(0, 0, 0);
-}*/
+
 
 
 
@@ -114,22 +107,24 @@ form h1 {
   margin: 0px 25px 20px 20px;
 }
 
-form .description{
-  background-color:#86a57b;
-}
-
 form .cancel {
   background-color: red;
   color: white;
-  padding: 16px 20px;
+  padding: 0px;
   border: none;
+  border-radius: 100px;
   cursor: pointer;
-  width: 10px;
+  width: 20px;
+  height: 20px;
   opacity: 0.8;
+  font-weight:100;
+  font-size: 15px;
+  
 
   position: absolute;
-  left: 450px;
+  left: 470px;
   top: 10px;
+
 
 
 }
@@ -406,8 +401,6 @@ form input[type=text]:focus, form input[type=password]:focus {
   outline: none;
 }
 
-
-
 .Trip-Helper {
   display: none;
 }
@@ -440,6 +433,16 @@ form input[type=text]:focus, form input[type=password]:focus {
   display: none;
 }
 
+/*#button {
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.07);
+
+  box-shadow: 0px 1px 0px #c0c0c0, 0px 2px 0px #b0b0b0, 0px 3px 0px #a0a0a0, 0px 4px 0px #909090, 0px 5px 10px rgba(0, 0, 0, 0.6);
+  /*border: line;
+
+  /*box-shadow: none;*/
+
+/*}*/
+
 
 </style>
 <script src="javascript.js"></script>
@@ -450,16 +453,17 @@ form input[type=text]:focus, form input[type=password]:focus {
 <div>
     <img class="ATpic" src="clipart4232473.png">
     
-    <button class = "logoutBut" type="button">Logout</button>
+    <button class = "logoutBut" type="button" onclick="location.href = '/index.html'">Logout</button>
 </div>
 
 <div class="topnav">
+  <div class = "buttons">
   <a id ="button" class="active1">Trip Helper</a>
   <a id ="button" class="active2">Custom Trip</a>
   <a id ="button" class="active3">Saved Trips</a>
   <a id ="button" class="active4">Share a Photo</a>
   <a id ="button" class="active5">Hazard Report</a>
-
+  </div>
   <div class="form Trip-Helper" id="trip_helper">
     <form action="/action_page.php">
         <div>
@@ -509,7 +513,7 @@ form input[type=text]:focus, form input[type=password]:focus {
         </div>
         <div class = "Trip2" >
           <label for="password"><b>Trip 2</b></label>
-          <input  id = "Trip2" type="checkbox" placeholder="trip2" name="trip1" required>
+          <input  id = "Trip2" type="checkbox" placeholder="trip2" name="trip2" required>
           <p>Total distance: 12Ml</p>
         </div>
         <button class = "Choose-Trips" type="button">Choose Trips</button>
@@ -602,12 +606,12 @@ form input[type=text]:focus, form input[type=password]:focus {
         </div>
         <div class = "Trip1" >
           <label for="trip1"><b>Trip 1</b></label>
-          <input  id = "trip1" type="checkbox" placeholder="trip1" name="trip1" required>
+          <input  id = "saved-trip1" type="checkbox" placeholder="trip1" name="trip1" required>
           <p class = "Distance-of-Hike">Total distance: 11.7Ml</p>
         </div>
         <div class = "Trip2" >
           <label for="trip2"><b>Trip 2</b></label>
-          <input  id = "trip2" type="checkbox" placeholder="trip2" name="trip1" required>
+          <input  id = "saved-trip2" type="checkbox" placeholder="trip2" name="Trip2" required>
           <p class = "Distance-of-Hike">Total distance: 12Ml</p>
         </div>
         <button class = "Choose-Trips" type="button">Choose Trips</button>
@@ -692,7 +696,7 @@ form input[type=text]:focus, form input[type=password]:focus {
         <div class = "Campsites">
 
           <label for="password"><b>Between two Campsites</b></label>
-          <input  id = "trip2" type="checkbox" placeholder="trip2" name="trip1" required>
+          <input  id = "trip2" type="checkbox" placeholder="trip2" name="trip2" required>
         </div>
 
         <div class = "First-Camp">
@@ -728,46 +732,88 @@ form input[type=text]:focus, form input[type=password]:focus {
 
 <div style="padding-left:16px"></div>
 
-  <div id="map-container">
-    <div id="map"></div>
-    <div id="sidebar">
+<div id="map-container">
+  <div id="map"></div>
+  <div id="sidebar">
       <button id="sidebar-toggle">X</button>
-   
+
       <div id="sidebar-content">
-        <h2>Filter Results</h2>
-        <label>
-          <input type="checkbox" id="checkbox1" checked>Checkbox 1
-        </label>
-        <label>
-          <input type="checkbox" id="checkbox2" checked>Checkbox 2
-        </label>
-        <label>
-          <input type="checkbox" id="checkbox3" checked>Checkbox 3
-        </label>
-  
+          <h2>Filter Results</h2>
+          <label for="checkbox1"><img src="camping_spots.png" alt="Checkbox 1"></label>
+          <input type="checkbox" id="checkbox1">
+          <label for="checkbox2"><img src="images/parking_spots.png" alt="Checkbox 2"></label>
+          <input type="checkbox" id="checkbox2">
+          <label for="checkbox3"><img src="images/hazard_spots.png" alt="Checkbox 3"></label>
+          <input type="checkbox" id="checkbox3">
       </div>
-    </div>
   </div>
+</div>
  
 <script src="https://maps.googleapis.com/maps/api/js?v=3.51&key=AIzaSyD4TP4mVYbaLYkVzDz3EgalWFPGga1UyBM&callback=initMap"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>
-  $(function() {  
-    var clickCount = 0;
+  
+  
+var active1_clickCount = 0;
+var active2_clickCount = 0;
+var active3_clickCount = 0;
+var active4_clickCount = 0;
+var active5_clickCount = 0;
+
+$(function() {  
+    //var clickCount = 0;
     $('.active1').click(function () {
-        if(clickCount%2==0){
+        if(active1_clickCount%2==0){
           $('.Trip-Helper').css({display:'block'});
+          $('.Trip-Helper2').css({display:'none'});
+          $('.Custom-Trip').css({display:'none'});
+          $('.Custom-Trip2').css({display:'none'});
+          $('.Custom-Trip3').css({display:'none'});
+          $('.Saved-Trips').css({display:'none'});
+          $('.Share-Photo').css({display:'none'});
+          $('.Hazard-Report').css({display:'none'});
+
+          
           $('.active1').css({background:'#4B5D45'});
+          $('.active2').css({background:'#677F5E'});
+          $('.active3').css({background:'#677F5E'});
+          $('.active4').css({background:'#677F5E'});
+          $('.active5').css({background:'#677F5E'});
+
         }else{
           $('.Trip-Helper').css({display:'none'});
           $('.active1').css({background:'#677F5E'});
+          $('.active2').css({background:'#677F5E'});
+          $('.active3').css({background:'#677F5E'});
+          $('.active4').css({background:'#677F5E'});
+          $('.active5').css({background:'#677F5E'});
          }
-        clickCount++;
+         active1_clickCount++;
+         active2_clickCount = 0;
+         active3_clickCount = 0;
+         active4_clickCount = 0;
+         active5_clickCount = 0;
+
     });
     $('.cancel').click(function () {
           $('.Trip-Helper').css({display:'none'});
+          $('.Trip-Helper2').css({display:'none'});
+          $('.Custom-Trip').css({display:'none'});
+          $('.Custom-Trip2').css({display:'none'});
+          $('.Custom-Trip3').css({display:'none'});
+          $('.Saved-Trips').css({display:'none'});
+          $('.Share-Photo').css({display:'none'});
+          $('.Hazard-Report').css({display:'none'});
           $('.active1').css({background:'#677F5E'});
-          clickCount++;
+          $('.active2').css({background:'#677F5E'});
+          $('.active3').css({background:'#677F5E'});
+          $('.active4').css({background:'#677F5E'});
+          $('.active5').css({background:'#677F5E'});
+          active1_clickCount=0;
+          active2_clickCount = 0;
+          active3_clickCount = 0;
+          active4_clickCount = 0;
+          active5_clickCount = 0;
     });
 });
 
@@ -781,6 +827,11 @@ $(function() {
             $('.Trip-Helper').css({display:'none'});
              $('.Trip-Helper2').css({display:'none'});
              $('.active1').css({background:'#677F5E'});
+             active1_clickCount = 0;
+          active2_clickCount = 0;
+          active3_clickCount = 0;
+          active4_clickCount = 0;
+          active5_clickCount = 0;
     });
 });
 
@@ -789,6 +840,24 @@ $(function() {
     $('.Choose-Trips').click(function () {
         $('.Trip-Helper').css({display:'block'});
         $('.Trip-Helper2').css({display:'none'});
+        $('.Trip-Helper').css({display:'none'});
+          $('.Trip-Helper2').css({display:'none'});
+          $('.Custom-Trip').css({display:'none'});
+          $('.Custom-Trip2').css({display:'none'});
+          $('.Custom-Trip3').css({display:'none'});
+          $('.Saved-Trips').css({display:'none'});
+          $('.Share-Photo').css({display:'none'});
+          $('.Hazard-Report').css({display:'none'});
+          $('.active1').css({background:'#677F5E'});
+          $('.active2').css({background:'#677F5E'});
+          $('.active3').css({background:'#677F5E'});
+          $('.active4').css({background:'#677F5E'});
+          $('.active5').css({background:'#677F5E'});
+          active1_clickCount = 0;
+          active2_clickCount = 0;
+          active3_clickCount = 0;
+          active4_clickCount = 0;
+          active5_clickCount = 0;
     });
 });
 
@@ -796,22 +865,63 @@ $(function() {
 
 
 $(function() {  
-    var clickCount = 0;
+    //var clickCount = 0;
     $('.active2').click(function () {
-        if(clickCount%2==0){
-               $('.Custom-Trip').css({display:'block'});
-               $('.active2').css({background:'#4B5D45'});
+        if(active2_clickCount%2==0){
+          $('.Trip-Helper').css({display:'none'});
+          $('.Trip-Helper2').css({display:'none'});
+          $('.Custom-Trip').css({display:'block'});
+          $('.Custom-Trip2').css({display:'none'});
+          $('.Custom-Trip3').css({display:'none'});
+          $('.Saved-Trips').css({display:'none'});
+          $('.Share-Photo').css({display:'none'});
+          $('.Hazard-Report').css({display:'none'});
+
+          
+          $('.active1').css({background:'#677F5E'});
+          $('.active2').css({background:'#4B5D45'});
+          $('.active3').css({background:'#677F5E'});
+          $('.active4').css({background:'#677F5E'});
+          $('.active5').css({background:'#677F5E'});
+              
+                
+               
 
         }else{
              $('.Custom-Trip').css({display:'none'});
              $('.active2').css({background:'#677F5E'});
+
+             $('.active1').css({background:'#677F5E'});
+             $('.active2').css({background:'#677F5E'});
+             $('.active3').css({background:'#677F5E'});
+             $('.active4').css({background:'#677F5E'});
+             $('.active5').css({background:'#677F5E'});
          }
-        clickCount++;
+         active1_clickCount=0;
+         active2_clickCount++;
+         active3_clickCount = 0;
+         active4_clickCount = 0;
+         active5_clickCount = 0;
     });
     $('.cancel').click(function () {
-        $('.Custom-Trip').css({display:'none'});
-        $('.active2').css({background:'#677F5E'});
-        clickCount++;
+          $('.Trip-Helper').css({display:'none'});
+          $('.Trip-Helper2').css({display:'none'});
+          $('.Custom-Trip').css({display:'none'});
+          $('.Custom-Trip2').css({display:'none'});
+          $('.Custom-Trip3').css({display:'none'});
+          $('.Saved-Trips').css({display:'none'});
+          $('.Share-Photo').css({display:'none'});
+          $('.Hazard-Report').css({display:'none'});
+          $('.active1').css({background:'#677F5E'});
+          $('.active2').css({background:'#677F5E'});
+          $('.active3').css({background:'#677F5E'});
+          $('.active4').css({background:'#677F5E'});
+          $('.active5').css({background:'#677F5E'});
+          active1_clickCount=0;
+          active2_clickCount = 0;
+          active3_clickCount = 0;
+          active4_clickCount = 0;
+          active5_clickCount = 0;
     });
 });
 
@@ -825,6 +935,24 @@ $(function() {
         $('.Custom-Trip').css({display:'none'});
         $('.Custom-Trip2').css({display:'none'});
         $('.active2').css({background:'#677F5E'});
+        $('.Trip-Helper').css({display:'none'});
+          $('.Trip-Helper2').css({display:'none'});
+          $('.Custom-Trip').css({display:'none'});
+          $('.Custom-Trip2').css({display:'none'});
+          $('.Custom-Trip3').css({display:'none'});
+          $('.Saved-Trips').css({display:'none'});
+          $('.Share-Photo').css({display:'none'});
+          $('.Hazard-Report').css({display:'none'});
+          $('.active1').css({background:'#677F5E'});
+          $('.active2').css({background:'#677F5E'});
+          $('.active3').css({background:'#677F5E'});
+          $('.active4').css({background:'#677F5E'});
+          $('.active5').css({background:'#677F5E'});
+          active1_clickCount = 0;
+          active2_clickCount = 0;
+          active3_clickCount = 0;
+          active4_clickCount = 0;
+          active5_clickCount = 0;
     });
 });
 
@@ -841,26 +969,83 @@ $(function() {
         $('.Custom-Trip2').css({display:'none'});
         $('.Custom-Trip3').css({display:'none'});
         $('.active2').css({background:'#677F5E'});
+        $('.Trip-Helper').css({display:'none'});
+          $('.Trip-Helper2').css({display:'none'});
+          $('.Custom-Trip').css({display:'none'});
+          $('.Custom-Trip2').css({display:'none'});
+          $('.Custom-Trip3').css({display:'none'});
+          $('.Saved-Trips').css({display:'none'});
+          $('.Share-Photo').css({display:'none'});
+          $('.Hazard-Report').css({display:'none'});
+          $('.active1').css({background:'#677F5E'});
+          $('.active2').css({background:'#677F5E'});
+          $('.active3').css({background:'#677F5E'});
+          $('.active4').css({background:'#677F5E'});
+          $('.active5').css({background:'#677F5E'});
+          active1_clickCount = 0;
+          active2_clickCount = 0;
+          active3_clickCount = 0;
+          active4_clickCount = 0;
+          active5_clickCount = 0;
     });
 });
 
 $(function() {  
     var clickCount = 0;
     $('.active3').click(function () {
-        if(clickCount%2==0){
+        if(active3_clickCount%2==0){
                $('.Saved-Trips').css({display:'block'});
                $('.active3').css({background:'#4B5D45'});
+
+               $('.Trip-Helper').css({display:'none'});
+          $('.Trip-Helper2').css({display:'none'});
+          $('.Custom-Trip').css({display:'none'});
+          $('.Custom-Trip2').css({display:'none'});
+          $('.Custom-Trip3').css({display:'none'});
+          $('.Saved-Trips').css({display:'block'});
+          $('.Share-Photo').css({display:'none'});
+          $('.Hazard-Report').css({display:'none'});
+
+          
+          $('.active1').css({background:'#677F5E'});
+          $('.active2').css({background:'#677F5E'});
+          $('.active3').css({background:'#4B5D45'});
+          $('.active4').css({background:'#677F5E'});
+          $('.active5').css({background:'#677F5E'});
 
         }else{
              $('.Saved-Trips').css({display:'none'});
              $('.active3').css({background:'#677F5E'});
+
          }
-        clickCount++;
+        //clickCount++;
+        active1_clickCount=0;
+          active2_clickCount=0;
+          active3_clickCount++;
+          active4_clickCount = 0;
+          active5_clickCount = 0;
     });
     $('.cancel').click(function () {
         $('.Saved-Trips').css({display:'none'});
         $('.active3').css({background:'#677F5E'});
-        clickCount++;
+        $('.Trip-Helper').css({display:'none'});
+          $('.Trip-Helper2').css({display:'none'});
+          $('.Custom-Trip').css({display:'none'});
+          $('.Custom-Trip2').css({display:'none'});
+          $('.Custom-Trip3').css({display:'none'});
+          $('.Saved-Trips').css({display:'none'});
+          $('.Share-Photo').css({display:'none'});
+          $('.Hazard-Report').css({display:'none'});
+          $('.active1').css({background:'#677F5E'});
+          $('.active2').css({background:'#677F5E'});
+          $('.active3').css({background:'#677F5E'});
+          $('.active4').css({background:'#677F5E'});
+          $('.active5').css({background:'#677F5E'});
+          active1_clickCount=0;
+          active2_clickCount = 0;
+          active3_clickCount = 0;
+          active4_clickCount = 0;
+          active5_clickCount = 0;
 
     });
 });
@@ -868,40 +1053,114 @@ $(function() {
 $(function() {  
     var clickCount = 0;
     $('.active4').click(function () {
-        if(clickCount%2==0){
+        if(active4_clickCount%2==0){
                $('.Share-Photo').css({display:'block'});
                $('.active4').css({background:'#4B5D45'});
+               $('.Trip-Helper').css({display:'none'});
+          $('.Trip-Helper2').css({display:'none'});
+          $('.Custom-Trip').css({display:'none'});
+          $('.Custom-Trip2').css({display:'none'});
+          $('.Custom-Trip3').css({display:'none'});
+          $('.Saved-Trips').css({display:'none'});
+          $('.Share-Photo').css({display:'block'});
+          $('.Hazard-Report').css({display:'none'});
+
+          
+          $('.active1').css({background:'#677F5E'});
+          $('.active2').css({background:'#677F5E'});
+          $('.active3').css({background:'#677F5E'});
+          $('.active4').css({background:'#4B5D45'});
+          $('.active5').css({background:'#677F5E'});
 
         }else{
              $('.Share-Photo').css({display:'none'});
              $('.active4').css({background:'#677F5E'});
          }
-        clickCount++;
+         active1_clickCount=0;
+          active2_clickCount=0;
+          active3_clickCount=0;
+          active4_clickCount++;
+          active5_clickCount = 0;
     });
     $('.cancel').click(function () {
         $('.Share-Photo').css({display:'none'});
         $('.active4').css({background:'#677F5E'});
-        clickCount++;
+        $('.Trip-Helper').css({display:'none'});
+          $('.Trip-Helper2').css({display:'none'});
+          $('.Custom-Trip').css({display:'none'});
+          $('.Custom-Trip2').css({display:'none'});
+          $('.Custom-Trip3').css({display:'none'});
+          $('.Saved-Trips').css({display:'none'});
+          $('.Share-Photo').css({display:'none'});
+          $('.Hazard-Report').css({display:'none'});
+          $('.active1').css({background:'#677F5E'});
+          $('.active2').css({background:'#677F5E'});
+          $('.active3').css({background:'#677F5E'});
+          $('.active4').css({background:'#677F5E'});
+          $('.active5').css({background:'#677F5E'});
+          active1_clickCount=0;
+          active2_clickCount = 0;
+          active3_clickCount = 0;
+          active4_clickCount = 0;
+          active5_clickCount = 0;
     });
 });
 
 $(function() {  
     var clickCount = 0;
     $('.active5').click(function () {
-        if(clickCount%2==0){
+        if(active5_clickCount%2==0){
                $('.Hazard-Report').css({display:'block'});
                $('.active5').css({background:'#4B5D45'});
+
+               $('.Trip-Helper').css({display:'none'});
+          $('.Trip-Helper2').css({display:'none'});
+          $('.Custom-Trip').css({display:'none'});
+          $('.Custom-Trip2').css({display:'none'});
+          $('.Custom-Trip3').css({display:'none'});
+          $('.Saved-Trips').css({display:'none'});
+          $('.Share-Photo').css({display:'none'});
+          $('.Hazard-Report').css({display:'block'});
+
+          
+          $('.active1').css({background:'#677F5E'});
+          $('.active2').css({background:'#677F5E'});
+          $('.active3').css({background:'#677F5E'});
+          $('.active4').css({background:'#677F5E'});
+          $('.active5').css({background:'#4B5D45'});
+               
 
         }else{
              $('.Hazard-Report').css({display:'none'});
              $('.active5').css({background:'#677F5E'});
          }
-        clickCount++;
+         active1_clickCount=0;
+          active2_clickCount=0;
+          active3_clickCount=0;
+          active4_clickCount=0;
+          active5_clickCount++;
     });
     $('.cancel').click(function () {
       $('.Hazard-Report').css({display:'none'});
       $('.active5').css({background:'#677F5E'});
-        clickCount++;
+      $('.Trip-Helper').css({display:'none'});
+          $('.Trip-Helper2').css({display:'none'});
+          $('.Custom-Trip').css({display:'none'});
+          $('.Custom-Trip2').css({display:'none'});
+          $('.Custom-Trip3').css({display:'none'});
+          $('.Saved-Trips').css({display:'none'});
+          $('.Share-Photo').css({display:'none'});
+          $('.Hazard-Report').css({display:'none'});
+          $('.active1').css({background:'#677F5E'});
+          $('.active2').css({background:'#677F5E'});
+          $('.active3').css({background:'#677F5E'});
+          $('.active4').css({background:'#677F5E'});
+          $('.active5').css({background:'#677F5E'});
+          active1_clickCount = 0;
+          active2_clickCount = 0;
+          active3_clickCount = 0;
+          active4_clickCount = 0;
+          active5_clickCount = 0;
     });
 });
 
