@@ -25,14 +25,14 @@ header h1 {
   position: absolute;
   width: 482px;
   height: 90px;
-  left: 35px;
-  top: 15px;
+  left: 0px;
+  top: 0px;
 
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
   font-size: 48px;
-  line-height: 58px;
+  /*line-height: 58px;*/
 
   color: #000000;
 
@@ -47,21 +47,27 @@ header h1 {
   /*width: 419px;
   height: 182px;
   */
-  margin-left: 30%;
-  top: -7vw;
-  margin-top: 8vw;
+
+  left: 28%;
+  top: 23%;
+
 
   font-family: 'Sans Serif Collection';
   font-style: normal;
   font-weight: 400;
-  font-size: 200px;
-  /*line-height: 236px;*/
+  font-size: 100px;
+  line-height: 0%;
 
   color: #dadada;
   
   /*border: 1px solid #000000;*/
-
+  /*margin: 0;*/
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  
+  
+
+  /*max-height:100px;
+  /*overflow-y:scroll;*/
 }
 
 #buttoms{
