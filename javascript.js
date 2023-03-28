@@ -376,9 +376,7 @@ function initMap() {
             });
             
             map.controls[google.maps.ControlPosition.LEFT_TOP].push(sidebar);
-            document.getElementById('sidebar-toggle').addEventListener('click', function () {
-                sidebar.classList.toggle('collapsed');
-            });
+          
     
    // Create the campsite markers
     var campsite1 = new google.maps.Marker({
@@ -397,6 +395,8 @@ function initMap() {
         title: 'Campsite 2',
 
     });
+
+
 
     trip1.addEventListener('change', function () {
         if(trip1.checked) {
