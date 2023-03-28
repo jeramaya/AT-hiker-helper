@@ -380,6 +380,60 @@ function initMap() {
                 sidebar.classList.toggle('collapsed');
             });
     
+   // Create the campsite markers
+    var campsite1 = new google.maps.Marker({
+        position: {
+            lat: 42.7184156,
+            lng: -73.1503512
+        },
+        title: 'Campsite 1',
 
+    });
+    var campsite2 = new google.maps.Marker({
+        position: {
+            lat: 42.5149,
+            lng: -73.1596
+        },
+        title: 'Campsite 2',
+
+    });
+
+    trip1.addEventListener('change', function () {
+        if(trip1.checked) {
+            var request = {
+                origin: {lat: shelters[2].latitude, lng: shelters[2].longitude},
+                destination: {lat: shelters[4].latitude, lng: shelters[4].longitude},
+                waypoints: [
+                    {location:new google.maps.LatLng(shelters[3].latitude,shelters[3].longitude)}
+                ],
+                travelMode: google.maps.DirectionsTravelMode.WALKING
+            };
+            directionsService.route(request, function(result, status) {
+                if(status == 'OK') directionsDisplay.setDirections(result);
+            });
+        }
+        else {
+            directionsService.setMap(null);
+        }
+    });
+    trip2.addEventListener('change', function () {
+        var request = {
+            origin: {lat: shelters[5].latitude, lng: shelters[5].longitude},
+            destination: {lat: shelters[7].latitude, lng: shelters[7].longitude},
+            waypoints: [
+                {location:new google.maps.LatLng(shelters[6].latitude,shelters[6].longitude)}
+            ],
+            travelMode: google.maps.DirectionsTravelMode.WALKING
+        };
+        directionsService.route(request, function(result, status) {
+            if(status == 'OK') directionsDisplay.setDirections(result);
+        });
+    });
+    // Add the sidebar to the map
+    map.controls[google.maps.ControlPosition.LEFT_TOP].push(sidebar);
+
+    document.getElementById('sidebar-toggle').addEventListener('click', function () {
+        sidebar.classList.toggle('collapsed');
+    });
 }
 window.onload = initMap;
