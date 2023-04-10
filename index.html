@@ -8,12 +8,16 @@
     <body>
         <header>
             <h1>A.T. Hiking Helper</h1>
+            <div id="buttoms">
+                <button type="button" class="account-button1" onclick="login_openForm()">Login</button> 
+                <button type="button" class="account-button2" onclick="setup_account_openForm()">Create Account</button>
+            </div>
+            
         </header>
         <div class = "welcome">
             <h1>Welcome</h1>
         </div>
-        <button type="button" class="account-button1" onclick="login_openForm()">Login</button> 
-        <button type="button" class="account-button2" onclick="setup_account_openForm()">Create Account</button>
+        
         <div class = "description">
             <p>
                 <mark>Welcome to Appalachian Trail Hiking Helper. We built this website to</mark>
@@ -66,20 +70,19 @@
                     <button type="button" class="cancel" onclick="forgot_password_closeForm()">X</button>
                 </div>
                 <label for="forgot-password"><b>Email</b></label>
-                <input type="text" placeholder="Enter email" name="email" id ="email" required>
+                <input type="text" placeholder="Enter email" name="email" id ="for-email" required>
                 <button type="button" onclick= "verify_code_openForm()">Send</button>
             </form>
         </div>
         <div class="form verify-code-form" id="verify-code">
             <form action="/action_page.php">
                 <div>
-                    <h1>Change Password</h1>
+                    <h1>Password Reset Email Sent</h1>
                     <button type="button" class="cancel" onclick="verify_code_closeForm()">X</button>
                 </div>
-                <label for="verify"><b>Code</b></label>
-                <input type="text" placeholder="Enter code" name="number" id = "verifyCode" required>
-                <div id = "b3"></div>
-                <button type="button" onclick= "change_password_openForm()">Check</button>
+                
+                
+                <button type="button" onclick= "login_openForm()">Login</button>
             </form>
         </div>
         <div class="form change-password-form" id="change-password">

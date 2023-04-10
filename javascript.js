@@ -53,25 +53,436 @@ function initMap() {
     var checkbox1 = document.getElementById('checkbox1');
     var checkbox2 = document.getElementById('checkbox2');
     var checkbox3 = document.getElementById('checkbox3');
+    var trip1 = document.getElementById('saved-trip1');
+    var trip2 = document.getElementById('saved-trip2');
+
+    var marker3_camp;
 
     // Add event listeners to the checkboxes to update the map
     checkbox1.addEventListener('change', function () {
-        // TODO: update map based on checkbox 1
+        if (checkbox1.checked) {
+            // Create the marker if the checkbox is checked
+            marker1_camp = new google.maps.Marker({
+                position: {
+                lat: shelters[0].latitude, lng: shelters[0].longitude 
+                }, 
+                map: map,
+                title: 'Marker 1',
+                icon: 'camping_spots.png',
+               
+                
+
+            });
+            
+             marker2_camp = new google.maps.Marker({
+                position: {
+                lat: shelters[1].latitude, lng: shelters[1].longitude 
+                }, 
+                map: map,
+                title: 'Marker 2',
+                icon: 'camping_spots.png',
+               
+            });
+             marker3_camp = new google.maps.Marker({
+                position: {
+                lat: shelters[2].latitude, lng: shelters[2].longitude 
+                }, 
+                map: map,
+                title: 'Marker 3',
+                icon: 'camping_spots.png',
+               
+            });
+             marker4_camp = new google.maps.Marker({
+                position: {
+                lat: shelters[3].latitude, lng: shelters[3].longitude 
+                }, 
+                map: map,
+                title: 'Marker 4',
+                icon: 'camping_spots.png',
+               
+            });
+             marker5_camp = new google.maps.Marker({
+                position: {
+                lat: shelters[4].latitude, lng: shelters[4].longitude 
+                }, 
+                map: map,
+                title: 'Marker 5',
+                icon: 'camping_spots.png',
+               
+            });
+             marker6_camp = new google.maps.Marker({
+                position: {
+                lat: shelters[5].latitude, lng: shelters[5].longitude 
+                }, 
+                map: map,
+                title: 'Marker 6',
+                icon: 'camping_spots.png',
+               
+            });
+             marker7_camp = new google.maps.Marker({
+                position: {
+                lat: shelters[6].latitude, lng: shelters[6].longitude 
+                }, 
+                map: map,
+                title: 'Marker 7',
+                icon: 'camping_spots.png',
+               
+            });
+             marker8_camp = new google.maps.Marker({
+                position: {
+                lat: shelters[7].latitude, lng: shelters[7].longitude 
+                }, 
+                map: map,
+                title: 'Marker 8',
+                icon: 'camping_spots.png',
+               
+            });
+             marker9_camp = new google.maps.Marker({
+                position: {
+                lat: shelters[8].latitude, lng: shelters[8].longitude 
+                }, 
+                map: map,
+                title: 'Marker 9',
+                icon: 'camping_spots.png',
+               
+            });
+             marker10_camp = new google.maps.Marker({
+                position: {
+                lat: shelters[9].latitude, lng: shelters[9].longitude 
+                }, 
+                map: map,
+                title: 'Marker 10',
+                icon: 'camping_spots.png',
+               
+            });
+
+
+
+            
+            var infowindow_marker1_camp = new google.maps.InfoWindow({
+                content:"Marker 1"
+                });
+                  
+            infowindow_marker1_camp.open(map,marker1_camp);
+            
+
+            var infowindow_marker2_camp = new google.maps.InfoWindow({
+                content:"Marker 2"
+                });
+                  
+            infowindow_marker2_camp.open(map,marker2_camp);
+
+
+            
+                              
+            google.maps.event.addListener(marker3_camp, 'click', function() {
+                var infowindow_marker3_camp = new google.maps.InfoWindow({
+                    content:'<div>' +
+                    '<p>Tom Leonard Lean-To Appalachian Trail'+
+                    '</p>'+
+                    '<p>Marker 3'+
+                    '</p>'+
+                    '</div>'
+                    });
+                infowindow_marker3_camp.setContent(map,marker3_camp);
+                infowindow_marker3_camp.open(map,marker3_camp);
+            });
+            
+        } else {
+            // Remove the marker if the checkbox is unchecked
+            marker1_camp.setMap(null);
+            marker2_camp.setMap(null);
+            marker3_camp.setMap(null);
+              marker4_camp.setMap(null);
+              marker5_camp.setMap(null);
+              marker6_camp.setMap(null);
+              marker7_camp.setMap(null);
+              marker8_camp.setMap(null);
+              marker9_camp.setMap(null);
+              marker10_camp.setMap(null);
+        }
+            });
+        
+            checkbox2.addEventListener('change', function () {
+                if (checkbox2.checked) {
+                    // Create the marker if the checkbox is checked
+                    marker1_parking = new google.maps.Marker({
+                        position: {
+                        lat: parking[0].latitude, lng: parking[0].longitude 
+                        }, 
+                        map: map,
+                        title: 'Marker 2',
+                          icon: 'parking_spots.png',
+               
+                    });
+                       // Create the marker if the checkbox is checked
+                    marker2_parking = new google.maps.Marker({
+                        position: {
+                        lat: parking[1].latitude, lng: parking[1].longitude 
+                        }, 
+                        map: map,
+                        title: 'Marker 2',
+                          icon: 'parking_spots.png',
+               
+                    });
+                       // Create the marker if the checkbox is checked
+                    marker3_parking = new google.maps.Marker({
+                        position: {
+                        lat: parking[2].latitude, lng: parking[2].longitude 
+                        }, 
+                        map: map,
+                        title: 'Marker 2',
+                          icon: 'parking_spots.png',
+               
+                    });
+                       // Create the marker if the checkbox is checked
+                    marker4_parking= new google.maps.Marker({
+                        position: {
+                        lat: parking[3].latitude, lng: parking[3].longitude 
+                        }, 
+                        map: map,
+                        title: 'Marker 2',
+                          icon: 'parking_spots.png',
+               
+                    });
+                       // Create the marker if the checkbox is checked
+                    marker5_parking = new google.maps.Marker({
+                        position: {
+                        lat: parking[4].latitude, lng: parking[4].longitude 
+                        }, 
+                        map: map,
+                        title: 'Marker 2',
+                          icon: 'parking_spots.png',
+               
+                    });
+                       // Create the marker if the checkbox is checked
+                    marker6_parking = new google.maps.Marker({
+                        position: {
+                        lat: parking[5].latitude, lng: parking[5].longitude 
+                        }, 
+                        map: map,
+                        title: 'Marker 2',
+                          icon: 'parking_spots.png',
+               
+                    });
+                       // Create the marker if the checkbox is checked
+                    marker7_parking = new google.maps.Marker({
+                        position: {
+                        lat: parking[6].latitude, lng: parking[6].longitude 
+                        }, 
+                        map: map,
+                        title: 'Marker 2',
+                          icon: 'parking_spots.png',
+               
+                    });
+                       // Create the marker if the checkbox is checked
+                    marker8_parking = new google.maps.Marker({
+                        position: {
+                        lat: parking[7].latitude, lng: parking[7].longitude 
+                        }, 
+                        map: map,
+                        title: 'Marker 2',
+                          icon: 'parking_spots.png',
+               
+                    });
+                       // Create the marker if the checkbox is checked
+                    marker9_parking = new google.maps.Marker({
+                        position: {
+                        lat: parking[8].latitude, lng: parking[8].longitude 
+                        }, 
+                        map: map,
+                        title: 'Marker 2',
+                          icon: 'parking_spots.png',
+               
+                    });
+                       // Create the marker if the checkbox is checked
+                    marker10_parking = new google.maps.Marker({
+                        position: {
+                        lat: parking[9].latitude, lng: parking[9].longitude 
+                        }, 
+                        map: map,
+                        title: 'Marker 2',
+                          icon: 'parking_spots.png',
+               
+                    });
+                       // Create the marker if the checkbox is checked
+                    marker11_parking = new google.maps.Marker({
+                        position: {
+                        lat: parking[10].latitude, lng: parking[10].longitude 
+                        }, 
+                        map: map,
+                        title: 'Marker 2',
+                          icon: 'parking_spots.png',
+               
+                    });
+                       // Create the marker if the checkbox is checked
+                    marker12_parking = new google.maps.Marker({
+                        position: {
+                        lat: parking[11].latitude, lng: parking[11].longitude 
+                        }, 
+                        map: map,
+                        title: 'Marker 2',
+                          icon: 'parking_spots.png',
+               
+                    });
+                       // Create the marker if the checkbox is checked
+                    marker13_parking = new google.maps.Marker({
+                        position: {
+                        lat: parking[12].latitude, lng: parking[12].longitude 
+                        }, 
+                        map: map,
+                        title: 'Marker 2',
+                          icon: 'parking_spots.png',
+               
+                    });
+                       // Create the marker if the checkbox is checked
+                    marker14_parking = new google.maps.Marker({
+                        position: {
+                        lat: parking[13].latitude, lng: parking[13].longitude 
+                        }, 
+                        map: map,
+                        title: 'Marker 2',
+                          icon: 'parking_spots.png',
+               
+                    });
+                       // Create the marker if the checkbox is checked
+                    marker15_parking = new google.maps.Marker({
+                        position: {
+                        lat: parking[14].latitude, lng: parking[14].longitude 
+                        }, 
+                        map: map,
+                        title: 'Marker 2',
+                          icon: 'parking_spots.png',
+               
+                    });
+                       // Create the marker if the checkbox is checked
+                    marker16_parking = new google.maps.Marker({
+                        position: {
+                        lat: parking[15].latitude, lng: parking[15].longitude 
+                        }, 
+                        map: map,
+                        title: 'Marker 2',
+                          icon: 'parking_spots.png',
+               
+                    });
+                    
+                } else {
+                    // Remove the marker if the checkbox is unchecked
+                    marker1_parking.setMap(null);
+                     
+                    marker2_parking.setMap(null);
+                    marker10_parking.setMap(null);
+                  
+                    marker11_parking.setMap(null);
+                    marker12_parking.setMap(null);
+                     marker13_parking.setMap(null);
+                    marker14_parking.setMap(null);
+                    marker15_parking.setMap(null);
+                    marker16_parking.setMap(null);
+                    marker3_parking.setMap(null);
+                     marker5_parking.setMap(null);
+                    marker9_parking.setMap(null);
+                     marker6_parking.setMap(null);
+                    marker7_parking.setMap(null);
+                    marker8_parking.setMap(null);
+                     
+                    marker4_parking.setMap(null);
+                 
+                  
+                }
+            });
+        
+            checkbox3.addEventListener('change', function () {
+                if (checkbox3.checked) {
+                    // Create the marker if the checkbox is checked
+                    marker1_hazard = new google.maps.Marker({
+                        position: {
+                            lat: 42.66921,
+                            lng: -73.10812
+                        },
+                        map: map,
+                        title: 'Marker 3',
+                          icon: 'hazard_spots.png',
+                        
+                    });
+                    
+                } else {
+                    // Remove the marker if the checkbox is unchecked
+                    marker1_hazard.setMap(null);
+                }
+            });
+            
+            map.controls[google.maps.ControlPosition.LEFT_TOP].push(sidebar);
+          
+    
+   // Create the campsite markers
+    var campsite1 = new google.maps.Marker({
+        position: {
+            lat: 42.7184156,
+            lng: -73.1503512
+        },
+        title: 'Campsite 1',
+
+    });
+    var campsite2 = new google.maps.Marker({
+        position: {
+            lat: 42.5149,
+            lng: -73.1596
+        },
+        title: 'Campsite 2',
+
     });
 
-    checkbox2.addEventListener('change', function () {
-        // TODO: update map based on checkbox 2
-    });
 
-    checkbox3.addEventListener('change', function () {
-        // TODO: update map based on checkbox 3
-    });
 
+    trip1.addEventListener('change', function () {
+        if(trip1.checked) {
+            var request = {
+                origin: {lat: shelters[2].latitude, lng: shelters[2].longitude},
+                destination: {lat: shelters[4].latitude, lng: shelters[4].longitude},
+                waypoints: [
+                    {location:new google.maps.LatLng(shelters[3].latitude,shelters[3].longitude)}
+                ],
+                travelMode: google.maps.DirectionsTravelMode.WALKING
+            };
+            directionsService.route(request, function(result, status) {
+                if(status == 'OK') directionsDisplay.setDirections(result);
+            });
+        }
+        else {
+            directionsService.setMap(null);
+        }
+        
+    });
+    trip2.addEventListener('change', function () {
+        var request = {
+            origin: {lat: shelters[5].latitude, lng: shelters[5].longitude},
+            destination: {lat: shelters[7].latitude, lng: shelters[7].longitude},
+            waypoints: [
+                {location:new google.maps.LatLng(shelters[6].latitude,shelters[6].longitude)}
+            ],
+            travelMode: google.maps.DirectionsTravelMode.WALKING
+        };
+        directionsService.route(request, function(result, status) {
+            if(status == 'OK') directionsDisplay.setDirections(result);
+        });
+        alert("aaaaaaaaaaaaaaaaaaaaaa");
+    });/**/
     // Add the sidebar to the map
     map.controls[google.maps.ControlPosition.LEFT_TOP].push(sidebar);
 
-    document.getElementById('sidebar-toggle').addEventListener('click', function () {
-        sidebar.classList.toggle('collapsed');
-    });
+    //document.getElementById('sidebar-toggle').addEventListener('click', function () {
+        //sidebar.classList.toggle('collapsed');
+   // });
+
+   //document.getElementById('sidebar-toggle').addEventListener('click', function () {
+     //   sidebar.classList.toggle('collapsed');
+   // });
+
+
+
+   
+    //var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
 }
 window.onload = initMap;
+//google.maps.event.addDomListener(window, 'load', initialize);
