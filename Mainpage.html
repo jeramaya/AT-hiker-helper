@@ -18,7 +18,7 @@
   <div class = "buttons">
   <a id ="button" class="active1">Trip Helper</a>
   <a id ="button" class="active2">Custom Trip</a>
-  <a id ="button" class="active3">Saved Trips</a>
+  <a id ="saved_button" class="active3">Saved Trips</a>
   <a id ="button" class="active4">Share a Photo</a>
   <a id ="button" class="active5">Hazard Report</a>
   </div>
@@ -35,25 +35,39 @@
 
         <div class = "Number-of-Days-to-hike" >
           <label for="Number"><b>Number of Days to hike</b></label>
-          <input id = "Number" type="number" placeholder="1" name="Number" required>
+          <input id = "Number_of_days" type="number" placeholder="1" name="Number" required>
         </div>
         <div class = "Starting-Location" >
-          <label for="email"><b>Starting Location</b></label>
-          <select name="Starting Location" id="Starting_Location">
-            <option value="Start of trial">Start of trial</option>
-            <option value="Start of trial">Start of trial</option>
-            <option value="Start of trial">Start of trial</option>
+          <label for="Starting_Location"><b>Starting Location</b></label>
+          <select name="Starting Location" id="Starting_Location_TH">
+            <option value="0">The Hemlocks</option>
+            <option value="1">Glen Brook</option>
+            <option value="2">Tom Leonard</option>
+            <option value="3">Mt. Wilcox South</option>
+            <option value="4">Mt. Wilcox North</option>
+            <option value="5">Upper Goose</option>
+            <option value="6">October Mountain</option>
+            <option value="7">Kay Wood</option>
+            <option value="8">Mark Noepel</option>
+            <option value="9">Wilbur Clearing</option>
           </select>
         </div>
         <div class = "Ending-Location" >
-          <label for="password"><b>Ending Location</b></label>
-            <select name="Starting Location" id="Starting_Location">
-              <option value="Start of trial">Start of trial</option>
-              <option value="Start of trial">Start of trial</option>
-              <option value="Start of trial">Start of trial</option>
+          <label for="Ending_Location"><b>Ending Location</b></label>
+            <select name="Ending Location" id="Ending_Location_TH">
+              <option value="0">The Hemlocks</option>
+              <option value="1">Glen Brook</option>
+              <option value="2">Tom Leonard</option>
+              <option value="3">Mt. Wilcox South</option>
+              <option value="4">Mt. Wilcox North</option>
+              <option value="5">Upper Goose</option>
+              <option value="6">October Mountain</option>
+              <option value="7">Kay Wood</option>
+              <option value="8">Mark Noepel</option>
+              <option value="9">Wilbur Clearing</option>
             </select></div>
-        <p class = "Distance-of-Hike">Distance of Hike: 11.7</p>
-        <button class = "Build-Trips" type="button">Build Trips</button>
+        <p class = "Distance-of-Hike" id="distance_TH">Distance of Hike: </p>
+        <button id="build_trips" class = "Build-Trips" type="button">Build Trips</button>
     </form>
   </div>
 
@@ -65,16 +79,16 @@
             <button type="button" class="cancel">X</button>
         </div>
         <div class = "Trip1" >
-          <label for="email"><b>Trip 1</b></label>
-          <input  id = "Trip1" type="checkbox" placeholder="trip1" name="trip1" required>
-          <p>Total distance: 11.7Ml</p>
+          <label for="Trip1"><b>Trip 1</b></label>
+          <input  id = "TH_Trip1_check" type="checkbox" placeholder="trip1" name="trip1" required>
+          <p id="TH_Trip1">Total distance: </p>
         </div>
         <div class = "Trip2" >
-          <label for="password"><b>Trip 2</b></label>
-          <input  id = "Trip2" type="checkbox" placeholder="trip2" name="trip2" required>
-          <p>Total distance: 12Ml</p>
+          <label for="Trip2"><b>Trip 2</b></label>
+          <input  id = "TH_Trip2_check" type="checkbox" placeholder="trip2" name="trip2" required>
+          <p id="TH_Trip2">Total distance: </p>
         </div>
-        <button class = "Choose-Trips" type="button">Choose Trips</button>
+        <button id = "choose_trips_TH" class = "Choose-Trips" type="button">Choose Trips</button>
     </form>
   </div>
 
@@ -122,168 +136,226 @@
         <button class = "Add-Day" type="button">Add Day</button>
     </form>
   </div>
-
   <div class="form Custom-Trip3" id="add_day">
     <form action="/action_page.php">
+        <div>
+            <h1>Day 1</h1>
+            <button type="button" class="cancel">X</button>
+        </div>
+
+        <button class="Save-Trips" type="button">Save Trips</button>
+
+
+
+        <input class="Day-Title" type="text" placeholder="Enter Day title" name="text" required>
+
+        <div class="Starting-Location">
+            <label for="starting-location"><b>Starting Location</b></label>
+            <select name="starting-location" id="starting-location">
+                <option value="">Select a starting location</option>
+            </select>
+        </div>
+
+        <div class="Ending-Location">
+            <label for="ending-location"><b>Ending Location</b></label>
+            <select name="ending-location" id="ending-location">
+                <option value="">Select an ending location</option>
+            </select>
+        </div>
+
+        <script>
+            // Get the select elements
+            const startingLocationSelect = document.getElementById('starting-location');
+            const endingLocationSelect = document.getElementById('ending-location');
+
+            // Loop through the shelters array and create option elements
+            shelters.forEach(shelter => {
+                const option = document.createElement('option');
+                option.value = shelter.name;
+                option.textContent = shelter.name;
+                startingLocationSelect.appendChild(option);
+
+                const option2 = document.createElement('option');
+                option2.value = shelter.name;
+                option2.textContent = shelter.name;
+                endingLocationSelect.appendChild(option2);
+            });
+
+            // Loop through the parking array and create option elements
+            parking.forEach(parkingLot => {
+                const option = document.createElement('option');
+                option.value = parkingLot.name;
+                option.textContent = parkingLot.name;
+                startingLocationSelect.appendChild(option);
+
+                const option2 = document.createElement('option');
+                option2.value = parkingLot.name;
+                option2.textContent = parkingLot.name;
+                endingLocationSelect.appendChild(option2);
+            });
+
+            // Add an event listener to the startingLocationSelect
+            startingLocationSelect.addEventListener('change', event => {
+                // Get the selected option
+                const selectedOption = event.target.value;
+
+                // Loop through the options in the endingLocationSelect and remove the selected option
+                endingLocationSelect.querySelectorAll('option').forEach(option => {
+                    if (option.value === selectedOption) {
+                        option.disabled = true;
+                        option.selected = false;
+                    } else {
+                        option.disabled = false;
+                    }
+                });
+            });
+        </script>
+    </form>
+    </div>
+
+<div class="form Saved-Trips" id="saved_trips">
+  <form action="/action_page.php">
       <div>
-          <h1>Day 1</h1>
+          <h1>Saved Trips</h1>
           <button type="button" class="cancel">X</button>
       </div>
+      <div id = "saved_trip1_box" class = "Trip1" >
+        <label for="trip1"><b>Trip 1</b></label>
+        <input  id = "saved-trip1" type="checkbox" placeholder="trip1" name="trip1" required>
+        <p class = "Distance-of-Hike">Total distance: 11.7Ml</p>
+      </div>
+      <div class = "Trip2" >
+        <label for="trip2"><b>Trip 2</b></label>
+        <input  id = "saved-trip2" type="checkbox" placeholder="trip2" name="Trip2" required>
+        <p class = "Distance-of-Hike">Total distance: 12Ml</p>
+      </div>
+      <button class = "Choose-Trips" type="button">Choose Trips</button>
+  </form>
+</div>
 
-      <button class = "Save-Trips" type="button">Save Trips</button>
-      
-      
+<div class="form Share-Photo" id="share_photo">
+  <form action="/action_page.php">
+      <div>
+          <h1>Photo</h1>
+          <button type="button" class="cancel">X</button>
+      </div>
+      <div class = "Upload-file">
+        <p>Drag file here to upload</p>
+        <input type="file" id="files" name="file" accept="image/png, image/jpeg">
+      </div>
 
-      <input class = "Day-Title" type="text" placeholder="Enter Day title" name="text" required>
       
-      <div class = "Starting-Location" >
-        <label for="email"><b>Starting Location</b></label>
+      <div class = "Current-Location">
+        <label for="email"><b>UseCurrent Location</b></label>
+        <input  id = "trip1" type="checkbox" placeholder="trip1" name="trip1" required>
+      </div>
+      <div class = "Campsites">
+
+        <label for="password"><b>Between two Campsites</b></label>
+        <input  id = "trip2" type="checkbox" placeholder="trip2" name="trip1" required>
+      </div>
+
+      <div class = "First-Camp">
+        <label for="email"><b>First Camp</b></label>
         <select name="Starting Location" id="Starting_Location">
           <option value="Start of trial">Start of trial</option>
           <option value="Start of trial">Start of trial</option>
           <option value="Start of trial">Start of trial</option>
         </select>
       </div>
-      <div class = "Ending-Location" >
-        <label for="password"><b>Ending Location</b></label>
+      <div class = "Second-Camp">
+        <label for="password"><b>Second Camp</b></label>
           <select name="Starting Location" id="Starting_Location">
             <option value="Start of trial">Start of trial</option>
             <option value="Start of trial">Start of trial</option>
             <option value="Start of trial">Start of trial</option>
-          </select></div>
-      <p class = "Distance-of-Hike">Distance of Hike: mi</p>
-      <button class = "Add-Day" type="button">Add Day</button>
+          </select>
+        </div>
+
+        
+        <div  class = "Comment">
+          <label for="password"><b>Comment</b></label>
+          <textarea>
+
+          </textarea>
+        </div>
+
+
+      <button class = "Choose-Trips" type="button">Submit</button>
   </form>
-  </div>
+</div>
 
-  <div class="form Saved-Trips" id="saved_trips">
-    <form action="/action_page.php">
-        <div>
-            <h1>Saved Trips</h1>
-            <button type="button" class="cancel">X</button>
-        </div>
-        <div class = "Trip1" >
-          <label for="trip1"><b>Trip 1</b></label>
-          <input  id = "saved-trip1" type="checkbox" placeholder="trip1" name="trip1" required>
-          <p class = "Distance-of-Hike">Total distance: 11.7Ml</p>
-        </div>
-        <div class = "Trip2" >
-          <label for="trip2"><b>Trip 2</b></label>
-          <input  id = "saved-trip2" type="checkbox" placeholder="trip2" name="Trip2" required>
-          <p class = "Distance-of-Hike">Total distance: 12Ml</p>
-        </div>
-        <button class = "Choose-Trips" type="button">Choose Trips</button>
-    </form>
-  </div>
 
-  <div class="form Share-Photo" id="share_photo">
-    <form action="/action_page.php">
-        <div>
-            <h1>Photo</h1>
-            <button type="button" class="cancel">X</button>
-        </div>
-        <div class = "Upload-file">
-          <p>Drag file here to upload</p>
-          <input type="file" id="files" name="file" accept="image/png, image/jpeg">
-        </div>
 
-        
-        <div class = "Current-Location">
-          <label for="email"><b>UseCurrent Location</b></label>
-          <input  id = "trip1" type="checkbox" placeholder="trip1" name="trip1" required>
-        </div>
-        <div class = "Campsites">
+<div class="form Hazard-Report" id="hazard_report">
+  <form action="/action_page.php">
+      <div>
+          <h1>Hazard Report</h1>
+          <button type="button" class="cancel">X</button>
+      </div>
+      
+      <div class = "Type">
+        <label for="email"><b>Type:</b></label>
+        <select name="Starting Location" id="Starting_Location">
+          <option value="Start of trial">Path Obstruction</option>
+          <option value="Start of trial">Animal Sighting</option>
+          <option value="Start of trial">Other</option>
+        </select>
+      </div>
 
-          <label for="password"><b>Between two Campsites</b></label>
-          <input  id = "trip2" type="checkbox" placeholder="trip2" name="trip1" required>
-        </div>
+      <!--To be repalced in final version-->
+     <!--<div class = "Current-Location">
+        <label for="email"><b>UseCurrent Location</b></label>
+        <input  id = "trip1" type="checkbox" placeholder="trip1" name="trip1" required>
+      </div>--> 
+      <div class = "Campsites">
 
-        <div class = "First-Camp">
-          <label for="email"><b>First Camp</b></label>
+        <label for="password"><b>Between two Campsites</b></label>
+        <!--<input  id = "trip2" type="checkbox" placeholder="trip2" name="trip2" required>-->
+      </div>
+
+      <div class = "First-Camp">
+        <label for="email"><b>First Camp</b></label>
+        <select name="Starting Location" id="Starting_Location">
+
+            <option value="0">The Hemlocks</option>
+            <option value="1">Glen Brook</option>
+            <option value="2">Tom Leonard</option>
+            <option value="3">Mt. Wilcox South</option>
+            <option value="4">Mt. Wilcox North</option>
+            <option value="5">Upper Goose</option>
+            <option value="6">October Mountain</option>
+            <option value="7">Kay Wood</option>
+            <option value="8">Mark Noepel</option>
+            <option value="9">Wilbur Clearing</option>
+        </select>
+      </div>
+      <div class = "Second-Camp">
+        <label for="password"><b>Second Camp</b></label>
           <select name="Starting Location" id="Starting_Location">
-            <option value="Start of trial">Start of trial</option>
-            <option value="Start of trial">Start of trial</option>
-            <option value="Start of trial">Start of trial</option>
-          </select>
-        </div>
-        <div class = "Second-Camp">
-          <label for="password"><b>Second Camp</b></label>
-            <select name="Starting Location" id="Starting_Location">
-              <option value="Start of trial">Start of trial</option>
-              <option value="Start of trial">Start of trial</option>
-              <option value="Start of trial">Start of trial</option>
-            </select>
-          </div>
-
-          
-          <div  class = "Comment">
-            <label for="password"><b>Comment</b></label>
-            <textarea>
-
-            </textarea>
-          </div>
-
-
-        <button class = "Choose-Trips" type="button">Submit</button>
-    </form>
-  </div>
-
-
-
-  <div class="form Hazard-Report" id="hazard_report">
-    <form action="/action_page.php">
-        <div>
-            <h1>Hazard Report</h1>
-            <button type="button" class="cancel">X</button>
-        </div>
-        
-        <div class = "Type">
-          <label for="email"><b>Type:</b></label>
-          <select name="Starting Location" id="Starting_Location">
-            <option value="Start of trial">Path Obstruction</option>
-            <option value="Start of trial">Animal Sighting</option>
-            <option value="Start of trial">Other</option>
+            <option value="0">The Hemlocks</option>
+            <option value="1">Glen Brook</option>
+            <option value="2">Tom Leonard</option>
+            <option value="3">Mt. Wilcox South</option>
+            <option value="4">Mt. Wilcox North</option>
+            <option value="5">Upper Goose</option>
+            <option value="6">October Mountain</option>
+            <option value="7">Kay Wood</option>
+            <option value="8">Mark Noepel</option>
+            <option value="9">Wilbur Clearing</option>
           </select>
         </div>
 
-        
-        <div class = "Current-Location">
-          <label for="email"><b>UseCurrent Location</b></label>
-          <input  id = "trip1" type="checkbox" placeholder="trip1" name="trip1" required>
-        </div>
-        <div class = "Campsites">
+        <div  class = "Comment">
+          <label for="password"><b>Comment</b></label>
+          <textarea>
 
-          <label for="password"><b>Between two Campsites</b></label>
-          <input  id = "trip2" type="checkbox" placeholder="trip2" name="trip2" required>
+          </textarea>
         </div>
 
-        <div class = "First-Camp">
-          <label for="email"><b>First Camp</b></label>
-          <select name="Starting Location" id="Starting_Location">
-            <option value="Start of trial">Start of trial</option>
-            <option value="Start of trial">Start of trial</option>
-            <option value="Start of trial">Start of trial</option>
-          </select>
-        </div>
-        <div class = "Second-Camp">
-          <label for="password"><b>Second Camp</b></label>
-            <select name="Starting Location" id="Starting_Location">
-              <option value="Start of trial">Start of trial</option>
-              <option value="Start of trial">Start of trial</option>
-              <option value="Start of trial">Start of trial</option>
-            </select>
-          </div>
 
-          <div  class = "Comment">
-            <label for="password"><b>Comment</b></label>
-            <textarea>
-
-            </textarea>
-          </div>
-
-
-        <button class = "Choose-Trips" type="button">Submit</button>
-    </form>
+      <button class = "Choose-Trips" type="button">Submit</button>
+  </form>
   </div>
 
 </div>
@@ -306,7 +378,20 @@
       </div>
   </div>
 </div>
- 
+<button class = "extra" type="button" onclick="storedata()">temp</button>
+
+ <!-- The core Firebase JS SDK is always required and must be listed first -->
+ <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+
+ <!--  SDKs for Firebase 
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+ <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+
+
+ <script src="script.js"></script>
+
+
 <script src="https://maps.googleapis.com/maps/api/js?v=3.51&key=AIzaSyD4TP4mVYbaLYkVzDz3EgalWFPGga1UyBM&callback=initMap"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>
