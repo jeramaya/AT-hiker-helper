@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="javascript.js"></script>
+<link href="maincss.css" rel="stylesheet">
+</head>
+<body>
+
+<div>
+    <img class="ATpic" src="clipart4232473.png">
+    
+    <button class = "logoutBut" type="button" onclick="location.href = '/index.html'">Logout</button>
+</div>
+
+<div class="topnav">
+  <div class = "buttons">
+  <a id ="button" class="active1">Trip Helper</a>
+  <a id ="button" class="active2">Custom Trip</a>
+  <a id ="button" class="active3">Saved Trips</a>
+  <a id ="button" class="active4">Share a Photo</a>
+  <a id ="button" class="active5">Hazard Report</a>
+  </div>
+  <div class="form Trip-Helper" id="trip_helper">
+    <form action="/action_page.php">
+        <div>
+            <h1>Trip Helper</h1>
+            <button type="button" class="cancel">X</button>
+        </div>
+        <p class = "description">Welcome to the trip helper. This guide is meant to 
+          pre-build a few possible hikes for you given your 
+          starting and ending locations along with the number 
+          of days you would like to hike</p>
+
+        <div class = "Number-of-Days-to-hike" >
+          <label for="Number"><b>Number of Days to hike</b></label>
+          <input id = "Number_of_days" type="number" placeholder="1" name="Number" required>
+        </div>
+        <div class = "Starting-Location" >
+          <label for="Starting_Location"><b>Starting Location</b></label>
+          <select name="Starting Location" id="Starting_Location_TH">
+            <option value="0">The Hemlocks</option>
+            <option value="1">Glen Brook</option>
+            <option value="2">Tom Leonard</option>
+            <option value="3">Mt. Wilcox South</option>
+            <option value="4">Mt. Wilcox North</option>
+            <option value="5">Upper Goose</option>
+            <option value="6">October Mountain</option>
+            <option value="7">Kay Wood</option>
+            <option value="8">Mark Noepel</option>
+            <option value="9">Wilbur Clearing</option>
+          </select>
+        </div>
+        <div class = "Ending-Location" >
+          <label for="Ending_Location"><b>Ending Location</b></label>
+            <select name="Ending Location" id="Ending_Location_TH">
+              <option value="0">The Hemlocks</option>
+              <option value="1">Glen Brook</option>
+              <option value="2">Tom Leonard</option>
+              <option value="3">Mt. Wilcox South</option>
+              <option value="4">Mt. Wilcox North</option>
+              <option value="5">Upper Goose</option>
+              <option value="6">October Mountain</option>
+              <option value="7">Kay Wood</option>
+              <option value="8">Mark Noepel</option>
+              <option value="9">Wilbur Clearing</option>
+            </select></div>
+        <p class = "Distance-of-Hike" id="distance_TH">Distance of Hike: </p>
+        <button id="build_trips" class = "Build-Trips" type="button">Build Trips</button>
+    </form>
+  </div>
+
+
+  <div class="form Trip-Helper2" id="trip_helper2">
+    <form action="/action_page.php">
+        <div>
+            <h1>Trip Helper</h1>
+            <button type="button" class="cancel">X</button>
+        </div>
+        <div class = "Trip1" >
+          <label for="Trip1"><b>Trip 1</b></label>
+          <input  id = "TH_Trip1_check" type="checkbox" placeholder="trip1" name="trip1" required>
+          <p id="TH_Trip1">Total distance: </p>
+        </div>
+        <div class = "Trip2" >
+          <label for="Trip2"><b>Trip 2</b></label>
+          <input  id = "TH_Trip2_check" type="checkbox" placeholder="trip2" name="trip2" required>
+          <p id="TH_Trip2">Total distance: </p>
+        </div>
+        <button class = "Choose-Trips" type="button">Choose Trips</button>
+    </form>
+  </div>
+
+  <div class="form Custom-Trip" id="custom_trip">
+    <form action="/action_page.php">
+        <div>
+            <h1>Create a Custom</h1>
+            <button type="button" class="cancel">X</button>
+        </div>  
+        <input  class = "Trip-Name" id = "trip" type="text" placeholder="Enter Trip Name" name="trip" required>
+        <button class = "Add-Gear" type="button">Add Gear</button>
+        <button class = "Add-Day" type="button">Add Day</button>
+    </form>
+  </div>
+
+
+  <div class="form Custom-Trip2" id="add_gear">
+    <form action="/action_page.php">
+        <div>
+            <h1>Create a Custom Trip</h1>
+            <button type="button" class="cancel">X</button>
+        </div>
+
+        <input class = "Trip-Name"  id = "trip1" type="text" placeholder="Enter trip name" name="trip1" required>
+        
+        <div class = "Equipment">
+          <label for="e"><b>Equipment</b></label>
+          <input  id = "trip1" type="text" placeholder="trip1" name="trip1" required>
+        </div>
+        <div class = "Weight">
+          <label for="w"><b>Weight</b></label>
+          <input  id = "trip1" type="text" placeholder="trip1" name="trip1" required>
+        </div>
+        
+          <select  class = "lbs" name="Starting Location" id="Starting_Location">
+            <option value="Start of trial">lbs</option>
+            <option value="Start of trial">lbs</option>
+            <option value="Start of trial">lbs</option>
+          </select>
+        
+
+        <p class = "">+ Add Gear</p>
+        <p class = "">Total weight</p>
+        
+        <button class = "Add-Day" type="button">Add Day</button>
+    </form>
+  </div>
+
+  <div class="form Custom-Trip3" id="add_day">
+    <form action="/action_page.php">
+      <div>
+          <h1>Day 1</h1>
+          <button type="button" class="cancel">X</button>
+      </div>
+
+      <button class = "Save-Trips" type="button">Save Trips</button>
+      
+      
+
+      <input class = "Day-Title" type="text" placeholder="Enter Day title" name="text" required>
+      
+      <div class = "Starting-Location" >
+        <label for="email"><b>Starting Location</b></label>
+        <select name="Starting Location" id="Starting_Location">
+          <option value="Start of trial">Start of trial</option>
+          <option value="Start of trial">Start of trial</option>
+          <option value="Start of trial">Start of trial</option>
+        </select>
+      </div>
+      <div class = "Ending-Location" >
+        <label for="password"><b>Ending Location</b></label>
+          <select name="Starting Location" id="Starting_Location">
+            <option value="Start of trial">Start of trial</option>
+            <option value="Start of trial">Start of trial</option>
+            <option value="Start of trial">Start of trial</option>
+          </select></div>
+      <p class = "Distance-of-Hike">Distance of Hike: mi</p>
+      <button class = "Add-Day" type="button">Add Day</button>
+  </form>
+  </div>
+
+  <div class="form Saved-Trips" id="saved_trips">
+    <form action="/action_page.php">
+        <div>
+            <h1>Saved Trips</h1>
+            <button type="button" class="cancel">X</button>
+        </div>
+        <div class = "Trip1" >
+          <label for="trip1"><b>Trip 1</b></label>
+          <input  id = "saved-trip1" type="checkbox" placeholder="trip1" name="trip1" required>
+          <p class = "Distance-of-Hike">Total distance: 11.7Ml</p>
+        </div>
+        <div class = "Trip2" >
+          <label for="trip2"><b>Trip 2</b></label>
+          <input  id = "saved-trip2" type="checkbox" placeholder="trip2" name="Trip2" required>
+          <p class = "Distance-of-Hike">Total distance: 12Ml</p>
+        </div>
+        <button class = "Choose-Trips" type="button">Choose Trips</button>
+    </form>
+  </div>
+
+  <div class="form Share-Photo" id="share_photo">
+    <form action="/action_page.php">
+        <div>
+            <h1>Photo</h1>
+            <button type="button" class="cancel">X</button>
+        </div>
+        <div class = "Upload-file">
+          <p>Drag file here to upload</p>
+          <input type="file" id="files" name="file" accept="image/png, image/jpeg">
+        </div>
+
+        
+        <div class = "Current-Location">
+          <label for="email"><b>UseCurrent Location</b></label>
+          <input  id = "trip1" type="checkbox" placeholder="trip1" name="trip1" required>
+        </div>
+        <div class = "Campsites">
+
+          <label for="password"><b>Between two Campsites</b></label>
+          <input  id = "trip2" type="checkbox" placeholder="trip2" name="trip1" required>
+        </div>
+
+        <div class = "First-Camp">
+          <label for="email"><b>First Camp</b></label>
+          <select name="Starting Location" id="Starting_Location">
+            <option value="Start of trial">Start of trial</option>
+            <option value="Start of trial">Start of trial</option>
+            <option value="Start of trial">Start of trial</option>
+          </select>
+        </div>
+        <div class = "Second-Camp">
+          <label for="password"><b>Second Camp</b></label>
+            <select name="Starting Location" id="Starting_Location">
+              <option value="Start of trial">Start of trial</option>
+              <option value="Start of trial">Start of trial</option>
+              <option value="Start of trial">Start of trial</option>
+            </select>
+          </div>
+
+          
+          <div  class = "Comment">
+            <label for="password"><b>Comment</b></label>
+            <textarea>
+
+            </textarea>
+          </div>
+
+
+        <button class = "Choose-Trips" type="button">Submit</button>
+    </form>
+  </div>
+
+
+
+  <div class="form Hazard-Report" id="hazard_report">
+    <form action="/action_page.php">
+        <div>
+            <h1>Hazard Report</h1>
+            <button type="button" class="cancel">X</button>
+        </div>
+        
+        <div class = "Type">
+          <label for="email"><b>Type:</b></label>
+          <select name="Starting Location" id="Starting_Location">
+            <option value="Start of trial">Path Obstruction</option>
+            <option value="Start of trial">Animal Sighting</option>
+            <option value="Start of trial">Other</option>
+          </select>
+        </div>
+
+        
+        <div class = "Current-Location">
+          <label for="email"><b>UseCurrent Location</b></label>
+          <input  id = "trip1" type="checkbox" placeholder="trip1" name="trip1" required>
+        </div>
+        <div class = "Campsites">
+
+          <label for="password"><b>Between two Campsites</b></label>
+          <input  id = "trip2" type="checkbox" placeholder="trip2" name="trip2" required>
+        </div>
+
+        <div class = "First-Camp">
+          <label for="email"><b>First Camp</b></label>
+          <select name="Starting Location" id="Starting_Location">
+            <option value="Start of trial">Start of trial</option>
+            <option value="Start of trial">Start of trial</option>
+            <option value="Start of trial">Start of trial</option>
+          </select>
+        </div>
+        <div class = "Second-Camp">
+          <label for="password"><b>Second Camp</b></label>
+            <select name="Starting Location" id="Starting_Location">
+              <option value="Start of trial">Start of trial</option>
+              <option value="Start of trial">Start of trial</option>
+              <option value="Start of trial">Start of trial</option>
+            </select>
+          </div>
+
+          <div  class = "Comment">
+            <label for="password"><b>Comment</b></label>
+            <textarea>
+
+            </textarea>
+          </div>
+
+
+        <button class = "Choose-Trips" type="button">Submit</button>
+    </form>
+  </div>
+
+</div>
+
+<div style="padding-left:16px"></div>
+
+<div id="map-container">
+  <div id="map"></div>
+  <div id="sidebar">
+      
+
+      <div id="sidebar-content">
+          <h2>Filter Results</h2>
+          <label for="checkbox1"><img src="/images/camping_spots.png" alt="Checkbox 1">Camps</label>
+          <input type="checkbox" id="checkbox1">
+          <label for="checkbox2"><img src="/images/parking_spots.png" alt="Checkbox 2">Parking</label>
+          <input type="checkbox" id="checkbox2">
+          <label for="checkbox3"><img src="/images/hazard_spots.png" alt="Checkbox 3">Hazards</label>
+          <input type="checkbox" id="checkbox3">
+      </div>
+  </div>
+</div>
+ 
+<script src="https://maps.googleapis.com/maps/api/js?v=3.51&key=AIzaSyD4TP4mVYbaLYkVzDz3EgalWFPGga1UyBM&callback=initMap"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+  
+  
+var active1_clickCount = 0;
+var active2_clickCount = 0;
+var active3_clickCount = 0;
+var active4_clickCount = 0;
+var active5_clickCount = 0;
+
+$(function() {  
+    //var clickCount = 0;
+    $('.active1').click(function () {
+        if(active1_clickCount%2==0){
+          $('.Trip-Helper').css({display:'block'});
+          $('.Trip-Helper2').css({display:'none'});
+          $('.Custom-Trip').css({display:'none'});
+          $('.Custom-Trip2').css({display:'none'});
+          $('.Custom-Trip3').css({display:'none'});
+          $('.Saved-Trips').css({display:'none'});
+          $('.Share-Photo').css({display:'none'});
+          $('.Hazard-Report').css({display:'none'});
+
+          
+          $('.active1').css({background:'#4B5D45'});
+          $('.active2').css({background:'#677F5E'});
+          $('.active3').css({background:'#677F5E'});
+          $('.active4').css({background:'#677F5E'});
+          $('.active5').css({background:'#677F5E'});
+
+        }else{
+          $('.Trip-Helper').css({display:'none'});
+          $('.active1').css({background:'#677F5E'});
+          $('.active2').css({background:'#677F5E'});
+          $('.active3').css({background:'#677F5E'});
+          $('.active4').css({background:'#677F5E'});
+          $('.active5').css({background:'#677F5E'});
+         }
+         active1_clickCount++;
+         active2_clickCount = 0;
+         active3_clickCount = 0;
+         active4_clickCount = 0;
+         active5_clickCount = 0;
+
+    });
+    $('.cancel').click(function () {
+          $('.Trip-Helper').css({display:'none'});
+          $('.Trip-Helper2').css({display:'none'});
+          $('.Custom-Trip').css({display:'none'});
+          $('.Custom-Trip2').css({display:'none'});
+          $('.Custom-Trip3').css({display:'none'});
+          $('.Saved-Trips').css({display:'none'});
+          $('.Share-Photo').css({display:'none'});
+          $('.Hazard-Report').css({display:'none'});
+          $('.active1').css({background:'#677F5E'});
+          $('.active2').css({background:'#677F5E'});
+          $('.active3').css({background:'#677F5E'});
+          $('.active4').css({background:'#677F5E'});
+          $('.active5').css({background:'#677F5E'});
+          active1_clickCount=0;
+          active2_clickCount = 0;
+          active3_clickCount = 0;
+          active4_clickCount = 0;
+          active5_clickCount = 0;
+    });
+});
+
+$(function() {  
+    var clickCount = 0;
+    $('.Build-Trips').click(function () {
+          $('.Trip-Helper').css({display:'none'});
+          $('.Trip-Helper2').css({display:'block'});
+    });
+    $('.cancel').click(function () {
+            $('.Trip-Helper').css({display:'none'});
+             $('.Trip-Helper2').css({display:'none'});
+             $('.active1').css({background:'#677F5E'});
+             active1_clickCount = 0;
+          active2_clickCount = 0;
+          active3_clickCount = 0;
+          active4_clickCount = 0;
+          active5_clickCount = 0;
+    });
+});
+
+$(function() {  
+    var clickCount = 0;
+    $('.Choose-Trips').click(function () {
+        $('.Trip-Helper').css({display:'block'});
+        $('.Trip-Helper2').css({display:'none'});
+        $('.Trip-Helper').css({display:'none'});
+          $('.Trip-Helper2').css({display:'none'});
+          $('.Custom-Trip').css({display:'none'});
+          $('.Custom-Trip2').css({display:'none'});
+          $('.Custom-Trip3').css({display:'none'});
+          $('.Saved-Trips').css({display:'none'});
+          $('.Share-Photo').css({display:'none'});
+          $('.Hazard-Report').css({display:'none'});
+          $('.active1').css({background:'#677F5E'});
+          $('.active2').css({background:'#677F5E'});
+          $('.active3').css({background:'#677F5E'});
+          $('.active4').css({background:'#677F5E'});
+          $('.active5').css({background:'#677F5E'});
+          active1_clickCount = 0;
+          active2_clickCount = 0;
+          active3_clickCount = 0;
+          active4_clickCount = 0;
+          active5_clickCount = 0;
+    });
+});
+
+
+
+
+$(function() {  
+    //var clickCount = 0;
+    $('.active2').click(function () {
+        if(active2_clickCount%2==0){
+          $('.Trip-Helper').css({display:'none'});
+          $('.Trip-Helper2').css({display:'none'});
+          $('.Custom-Trip').css({display:'block'});
+          $('.Custom-Trip2').css({display:'none'});
+          $('.Custom-Trip3').css({display:'none'});
+          $('.Saved-Trips').css({display:'none'});
+          $('.Share-Photo').css({display:'none'});
+          $('.Hazard-Report').css({display:'none'});
+
+          
+          $('.active1').css({background:'#677F5E'});
+          $('.active2').css({background:'#4B5D45'});
+          $('.active3').css({background:'#677F5E'});
+          $('.active4').css({background:'#677F5E'});
+          $('.active5').css({background:'#677F5E'});
+              
+                
+               
+
+        }else{
+             $('.Custom-Trip').css({display:'none'});
+             $('.active2').css({background:'#677F5E'});
+
+             $('.active1').css({background:'#677F5E'});
+             $('.active2').css({background:'#677F5E'});
+             $('.active3').css({background:'#677F5E'});
+             $('.active4').css({background:'#677F5E'});
+             $('.active5').css({background:'#677F5E'});
+         }
+         active1_clickCount=0;
+         active2_clickCount++;
+         active3_clickCount = 0;
+         active4_clickCount = 0;
+         active5_clickCount = 0;
+    });
+    $('.cancel').click(function () {
+          $('.Trip-Helper').css({display:'none'});
+          $('.Trip-Helper2').css({display:'none'});
+          $('.Custom-Trip').css({display:'none'});
+          $('.Custom-Trip2').css({display:'none'});
+          $('.Custom-Trip3').css({display:'none'});
+          $('.Saved-Trips').css({display:'none'});
+          $('.Share-Photo').css({display:'none'});
+          $('.Hazard-Report').css({display:'none'});
+          $('.active1').css({background:'#677F5E'});
+          $('.active2').css({background:'#677F5E'});
+          $('.active3').css({background:'#677F5E'});
+          $('.active4').css({background:'#677F5E'});
+          $('.active5').css({background:'#677F5E'});
+          active1_clickCount=0;
+          active2_clickCount = 0;
+          active3_clickCount = 0;
+          active4_clickCount = 0;
+          active5_clickCount = 0;
+    });
+});
+
+$(function() {  
+    var clickCount = 0;
+    $('.Add-Gear').click(function () {
+        $('.Custom-Trip2').css({display:'block'});
+        $('.Custom-Trip').css({display:'none'});
+    });
+    $('.cancel').click(function () {
+        $('.Custom-Trip').css({display:'none'});
+        $('.Custom-Trip2').css({display:'none'});
+        $('.active2').css({background:'#677F5E'});
+        $('.Trip-Helper').css({display:'none'});
+          $('.Trip-Helper2').css({display:'none'});
+          $('.Custom-Trip').css({display:'none'});
+          $('.Custom-Trip2').css({display:'none'});
+          $('.Custom-Trip3').css({display:'none'});
+          $('.Saved-Trips').css({display:'none'});
+          $('.Share-Photo').css({display:'none'});
+          $('.Hazard-Report').css({display:'none'});
+          $('.active1').css({background:'#677F5E'});
+          $('.active2').css({background:'#677F5E'});
+          $('.active3').css({background:'#677F5E'});
+          $('.active4').css({background:'#677F5E'});
+          $('.active5').css({background:'#677F5E'});
+          active1_clickCount = 0;
+          active2_clickCount = 0;
+          active3_clickCount = 0;
+          active4_clickCount = 0;
+          active5_clickCount = 0;
+    });
+});
+
+$(function() {  
+    var clickCount = 0;
+    $('.Add-Day').click(function () {
+      $('.Custom-Trip').css({display:'none'});
+      $('.Custom-Trip2').css({display:'none'});
+      $('.Custom-Trip3').css({display:'block'});
+
+    });
+    $('.cancel').click(function () {
+      $('.Custom-Trip').css({display:'none'});
+        $('.Custom-Trip2').css({display:'none'});
+        $('.Custom-Trip3').css({display:'none'});
+        $('.active2').css({background:'#677F5E'});
+        $('.Trip-Helper').css({display:'none'});
+          $('.Trip-Helper2').css({display:'none'});
+          $('.Custom-Trip').css({display:'none'});
+          $('.Custom-Trip2').css({display:'none'});
+          $('.Custom-Trip3').css({display:'none'});
+          $('.Saved-Trips').css({display:'none'});
+          $('.Share-Photo').css({display:'none'});
+          $('.Hazard-Report').css({display:'none'});
+          $('.active1').css({background:'#677F5E'});
+          $('.active2').css({background:'#677F5E'});
+          $('.active3').css({background:'#677F5E'});
+          $('.active4').css({background:'#677F5E'});
+          $('.active5').css({background:'#677F5E'});
+          active1_clickCount = 0;
+          active2_clickCount = 0;
+          active3_clickCount = 0;
+          active4_clickCount = 0;
+          active5_clickCount = 0;
+    });
+});
+
+$(function() {  
+    var clickCount = 0;
+    $('.active3').click(function () {
+        if(active3_clickCount%2==0){
+               $('.Saved-Trips').css({display:'block'});
+               $('.active3').css({background:'#4B5D45'});
+
+               $('.Trip-Helper').css({display:'none'});
+          $('.Trip-Helper2').css({display:'none'});
+          $('.Custom-Trip').css({display:'none'});
+          $('.Custom-Trip2').css({display:'none'});
+          $('.Custom-Trip3').css({display:'none'});
+          $('.Saved-Trips').css({display:'block'});
+          $('.Share-Photo').css({display:'none'});
+          $('.Hazard-Report').css({display:'none'});
+
+          
+          $('.active1').css({background:'#677F5E'});
+          $('.active2').css({background:'#677F5E'});
+          $('.active3').css({background:'#4B5D45'});
+          $('.active4').css({background:'#677F5E'});
+          $('.active5').css({background:'#677F5E'});
+
+        }else{
+             $('.Saved-Trips').css({display:'none'});
+             $('.active3').css({background:'#677F5E'});
+
+         }
+        //clickCount++;
+        active1_clickCount=0;
+          active2_clickCount=0;
+          active3_clickCount++;
+          active4_clickCount = 0;
+          active5_clickCount = 0;
+    });
+    $('.cancel').click(function () {
+        $('.Saved-Trips').css({display:'none'});
+        $('.active3').css({background:'#677F5E'});
+        $('.Trip-Helper').css({display:'none'});
+          $('.Trip-Helper2').css({display:'none'});
+          $('.Custom-Trip').css({display:'none'});
+          $('.Custom-Trip2').css({display:'none'});
+          $('.Custom-Trip3').css({display:'none'});
+          $('.Saved-Trips').css({display:'none'});
+          $('.Share-Photo').css({display:'none'});
+          $('.Hazard-Report').css({display:'none'});
+          $('.active1').css({background:'#677F5E'});
+          $('.active2').css({background:'#677F5E'});
+          $('.active3').css({background:'#677F5E'});
+          $('.active4').css({background:'#677F5E'});
+          $('.active5').css({background:'#677F5E'});
+          active1_clickCount=0;
+          active2_clickCount = 0;
+          active3_clickCount = 0;
+          active4_clickCount = 0;
+          active5_clickCount = 0;
+
+    });
+});
+
+$(function() {  
+    var clickCount = 0;
+    $('.active4').click(function () {
+        if(active4_clickCount%2==0){
+               $('.Share-Photo').css({display:'block'});
+               $('.active4').css({background:'#4B5D45'});
+               $('.Trip-Helper').css({display:'none'});
+          $('.Trip-Helper2').css({display:'none'});
+          $('.Custom-Trip').css({display:'none'});
+          $('.Custom-Trip2').css({display:'none'});
+          $('.Custom-Trip3').css({display:'none'});
+          $('.Saved-Trips').css({display:'none'});
+          $('.Share-Photo').css({display:'block'});
+          $('.Hazard-Report').css({display:'none'});
+
+          
+          $('.active1').css({background:'#677F5E'});
+          $('.active2').css({background:'#677F5E'});
+          $('.active3').css({background:'#677F5E'});
+          $('.active4').css({background:'#4B5D45'});
+          $('.active5').css({background:'#677F5E'});
+
+        }else{
+             $('.Share-Photo').css({display:'none'});
+             $('.active4').css({background:'#677F5E'});
+         }
+         active1_clickCount=0;
+          active2_clickCount=0;
+          active3_clickCount=0;
+          active4_clickCount++;
+          active5_clickCount = 0;
+    });
+    $('.cancel').click(function () {
+        $('.Share-Photo').css({display:'none'});
+        $('.active4').css({background:'#677F5E'});
+        $('.Trip-Helper').css({display:'none'});
+          $('.Trip-Helper2').css({display:'none'});
+          $('.Custom-Trip').css({display:'none'});
+          $('.Custom-Trip2').css({display:'none'});
+          $('.Custom-Trip3').css({display:'none'});
+          $('.Saved-Trips').css({display:'none'});
+          $('.Share-Photo').css({display:'none'});
+          $('.Hazard-Report').css({display:'none'});
+          $('.active1').css({background:'#677F5E'});
+          $('.active2').css({background:'#677F5E'});
+          $('.active3').css({background:'#677F5E'});
+          $('.active4').css({background:'#677F5E'});
+          $('.active5').css({background:'#677F5E'});
+          active1_clickCount=0;
+          active2_clickCount = 0;
+          active3_clickCount = 0;
+          active4_clickCount = 0;
+          active5_clickCount = 0;
+    });
+});
+
+$(function() {  
+    var clickCount = 0;
+    $('.active5').click(function () {
+        if(active5_clickCount%2==0){
+               $('.Hazard-Report').css({display:'block'});
+               $('.active5').css({background:'#4B5D45'});
+
+               $('.Trip-Helper').css({display:'none'});
+          $('.Trip-Helper2').css({display:'none'});
+          $('.Custom-Trip').css({display:'none'});
+          $('.Custom-Trip2').css({display:'none'});
+          $('.Custom-Trip3').css({display:'none'});
+          $('.Saved-Trips').css({display:'none'});
+          $('.Share-Photo').css({display:'none'});
+          $('.Hazard-Report').css({display:'block'});
+
+          
+          $('.active1').css({background:'#677F5E'});
+          $('.active2').css({background:'#677F5E'});
+          $('.active3').css({background:'#677F5E'});
+          $('.active4').css({background:'#677F5E'});
+          $('.active5').css({background:'#4B5D45'});
+               
+
+        }else{
+             $('.Hazard-Report').css({display:'none'});
+             $('.active5').css({background:'#677F5E'});
+         }
+         active1_clickCount=0;
+          active2_clickCount=0;
+          active3_clickCount=0;
+          active4_clickCount=0;
+          active5_clickCount++;
+    });
+    $('.cancel').click(function () {
+      $('.Hazard-Report').css({display:'none'});
+      $('.active5').css({background:'#677F5E'});
+      $('.Trip-Helper').css({display:'none'});
+          $('.Trip-Helper2').css({display:'none'});
+          $('.Custom-Trip').css({display:'none'});
+          $('.Custom-Trip2').css({display:'none'});
+          $('.Custom-Trip3').css({display:'none'});
+          $('.Saved-Trips').css({display:'none'});
+          $('.Share-Photo').css({display:'none'});
+          $('.Hazard-Report').css({display:'none'});
+          $('.active1').css({background:'#677F5E'});
+          $('.active2').css({background:'#677F5E'});
+          $('.active3').css({background:'#677F5E'});
+          $('.active4').css({background:'#677F5E'});
+          $('.active5').css({background:'#677F5E'});
+          active1_clickCount = 0;
+          active2_clickCount = 0;
+          active3_clickCount = 0;
+          active4_clickCount = 0;
+          active5_clickCount = 0;
+    });
+});
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
