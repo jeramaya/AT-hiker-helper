@@ -19,7 +19,7 @@
   <a id ="button" class="active1">Trip Helper</a>
   <a id ="button" class="active2">Custom Trip</a>
   <a id ="saved_button" class="active3">Saved Trips</a>
-  <a id ="button" class="active4">Share a Photo</a>
+ <!-- <a id ="button" class="active4">Share a Photo</a>-->
   <a id ="button" class="active5">Hazard Report</a>
   </div>
   <div class="form Trip-Helper" id="trip_helper">
@@ -97,9 +97,10 @@
         <div>
             <h1>Create a Custom</h1>
             <button type="button" class="cancel">X</button>
+            <p style="text-align: center;">Welcome to create a custome trip. This feature is here to help you plan out your next trip on the Applachian Trail! Please start by entering name for your trip.</p>
         </div>  
         <input  class = "Trip-Name" id = "trip" type="text" placeholder="Enter Trip Name" name="trip" required>
-        <button class = "Add-Gear" type="button">Add Gear</button>
+        <!--<button class = "Add-Gear" type="button">Add Gear</button>-->
         <button class = "Add-Day" type="button">Add Day</button>
     </form>
   </div>
@@ -224,7 +225,7 @@
         <input  id = "saved-trip1" type="checkbox" placeholder="trip1" name="trip1" required>
         <p class = "Distance-of-Hike">Total distance: 11.7Ml</p>
       </div>
-      <div class = "Trip2" >
+      <div id = "saved_trip2_box" class = "Trip2" >
         <label for="trip2"><b>Trip 2</b></label>
         <input  id = "saved-trip2" type="checkbox" placeholder="trip2" name="Trip2" required>
         <p class = "Distance-of-Hike">Total distance: 12Ml</p>
@@ -316,7 +317,7 @@
 
       <div class = "First-Camp">
         <label for="email"><b>First Camp</b></label>
-        <select name="Starting Location" id="Starting_Location">
+        <select name="Starting Location" id="SL1">
 
             <option value="0">The Hemlocks</option>
             <option value="1">Glen Brook</option>
@@ -332,7 +333,7 @@
       </div>
       <div class = "Second-Camp">
         <label for="password"><b>Second Camp</b></label>
-          <select name="Starting Location" id="Starting_Location">
+          <select name="Starting Location" id="EL1">
             <option value="0">The Hemlocks</option>
             <option value="1">Glen Brook</option>
             <option value="2">Tom Leonard</option>
@@ -348,13 +349,13 @@
 
         <div  class = "Comment">
           <label for="password"><b>Comment</b></label>
-          <textarea>
+          <textarea id="cmt">
 
           </textarea>
         </div>
 
 
-      <button class = "Choose-Trips" type="button">Submit</button>
+      <button id="hzrdBtn" class = "Choose-Trips" type="button" onclick="addHaz()">Submit</button>
   </form>
   </div>
 
@@ -378,7 +379,7 @@
       </div>
   </div>
 </div>
-<button class = "extra" type="button" onclick="storedata()">temp</button>
+<!--  <button class = "extra" type="button" onclick="storedata()">temp</button>-->
 
  <!-- The core Firebase JS SDK is always required and must be listed first -->
  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
