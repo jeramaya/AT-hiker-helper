@@ -710,6 +710,24 @@ var map = new google.maps.Map(document.getElementById('map'), {
             checkbox3.addEventListener('change', function () {
                 if (checkbox3.checked) {
                     // Create the marker if the checkbox is checked
+                    marker1_hazard = new google.maps.Marker({
+                        position: {
+                            lat: shelters[0].latitude, lng: shelters[0].longitude
+                        },
+                        map: map,
+                        title: 'Marker',
+                        icon: '/images/hazard_spots.png',   
+                    });
+
+                    google.maps.event.addListener(marker1_hazard, 'click', function() {
+                        var infowindow_marker1_hazard = new google.maps.InfoWindow({
+                            content:'<div>' +
+                            '<h1>Path Obstruction</h1>' +
+                            '<h2>large object in path</h2>' +
+                            '</div>'
+                            });
+                        infowindow_marker1_hazard.open(map,marker1_hazard);
+                    });
                     
                     
                     if(hazard_report[0]) 
@@ -727,7 +745,7 @@ var map = new google.maps.Map(document.getElementById('map'), {
                             var infowindow_marker1_hazard = new google.maps.InfoWindow({
                                 content:'<div>' +
                                 '<h1>Hazard Report</h1>' +
-                                '<h2>Comment:</h2>' +
+                                '<h2>Comment: large object in path</h2>' +
                                 '</div>'
                                 });
                             infowindow_marker1_hazard.open(map,marker1_hazard);
@@ -869,7 +887,7 @@ var map = new google.maps.Map(document.getElementById('map'), {
                         var infowindow_marker8_hazard = new google.maps.InfoWindow({
                             content:'<div>' +
                             '<h1>Hazard Report</h1>' +
-                            '<h2>Comment:</h2>' +
+                            '<h2>Comment: large object in path</h2>' +
                             '</div>'
                             });
                         infowindow_marker8_hazard.open(map,marker8_hazard);
@@ -937,11 +955,15 @@ var map = new google.maps.Map(document.getElementById('map'), {
                     
                     //});
 
+
+
+/**/
+
                     
 
                 } else {
                     // Remove the marker if the checkbox is unchecked
-                    if(hazard_report[0]) 
+                    //if(hazard_report[0]) 
                     {
                         marker1_hazard.setMap(null);
                     } 
@@ -979,24 +1001,7 @@ var map = new google.maps.Map(document.getElementById('map'), {
             map.controls[google.maps.ControlPosition.LEFT_TOP].push(sidebar);
           
     
-   // Create the campsite markers
-    var campsite1 = new google.maps.Marker({
-        position: {
-            lat: 42.7184156,
-            lng: -73.1503512
-        },
-        title: 'Campsite 1',
-
-    });
-    var campsite2 = new google.maps.Marker({
-        position: {
-            lat: 42.5149,
-            lng: -73.1596
-        },
-        title: 'Campsite 2',
-
-    });
-
+ 
 
     let startingMarkers = [];
     let endingMarkers = [];
@@ -1202,6 +1207,7 @@ function saveMarkers() {
       lng: marker.position.lng()
     });
   }*/
+  $('.Custom-Trip3').css({display:'none'});
   console.log('Markers saved:', savedMarkers);
   
   trip2_hidden = false;
@@ -1597,7 +1603,7 @@ function saveMarkers() {
         console.log("end long: " + end_long);
         console.log("end lat: " + end_lat);
 
-        marker = new google.maps.Marker({
+        marker_hazard = new google.maps.Marker({
             position: {
             lat: strt_lat, lng:strt_long
             }, 
@@ -1606,8 +1612,25 @@ function saveMarkers() {
             icon: '/images/hazard_spots.png'
         
         });
+
+        google.maps.event.addListener(marker_hazard, 'click', function() {
+            var infowindow_hazard = new google.maps.InfoWindow({
+                content:'<div>' +
+                '<h1>Path Obstruction Reported in this Area</h1>' +
+                
+                '</div>'
+                });
+            infowindow_hazard.open(map,marker_hazard);
+            
+            
+        
+        });
+        
         });
 
+
+
+/**/
 
     
 }
