@@ -33,8 +33,41 @@ let parking = [
     {name: "Pattison Road",	        latitude: 42.68767,	longitude: -73.16015}
 ];
 var distances = [0.117,7.247,3.533,1.308,5.81,4.83,6.725,10.875,4.148];
+//Class for each Day of a Trip
+class Day {
+    constructor(name, startingLocation, endingLocation) {
+        this.Name = name;
+        this.Starting_Location = startingLocation;
+        this.Ending_Location = endingLocation;
+    }
+}
+//Class for each Trip
+class Trip {
+    constructor(name, numberOfDays, days, total_distance, startingLocation, endingLocation, waypoints) {
+        this.Name = name;
+        this.Number_of_days = numberOfDays;
+        this.Days = days;
+        this.Total_Distance = total_distance;
+        this.Starting_Location = startingLocation;
+        this.Ending_Location = endingLocation;
+        this.Waypoints = waypoints;
+    }
+}
+//Class for all savedTrips
+class Saved_Trips {
+    constructor(numberOfTrips, trips) {
+        this.number_of_trips = numberOfTrips;
+        this.Trips = trips;
+    }
+}
+const saved_trips = new Saved_Trips(0, []);
 
 let hazard_report = [0,0,0,0,0,0,0,0,0,0]
+
+
+let marker_hazard_list = []
+let infowindow_hazard_list = []
+
 
 var map;
 
@@ -706,7 +739,9 @@ var map = new google.maps.Map(document.getElementById('map'), {
                   
                 }
             });
-        
+
+
+
             checkbox3.addEventListener('change', function () {
                 if (checkbox3.checked) {
                     // Create the marker if the checkbox is checked
@@ -728,6 +763,21 @@ var map = new google.maps.Map(document.getElementById('map'), {
                             });
                         infowindow_marker1_hazard.open(map,marker1_hazard);
                     });
+
+                    
+                    /*marker_hazard_list[0] = new google.maps.Marker({
+                        position: {
+                        lat: strt_lat, lng:strt_long
+                        }, 
+                        map: map,
+                        title: 'Marker 3',
+                        icon: '/images/hazard_spots.png'
+                    
+                    });*/
+                    
+                    
+                    //infowindow_hazard_list[0].open(map,marker_hazard_list[0]);
+                    
                     
                     
                     if(hazard_report[0]) 
@@ -745,7 +795,7 @@ var map = new google.maps.Map(document.getElementById('map'), {
                             var infowindow_marker1_hazard = new google.maps.InfoWindow({
                                 content:'<div>' +
                                 '<h1>Hazard Report</h1>' +
-                                '<h2>Comment: large object in path</h2>' +
+                                '<h2 id="cmt"></h2>' +
                                 '</div>'
                                 });
                             infowindow_marker1_hazard.open(map,marker1_hazard);
@@ -1001,13 +1051,21 @@ var map = new google.maps.Map(document.getElementById('map'), {
             map.controls[google.maps.ControlPosition.LEFT_TOP].push(sidebar);
           
     
- 
+    /////////////////////////////////////////////////////////////////////
+    //
+    // Work for the custom Trips Below
+    //
+    ///////////////////////////////////////////////////////////////////// 
 
     let startingMarkers = [];
     let endingMarkers = [];
     
     let startingMarker = null;
     let endingMarker = null;
+
+
+
+
 
     function markerclearer(markers, locationType, map) {
         if (markers.length > 0) {
@@ -1018,7 +1076,6 @@ var map = new google.maps.Map(document.getElementById('map'), {
         
           }
           markers.length = 0; // clear markers array
-          console.log('penis')
         }
         
         if (locationType === 'starting') {
@@ -1028,7 +1085,9 @@ var map = new google.maps.Map(document.getElementById('map'), {
         }
       }
       
-      
+      function AddDays() {
+        console.log("button clicked");
+      }
       
     
     
@@ -1187,38 +1246,75 @@ startingLocationSelect.addEventListener("change", () => {
         if(status == 'OK') directionsDisplay.setDirections(result);
     });
   });
-var startingShelter, startingParking, endingShelter, endingParking;
-  
-   // define a global array to store the marker data
-let savedMarkers = [];
+    var startingShelter, startingParking, endingShelter, endingParking;
+    
+    // define a global array to store the marker data
+    let savedMarkers = [];
 
-// add event listener to "Save Trips" button
-const saveButton = document.querySelector('.Save-Trips');
-saveButton.addEventListener('click', saveMarkers);
+    // add event listener to "Save Trips" button
+    const saveButton = document.querySelector('.Save-Trips');
+    saveButton.addEventListener('click', saveMarkers);
 
-// function to save the marker data
-function saveMarkers() {
-  // loop through all the markers and store their position data in the savedMarkers array
-  /*
-  for (let i = 0; i < markers.length; i++) {
-    const marker = markers[i];
-    savedMarkers.push({
-      lat: marker.position.lat(),
-      lng: marker.position.lng()
-    });
-  }*/
-  $('.Custom-Trip3').css({display:'none'});
-  console.log('Markers saved:', savedMarkers);
-  
-  trip2_hidden = false;
-}
+    // function to save the marker data
+    function saveMarkers() {
+    // loop through all the markers and store their position data in the savedMarkers array
+    /*
+    for (let i = 0; i < markers.length; i++) {
+        const marker = markers[i];
+        savedMarkers.push({
+        lat: marker.position.lat(),
+        lng: marker.position.lng()
+        });
+    }*/
+    $('.Custom-Trip3').css({display:'none'});
+    console.log('Markers saved:', savedMarkers);
+    
+    trip2_hidden = false;
+    }
 
-  
+ 
+
     /////////////////////////////////////////////////////////////////////
     //
     // Work for the Saved Trips Below
     //
     /////////////////////////////////////////////////////////////////////
+    
+    var saved_trips_tab = document.getElementById('saved_button');
+    saved_trips_tab.addEventListener('click', function () {
+        document.getElementById('saved_trips_box').innerHTML = '';
+        for(let i = 0; i < saved_trips.number_of_trips; i++) {
+            document.getElementById('saved_trips_box').innerHTML += `<div id="saved_trip${i}_box" class="Saved_Trip_Box">`
+            +`<label for="trip${i}"><b>Trip ${i}</b></label>`
+            +`<input id="saved_trip${i}" type="checkbox" name="trip${i}" required>`
+            +`<p class = "Distance-of-Hike">Total Distance: ${saved_trips.Trips[i].Total_Distance}</p>`
+            +`</div>`;
+            var trip = document.getElementById(`saved_trip${i}`);
+        } 
+        //this does not fully work yet, only working for the last trip made, probably due to the last event listener overriding the others maybe?
+        for(let i = 0; i < saved_trips.number_of_trips; i++) {
+            console.log("hello?");
+            trip.addEventListener('click', function () {
+                console.log("here");
+                if(trip.checked) {
+                    var request = {
+                        origin: {lat: shelters[saved_trips.Trips[i].Starting_Location].latitude, lng: shelters[saved_trips.Trips[i].Starting_Location].longitude},
+                        destination: {lat: shelters[saved_trips.Trips[i].Ending_Location].latitude, lng: shelters[saved_trips.Trips[i].Ending_Location].longitude},
+                        waypoints: saved_trips.Trips[i].Waypoints,
+                        travelMode: google.maps.DirectionsTravelMode.WALKING
+                    };
+                    directionsService.route(request, function(result, status) {
+                        if(status == 'OK') directionsDisplay.setDirections(result);
+                    });
+                }
+                else {
+                    directionsDisplay.set('directions',null);
+                }
+            });
+        }
+    });
+    
+   /*
     var trip1 = document.getElementById('saved-trip1');
     var trip2 = document.getElementById('saved-trip2');
     var saved_trips_tab = document.getElementById('saved_button');
@@ -1226,14 +1322,12 @@ function saveMarkers() {
     var trip2_hidden = true;
     saved_trips_tab.addEventListener('click', function () {
         if(trip1_hidden == true) {
-            //console.log(trip1_hidden);
             $('#saved_trip1_box').css({display:'none'});
         }
         else {
             $('#saved_trip1_box').css({display:'block'});
         }
         if(trip2_hidden == true) {
-            //console.log(trip1_hidden);
             $('#saved_trip2_box').css({display:'none'});
         }
         else {
@@ -1271,12 +1365,21 @@ function saveMarkers() {
             directionsDisplay.set('directions',null);
         }
     });
+    */
     // Add the sidebar to the map
     map.controls[google.maps.ControlPosition.LEFT_TOP].push(sidebar);
 
     //document.getElementById('sidebar-toggle').addEventListener('click', function () {
     //    sidebar.classList.toggle('collapsed');
     //});
+
+
+
+
+
+   
+    
+    
 
     /////////////////////////////////////////////////////////////////////
     //
@@ -1290,7 +1393,7 @@ function saveMarkers() {
     var checkbox1_TH = document.getElementById('TH_Trip1_check');
     var checkbox2_TH = document.getElementById('TH_Trip2_check');
     var choose_trips_TH = document.getElementById('choose_trips_TH');
-    var arr_index, arr_index_end, distance, num_of_days = 1;
+    var arr_index, arr_index_end, distance, waypoints_int, num_of_days = 1;
     var waypts;
     num_of_days_TH.addEventListener('click', function() {
         num_of_days = $('#Number_of_days').val();
@@ -1348,10 +1451,12 @@ function saveMarkers() {
         }*/
         document.getElementById('TH_Trip1').innerHTML = "Total Distance: " + distance + " miles";
         document.getElementById('TH_Trip2').innerHTML = "Total Distance: " + distance + " miles";
+
     });
     checkbox1_TH.addEventListener('change', function () {
         if(checkbox1_TH.checked){
             waypts = [];
+            waypoints_int = [];
             arr_index = Number(arr_index);
             arr_index_end = Number(arr_index_end);
             if(arr_index < arr_index_end) {
@@ -1360,6 +1465,7 @@ function saveMarkers() {
                     waypts.push({
                         location:new google.maps.LatLng(shelters[i].latitude,shelters[i].longitude)
                     });
+                    waypoints_int.push(i);
                 }
             }
             else {
@@ -1367,7 +1473,8 @@ function saveMarkers() {
                     if(i == (Number(num_of_days))) break;
                     waypts.push({
                         location:new google.maps.LatLng(shelters[i].latitude,shelters[i].longitude)
-                    });   
+                    });
+                    waypoints_int.push(i);   
                 }
             }
             if(checkbox1_TH.checked) {
@@ -1390,6 +1497,7 @@ function saveMarkers() {
     checkbox2_TH.addEventListener('change', function () {
         if(checkbox2_TH.checked){
             waypts = [];
+            waypoints_int = [];
             arr_index = Number(arr_index);
             arr_index_end = Number(arr_index_end);
             if(arr_index < arr_index_end) {
@@ -1398,6 +1506,7 @@ function saveMarkers() {
                     waypts.push({
                         location:new google.maps.LatLng(shelters[i].latitude,shelters[i].longitude)
                     });
+                    waypoints_int.push(i);
                 }
             }
             else {
@@ -1406,6 +1515,7 @@ function saveMarkers() {
                     waypts.push({
                         location:new google.maps.LatLng(shelters[i].latitude,shelters[i].longitude)
                     });   
+                    waypoints_int.push(i);
                 }
             }
             if(checkbox2_TH.checked) {
@@ -1425,159 +1535,45 @@ function saveMarkers() {
         }
        
     });
+    
+    //This is the Button that creates the trip, once all specs have been chosen
     choose_trips_TH.addEventListener('click', function () {
         trip1_hidden = false;
+        const trip_TH = new Trip("My Trip", num_of_days, [], distance, arr_index, arr_index_end, waypts);
+        console.log(waypoints_int.length);
+        for(let i = 0; i <= waypoints_int.length; i++) {
+            if(i == 0){
+                const day = new Day(`Day ${i+1}`, arr_index, waypoints_int[i]);
+                trip_TH.Days.push(day);
+            }else if(i == waypoints_int.length) {
+                const day = new Day(`Day ${i+1}`, waypoints_int[i-1], arr_index_end);
+                trip_TH.Days.push(day);
+            }else {
+                const day = new Day(`Day ${i+1}`, waypoints_int[i-1], waypoints_int[i]);
+                trip_TH.Days.push(day);
+            }
+        }
+        /*
+        for(let i = 1; i <= num_of_days; i++) {
+            const day = new Day(`Day ${i}`, i, i+1);
+            trip_TH.Days.push(day);
+        }
+        */
+        saved_trips.Trips.push(trip_TH);
+        saved_trips.number_of_trips++;
+        console.log(saved_trips);
     });
     /*
-    var start_TH = document.getElementById('Starting_Location_TH');
-    var end_TH = document.getElementById('Ending_Location_TH');
-    var build_trips = document.getElementById('build_trips');
-    var num_of_days_TH = document.getElementById('Number_of_days');
-    var checkbox1_TH = document.getElementById('TH_Trip1_check');
-    var checkbox2_TH = document.getElementById('TH_Trip2_check');
-    var choose_trips_TH = document.getElementById('choose_trips_TH');
-    var arr_index, arr_index_end, distance, num_of_days = 1;
-    var waypts;
-    num_of_days_TH.addEventListener('click', function() {
-        num_of_days = $('#Number_of_days').val();
-    });
-    start_TH.addEventListener('click', function () {
-        arr_index = $('#Starting_Location_TH').val();
-        arr_index_end = $('#Ending_Location_TH').val();
-        var request = {
-            origin: {lat: shelters[arr_index].latitude, lng: shelters[arr_index].longitude},
-            destination: {lat: shelters[arr_index_end].latitude, lng: shelters[arr_index_end].longitude},
-            travelMode: google.maps.DirectionsTravelMode.WALKING
-        };
-        directionsService.route(request, function(result, status) {
-            if(status == 'OK') directionsDisplay.setDirections(result);
-        });
-        distance = 0;
-        if(arr_index < arr_index_end)
-            for(var i = arr_index; i < arr_index_end; i++)
-                distance += distances[i];
-        else
-            for(var i = arr_index_end; i < arr_index; i++)
-                distance += distances[i];
-        document.getElementById('distance_TH').innerHTML = "Distance of Hike: " + distance + " miles"; 
-    });
-    end_TH.addEventListener('click', function () {
-        arr_index = $('#Starting_Location_TH').val();
-        arr_index_end = $('#Ending_Location_TH').val();
-        var request = {
-            origin: {lat: shelters[arr_index].latitude, lng: shelters[arr_index].longitude},
-            destination: {lat: shelters[arr_index_end].latitude, lng: shelters[arr_index_end].longitude},
-            travelMode: google.maps.DirectionsTravelMode.WALKING
-        };
-        directionsService.route(request, function(result, status) {
-            if(status == 'OK') directionsDisplay.setDirections(result);
-        });
-        distance = 0;
-        if(arr_index < arr_index_end)
-            for(var i = arr_index; i < arr_index_end; i++)
-                distance += distances[i];
-        else
-            for(var i = arr_index_end; i < arr_index; i++)
-                distance += distances[i];
-        document.getElementById('distance_TH').innerHTML = "Distance of Hike: " + distance + " miles"; 
-    });
-    build_trips.addEventListener('click', function() {
-        if(arr_index == null) {
-            arr_index = 0;
-        }
-        if(arr_index_end == null) {
-            arr_index_end = 0;
-        }/*
-        if(arr_index == (arr_index_end + 1) || arr_index == (arr_index_end - 1)) {
-            $('.Trip2').css({display:'none'});
-            document.getElementById('TH_Trip1').innerHTML = "Total Distance: " + distance + " miles";
-        }
-        document.getElementById('TH_Trip1').innerHTML = "Total Distance: " + distance + " miles";
-        document.getElementById('TH_Trip2').innerHTML = "Total Distance: " + distance + " miles";
-    });
-    checkbox1_TH.addEventListener('change', function () {
-        if(checkbox1_TH.checked){
-            waypts = [];
-            arr_index = Number(arr_index);
-            arr_index_end = Number(arr_index_end);
-            if(arr_index < arr_index_end) {
-                for(let i = (1 + arr_index); i < arr_index_end; i++) {
-                    if(i == (Number(num_of_days)+1)) break;
-                    waypts.push({
-                        location:new google.maps.LatLng(shelters[i].latitude,shelters[i].longitude)
-                    });
-                }
-            }
-            else {
-                for(let i = (arr_index - 1); i > arr_index_end; i--) {
-                    if(i == (Number(num_of_days))) break;
-                    waypts.push({
-                        location:new google.maps.LatLng(shelters[i].latitude,shelters[i].longitude)
-                    });   
-                }
-            }
-            if(checkbox1_TH.checked) {
-                var request = {
-                    origin: {lat: shelters[arr_index].latitude, lng: shelters[arr_index].longitude},
-                    destination: {lat: shelters[arr_index_end].latitude, lng: shelters[arr_index_end].longitude},
-                    waypoints: waypts,
-                    travelMode: google.maps.DirectionsTravelMode.WALKING
-                };
-                directionsService.route(request, function(result, status) {
-                    if(status == 'OK') directionsDisplay.setDirections(result);
-                });
-            }
-        }
-        else {
-            directionsDisplay.set('directions',null);
-        }
-
-    });
-    checkbox2_TH.addEventListener('change', function () {
-        if(checkbox2_TH.checked){
-            waypts = [];
-            arr_index = Number(arr_index);
-            arr_index_end = Number(arr_index_end);
-            if(arr_index < arr_index_end) {
-                for(let i = (1 + arr_index); i < arr_index_end; i++) {
-                    if(i <= (arr_index_end - Number(num_of_days))) continue;
-                    waypts.push({
-                        location:new google.maps.LatLng(shelters[i].latitude,shelters[i].longitude)
-                    });
-                }
-            }
-            else {
-                for(let i = (arr_index - 1); i > arr_index_end; i--) {
-                    if(i > (arr_index - Number(num_of_days))) continue;
-                    waypts.push({
-                        location:new google.maps.LatLng(shelters[i].latitude,shelters[i].longitude)
-                    });   
-                }
-            }
-            if(checkbox2_TH.checked) {
-                var request = {
-                    origin: {lat: shelters[arr_index].latitude, lng: shelters[arr_index].longitude},
-                    destination: {lat: shelters[arr_index_end].latitude, lng: shelters[arr_index_end].longitude},
-                    waypoints: waypts,
-                    travelMode: google.maps.DirectionsTravelMode.WALKING
-                };
-                directionsService.route(request, function(result, status) {
-                    if(status == 'OK') directionsDisplay.setDirections(result);
-                });
-            }
-        }
-        else {
-            directionsDisplay.set('directions',null);
-        }
-       
-    });
-    choose_trips_TH.addEventListener('click', function () {
-        trip1_hidden = false;
-    });
+    ///////////////////////////////////////////////////////////////////////////
+    //
+    // Hazard Report Code below
+    //
+    ///////////////////////////////////////////////////////////////////////////
     */
-
-
+    //var marker_hazard = document.getElementById('checkbox3');
+       
     document.getElementById("hzrdBtn").addEventListener("click", function () {
+        var type = document.getElementById('type').value;
         var strt = document.getElementById('SL1').value;
         var nd = document.getElementById('EL1').value;
         var com = document.getElementById('cmt').value;
@@ -1602,7 +1598,9 @@ function saveMarkers() {
 
         console.log("end long: " + end_long);
         console.log("end lat: " + end_lat);
-
+        
+          
+        //if (google.maps.event.checked) {
         marker_hazard = new google.maps.Marker({
             position: {
             lat: strt_lat, lng:strt_long
@@ -1612,30 +1610,32 @@ function saveMarkers() {
             icon: '/images/hazard_spots.png'
         
         });
-
         google.maps.event.addListener(marker_hazard, 'click', function() {
+            
             var infowindow_hazard = new google.maps.InfoWindow({
                 content:'<div>' +
-                '<h1>Path Obstruction Reported in this Area</h1>' +
-                
+                //'<h1>Path Obstruction Reported in this Area</h1>' +
+                '<h1>Hazard Report</h1>' +
+                '<p style = "font-size: 18px;"><strong style = "font-size: 20px;">Type:</strong>:'+type+'</p>' +
+                '<h1>Between two Campsite</h1>' +
+                '<p style = "font-size: 18px;"><strong style = "font-size: 20px;">First Camp:</strong>:'+shelters[strt].name+'</p>' +
+                '<p style = "font-size: 18px;"><strong style = "font-size: 20px;">Second Camp:</strong>:'+shelters[nd].name+'</p>' +
+                '<h2>Comment:</h2>' +
+                '<pre style = "min-width:500px; min-height:100px;">'+ com + '</pre>'+
                 '</div>'
                 });
-            infowindow_hazard.open(map,marker_hazard);
-            
+                infowindow_hazard.open(map,marker_hazard);
+
             
         
-        });
-        
-        });
-
-
-
-/**/
-
-    
+        });      
+    });
 }
-window.onload = initMap;
-
+window.onload = function () {
+    if(document.readyState == 'complete') {
+        initMap;
+    }
+}
 
 function addHaz() {
     //alert("hazardreport")
@@ -1643,4 +1643,7 @@ function addHaz() {
     
     marker.setMap(map);
 }
+
+
+
 

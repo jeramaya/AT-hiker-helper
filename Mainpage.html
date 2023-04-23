@@ -11,7 +11,7 @@
 <div>
     <img class="ATpic" src="clipart4232473.png">
     
-    <button class = "logoutBut" type="button" onclick="location.href = '/index.html'">Logout</button>
+    <button class = "logoutBut" type="button" onclick="storedata()">Logout</button>
 </div>
 
 <div class="topnav">
@@ -134,19 +134,23 @@
         <p class = "">+ Add Gear</p>
         <p class = "">Total weight</p>
         
-        <button class = "Add-Day" type="button">Add Day</button>
+        <button id = "Add-Day" type="button">Add Day</button>
+
     </form>
   </div>
   <div class="form Custom-Trip3" id="add_day">
     <form action="/action_page.php">
         <div>
-            <h1>Day 1</h1>
+            <h1>Add Days</h1>
             <button type="button" class="cancel">X</button>
         </div>
 
         <button class="Save-Trips" type="button">Save Trips</button>
+        <button id="add-day-btn" type="button">Add Day</button>
 
-
+        <div id = "DayCounter">
+          <p>Day 1</p>
+        </div>
 
         <input class="Day-Title" type="text" placeholder="Enter Day title" name="text" required>
 
@@ -164,6 +168,9 @@
             </select>
         </div>
 
+
+    
+      
         <script>
             // Get the select elements
             const startingLocationSelect = document.getElementById('starting-location');
@@ -212,6 +219,7 @@
                 });
             });
         </script>
+
     </form>
     </div>
 
@@ -221,15 +229,17 @@
           <h1>Saved Trips</h1>
           <button type="button" class="cancel">X</button>
       </div>
-      <div id = "saved_trip1_box" class = "Trip1" >
-        <label for="trip1"><b>Trip 1</b></label>
-        <input  id = "saved-trip1" type="checkbox" placeholder="trip1" name="trip1" required>
-        <p class = "Distance-of-Hike">Total distance: 11.7Ml</p>
-      </div>
-      <div id = "saved_trip2_box" class = "Trip2" >
-        <label for="trip2"><b>Trip 2</b></label>
-        <input  id = "saved-trip2" type="checkbox" placeholder="trip2" name="Trip2" required>
-        <p class = "Distance-of-Hike">Total distance: 12Ml</p>
+      <div id="saved_trips_box">
+        <div id = "saved_trip1_box" class = "Trip1" >
+          <label for="trip1"><b>Trip 1</b></label>
+          <input  id = "saved-trip1" type="checkbox" placeholder="trip1" name="trip1" required>
+          <p class = "Distance-of-Hike">Total distance: 11.7Ml</p>
+        </div >
+        <div id = "saved_trip2_box" class = "Trip2" >
+          <label for="trip2"><b>Trip 2</b></label>
+          <input  id = "saved-trip2" type="checkbox" placeholder="trip2" name="Trip2" required>
+          <p class = "Distance-of-Hike">Total distance: 12Ml</p>
+        </div>
       </div>
       <button class = "Choose-Trips" type="button">Choose Trips</button>
   </form>
@@ -276,7 +286,7 @@
 
         
         <div  class = "Comment">
-          <label for="password"><b>Comment</b></label>
+          <label for="comment" id = "comment"><b>Comment</b></label>
           <textarea>
 
           </textarea>
@@ -298,10 +308,10 @@
       
       <div class = "Type">
         <label for="email"><b>Type:</b></label>
-        <select name="Starting Location" id="Starting_Location">
-          <option value="Start of trial">Path Obstruction</option>
-          <option value="Start of trial">Animal Sighting</option>
-          <option value="Start of trial">Other</option>
+        <select name="Starting Location" id="type">
+          <option value="Path Obstruction">Path Obstruction</option>
+          <option value="Animal Sighting">Animal Sighting</option>
+          <option value="Other">Other</option>
         </select>
       </div>
 
@@ -312,7 +322,7 @@
       </div>--> 
       <div class = "Campsites">
 
-        <label for="password"><b>Between two Campsites</b></label>
+        <label><b>Between two Campsites</b></label>
         <!--<input  id = "trip2" type="checkbox" placeholder="trip2" name="trip2" required>-->
       </div>
 
@@ -350,9 +360,7 @@
 
         <div  class = "Comment">
           <label for="password"><b>Comment</b></label>
-          <textarea id="cmt">
-
-          </textarea>
+          <textarea id="cmt"></textarea>
         </div>
 
 
@@ -391,7 +399,7 @@
  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
 
 
- <script src="script.js"></script>
+ <script src="database.js"></script>
 
 
 <script src="https://maps.googleapis.com/maps/api/js?v=3.51&key=AIzaSyD4TP4mVYbaLYkVzDz3EgalWFPGga1UyBM&callback=initMap"></script>

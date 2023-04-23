@@ -42,7 +42,8 @@
                 <label for="password"><b>Re-enter Password</b></label>
                 <input type="password" placeholder="Re-enter password" name="password" id = "pwd2" required>
                 <div id = "b0"></div>
-                <button type="button" onClick = "create_account_validate()">Create Account</button>
+                <button id = 'cre' type="button" onClick = "create_account_validate()">Create Account</button>
+                <button id = 'cre2'type="button" style = "display: none;"onClick = "login()">Create Account</button>
                 <button type="button" onclick= "setup_account_closeForm()">Close</button>
             </form>
         </div>
@@ -58,7 +59,8 @@
                 <input type="password" placeholder="Enter password" name="password" id = "password" required>
                 <div id = "b1"></div>
                     <button type="button" onclick= "forgot_password_openForm()" id = "b1">Forgot Password</button>
-                    <button type="button" onclick="login_validate()">Login</button>
+                    <button id = 'logg' type="button" onclick="login_validate()">Login</button>
+                    <button id = 'log2' type="button" style = "display: none;" onclick="login()">Login</button>
                     <button type="button" onclick="login_closeForm()">Close</button>
                 
             </form>
@@ -99,7 +101,7 @@
                 <button type="button" onclick="change_password_validate()">Change Password</button>
             </form>
         </div>
-        <button id="youtube" type = "button" onclick="location.href='https://youtube.com';"><img src="youtube-logo-2431.png"></button>
+        <button id="youtube" type = "button" onclick="storedata()"><img src="youtube-logo-2431.png"></button>
         <!-- The core Firebase JS SDK is always required and must be listed first -->
        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
 

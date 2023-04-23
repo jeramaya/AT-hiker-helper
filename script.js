@@ -10,8 +10,8 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 // Initialize variables
-const auth = firebase.auth()
-const db = firebase.firestore()
+const auth = firebase.auth();
+const db = firebase.firestore();
 
 
 var NAME
@@ -47,7 +47,8 @@ saved trips, but instead of hard coding starting & ending locations along
 with trip names it will query the database to get that information
 
 */
-console.log("coltonc1214@gmail.com");
+console.log(NAME);
+
 
 db.collection("coltonc1214@gmail.com").doc("trip1").set({
   day1: {
@@ -91,97 +92,6 @@ for(let i =0; i< 4; i++)
 
  
 }
-// Set up our register function
-function register () {
-  // Get input fields
-  email = document.getElementById('email').value
-  password = document.getElementById('password').value
-  full_name = document.getElementById('full_name').value
-  
-  // Validate input fields
-  if (validate_email(email) == false || validate_password(password) == false) {
-    alert('Email or Password is incorrect')
-    return
-    // Don't continue running the code
-  }
- 
- 
-  // Move on with Auth
-  auth.createUserWithEmailAndPassword(email, password)
-  .then(function() {
-    // Declare user variable
-    var user = auth.currentUser
-
-    // Add this user to Firebase Database
-    
-
-    // Create User data
-    var user_data = {
-      email : email,
-      full_name : full_name,
-      last_login : Date.now()
-    }
-
-    // Push to Firebase Database
-    
-
-    // DOne
-    alert('User Created!!')
-  })
-  .catch(function(error) {
-    // Firebase will use this to alert of its errors
-    var error_code = error.code
-    var error_message = error.message
-
-    alert(error_message)
-  })
-}
-
-// Set up our login function
-function login () {
-  // Get all our input fields
-  email = document.getElementById('email').value
-  password = document.getElementById('password').value
-
-  // Validate input fields
-  if (validate_email(email) == false || validate_password(password) == false) {
-    alert('Email or Password is Outta Line!!')
-    return
-    // Don't continue running the code
-  }
-
-  auth.signInWithEmailAndPassword(email, password)
-  .then(function() {
-    // Declare user variable
-    var user = auth.currentUser
-
-    // Add this user to Firebase Database
-    
-
-    // Create User data
-    var user_data = {
-      last_login : Date.now()
-    }
-
-    // Push to Firebase Database
-    
-
-    // DOne
-   
-
-  })
-  .catch(function(error) {
-    // Firebase will use this to alert of its errors
-    var error_code = error.code
-    var error_message = error.message
-
-    alert(error_message)
-  })
-}
-
-
-
-
 // Validate Functions
 function validate_email(email) {
   expression = /^[^@]+@\w+(\.\w+)+\w$/
@@ -214,10 +124,6 @@ function validate_field(field) {
     return true
   }
 }
-
-
-
-
 
 
 
@@ -329,25 +235,26 @@ function create_account_validate() {
     
         // DOne
         
-      db.collection("User").doc("user").set({
-          UserEmail: email
-        
-      });
+        db.collection("User").doc("user").set({
+            UserEmail: email
+          
+        });
 
-      db.collection("User").doc("user").get().then((doc) => {
-        if (doc.exists) {
-            NAME =  doc.data().UserEmail //If the thing you're looking for 
+        db.collection("User").doc("user").get().then((doc) => {
+          if (doc.exists) {
+              NAME =  doc.data().UserEmail //If the thing you're looking for 
+              
+          } else {
+              // doc.data() will be undefined in this case
+              console.log("No such document!");
             
-        } else {
-            // doc.data() will be undefined in this case
-            console.log("No such document!");
-           
-        }
-      }).catch((error) => {
-        console.log("Error getting document:", error);
-      });
-    
-        location.href="Mainpage.html";
+          }
+        }).catch((error) => {
+          console.log("Error getting document:", error);
+        });
+        
+        document.getElementById("cre").style.display = 'none';
+        document.getElementById("cre2").style.display = 'block';
       })
       .catch(function(error) {
         // Firebase will use this to alert of its errors
@@ -364,13 +271,24 @@ function create_account_validate() {
   }
 }
 
+
+function sleep(milliseconds) {
+  const date = Date.now();
+  let currentDate = null;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < milliseconds);
+}
+
+
 function login_validate() {
 
-
+  var check = 0;
 
   email = document.getElementById('user').value
   password = document.getElementById('password').value
   NAME = email
+  
   // Validate input fields
   if (validate_email(email) == false || validate_password(password) == false) {
       $('#message').remove();
@@ -396,10 +314,13 @@ function login_validate() {
     
 
     // DOne
+    
     db.collection("User").doc("user").set({
       UserEmail: email
     
     });
+    
+    
     
     db.collection("User").doc("user").get().then((doc) => {
       if (doc.exists) {
@@ -413,20 +334,30 @@ function login_validate() {
     }).catch((error) => {
       console.log("Error getting document:", error);
     });
-    location.href="Mainpage.html";
-
+    //location.href="Mainpage.html";
+    document.getElementById("logg").style.display = 'none';
+    document.getElementById("log2").style.display = 'block';
+    
+    
+    
   })
   .catch(function(error) {
     // Firebase will use this to alert of its errors
     var error_code = error.code
     var error_message = error.message
+    
 
   
     $('#message').remove();
       document.querySelector('#b1').insertAdjacentHTML("afterbegin","<p id = 'message'>"+error_message+"</p>");
   })
-
-
+  
+    
+}
+function login(){
+  
+  location.href = '/Mainpage.html';
+    
 }
 
 function email_validate() {
