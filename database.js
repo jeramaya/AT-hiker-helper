@@ -14,10 +14,14 @@ const auth = firebase.auth()
 const db = firebase.firestore()
 
 var NAME;
+var tripNum = 1;
+
+
 
 db.collection("User").doc("user").get().then((doc) => {
   if (doc.exists) {
       NAME =  doc.data().UserEmail //If the thing you're looking for 
+      DownloadTrips();
       
   } else {
       // doc.data() will be undefined in this case
@@ -78,71 +82,9 @@ console.log(saved_trips);
 *
 */
 
-var trip_TH_1;
-
-//Get the Number or Trips
-var tripNum;
-  db.collection(NAME).doc("NumTrips").get().then((doc) => {
-    if (doc.exists) {
-      tripNum = doc.data().NextTripNum;
-      console.log("Number of trips + 1 =", tripNum);
-    }else {
-      // doc.data() will be undefined in this case
-      console.log("No such document!");
-     
-  }
-  }).catch((error) => {
-    console.log("Error getting document:", error);
-  });
-
-for(let i=1; i < tripNum; i++){
-  
-  db.collection(NAME).doc('trip'+i).get().then((doc) => {
-    if (doc.exists) {
-        if(doc.data()){
-          console.log("tripname", doc.data().TripName);
-          console.log(doc.data().NumberOfDays);
-          console.log(doc.data().distance);
-          console.log(doc.data().Days.Day1.DayName);
-          console.log(doc.data().Days.Day1.start);
-          console.log(doc.data().Days.Day1.end);
-  
-          trip_TH_1 = new Trip(doc.data().TripName, doc.data().NumberOfDays, [], doc.data().distance);
-          if(doc.data().Days.Day1){
-            const day = new Day(doc.data().Days.Day1.DayName, doc.data().Days.Day1.start, doc.data().Days.Day1.end);
-            trip_TH_1.Days.push(day);
-          }
-          if(doc.data().Days.Day2){
-            const day = new Day(doc.data().Days.Day2.DayName, doc.data().Days.Day2.start, doc.data().Days.Day2.end);
-            trip_TH_1.Days.push(day);
-          }
-          if(doc.data().Days.Day3){
-            const day = new Day(doc.data().Days.Day3.DayName, doc.data().Days.Day3.start, doc.data().Days.Day3.end);
-            trip_TH_1.Days.push(day);
-          }
-          if(doc.data().Days.Day4){
-            const day = new Day(doc.data().Days.Day4.DayName, doc.data().Days.Day4.start, doc.data().Days.Day4.end);
-            trip_TH_1.Days.push(day);
-          }
-          if(doc.data().Days.Day5){
-            const day = new Day(doc.data().Days.Day5.DayName, doc.data().Days.Day5.start, doc.data().Days.Day5.end);
-            trip_TH_1.Days.push(day);
-          }
-        }
-        
-
-        console.log("TripName: ", trip_TH_1.Name);
 
 
-    } else {
-        // doc.data() will be undefined in this case
-        console.log("No such document!");
-    }
-  }).catch((error) => {
-    console.log("Error getting document:", error);
-  });
 
-}
 
 
 
@@ -183,11 +125,107 @@ for(let i =0; i< 4; i++)
  */
 }
 
-function addTrip(tripObj){
-  var tripNum;
+
+function DownloadTrips(){
+  saved_trips.number_of_trips = 0;
+  saved_trips.Trips = [];
+  var trip_TH_1;
   db.collection(NAME).doc("NumTrips").get().then((doc) => {
     if (doc.exists) {
-      tripNum = doc.data().NumTrips.NextTripNum;
+      tripNum = doc.data().NextTripNum;
+      console.log("Number of trips + 1 =", tripNum);
+      for(let i=1; i < tripNum; i++){
+
+        db.collection(NAME).doc('trip'+i).get().then((doc) => {
+          if (doc.exists) {
+              if(doc.data()){
+                /*console.log("tripname", doc.data().TripName);
+                console.log(doc.data().NumberOfDays);
+                console.log(doc.data().distance);
+                console.log(doc.data().Days.Day1.DayName);
+                console.log(doc.data().Days.Day1.start);
+                console.log(doc.data().Days.Day1.end);
+                console.log(doc.data().waypoints);*/
+        
+                trip_TH_1 = new Trip(doc.data().TripName, doc.data().NumberOfDays, [], doc.data().distance, doc.data().waypoints);
+                if(doc.data().Days.Day1){
+                  const day = new Day(doc.data().Days.Day1.DayName, doc.data().Days.Day1.start, doc.data().Days.Day1.end);
+                  trip_TH_1.Days.push(day);
+                }
+                if(doc.data().Days.Day2){
+                  const day = new Day(doc.data().Days.Day2.DayName, doc.data().Days.Day2.start, doc.data().Days.Day2.end);
+                  trip_TH_1.Days.push(day);
+                }
+                if(doc.data().Days.Day3){
+                  const day = new Day(doc.data().Days.Day3.DayName, doc.data().Days.Day3.start, doc.data().Days.Day3.end);
+                  trip_TH_1.Days.push(day);
+                }
+                if(doc.data().Days.Day4){
+                  const day = new Day(doc.data().Days.Day4.DayName, doc.data().Days.Day4.start, doc.data().Days.Day4.end);
+                  trip_TH_1.Days.push(day);
+                }
+                if(doc.data().Days.Day5){
+                  const day = new Day(doc.data().Days.Day5.DayName, doc.data().Days.Day5.start, doc.data().Days.Day5.end);
+                  trip_TH_1.Days.push(day);
+                }
+              }
+              
+              //Add to saved trips object here
+              saved_trips.Trips.push(trip_TH_1);
+              saved_trips.number_of_trips++;
+              //console.log("TripName: ", trip_TH_1.Name);
+              //console.log("Trip--", trip_TH_1);
+              //console.log(saved_trips);
+      
+          } else {
+              // doc.data() will be undefined in this case
+              console.log("No such document!");
+          }
+        }).catch((error) => {
+          console.log("Error getting document:", error);
+        });
+      
+      }
+    }else {
+      // doc.data() will be undefined in this case
+      console.log("No such document!");
+      
+  }
+  }).catch((error) => {
+    console.log("Error getting document:", error);
+  });
+  
+}
+
+function test(){
+  const trip_TH = new Trip("TEST TRIP", 4, [], 15, [1, 2, 3, 4]);
+  const day = new Day("ThisDay", 0, 1);
+  trip_TH.Days.push(day);
+  const day2 = new Day("ThatDay", 1, 2);
+  trip_TH.Days.push(day2);
+  const day3 = new Day("ThatDay", 1, 2);
+  trip_TH.Days.push(day3);
+  const day4 = new Day("ThatDay", 1, 2);
+  trip_TH.Days.push(day4);
+
+  
+  UploadTrip(trip_TH);
+}
+
+function sleep(milliseconds) {
+  const date = Date.now();
+  let currentDate = null;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < milliseconds);
+}
+
+function UploadTrip(trip_TH_1){
+  db.collection(NAME).doc("NumTrips").get().then((doc) => {
+    if (doc.exists) {
+      tripNum = doc.data().NextTripNum;
+      console.log("tripnum:", tripNum);
+      addTrip(trip_TH_1);
     }else {
       // doc.data() will be undefined in this case
       console.log("No such document!");
@@ -196,25 +234,30 @@ function addTrip(tripObj){
   }).catch((error) => {
     console.log("Error getting document:", error);
   });
+}
 
+
+function addTrip(tripObj){
+  console.log("uploading trip");
   switch(tripObj.Number_of_days){
     case 1:
       db.collection(NAME).doc("trip"+tripNum).set({
         TripName: tripObj.Name,
         NumberOfDays:tripObj.Number_of_days,
         distance: tripObj.Total_Distance,
+        waypoints: tripObj.Waypoints,
         Days: {
           Day1:{
-            DayName:"",
-            start:"",
-            end:""
+            DayName:tripObj.Days[0].Name,
+            start:tripObj.Days[0].Starting_Location,
+            end:tripObj.Days[0].Ending_Location
           }
         }
       
       }).then(() => {
       console.log("Document successfully written!");
       db.collection(NAME).doc("NumTrips").set({
-        NextTripNum: tripNum + 1
+        NextTripNum: (tripNum + 1)
       });
       })
       .catch((error) => {
@@ -225,19 +268,20 @@ function addTrip(tripObj){
 
     case 2:
       db.collection(NAME).doc("trip"+tripNum).set({
-        TripName:"",
-        NumberOfDays:5,
-        distance: 12,
+        TripName:tripObj.Name,
+        NumberOfDays:tripObj.Number_of_days,
+        distance: tripObj.Total_Distance,
+        waypoints: tripObj.Waypoints,
         Days: {
           Day1:{
-            DayName:"",
-            start:"",
-            end:""
+            DayName:tripObj.Days[0].Name,
+            start:tripObj.Days[0].Starting_Location,
+            end:tripObj.Days[0].Ending_Location
           },
           Day2:{
-            DayName:"",
-            start:"",
-            end:""
+            DayName:tripObj.Days[1].Name,
+            start:tripObj.Days[1].Starting_Location,
+            end:tripObj.Days[1].Ending_Location
           }
         }
         
@@ -245,7 +289,7 @@ function addTrip(tripObj){
       }).then(() => {
       console.log("Document successfully written!");
       db.collection(NAME).doc("NumTrips").set({
-        NextTripNum: tripNum + 1
+        NextTripNum: (tripNum + 1)
       });
       })
       .catch((error) => {
@@ -258,24 +302,25 @@ function addTrip(tripObj){
 
     case 3:
       db.collection(NAME).doc("trip"+tripNum).set({
-        TripName:"",
-        NumberOfDays:5,
-        distance: 12,
+        TripName:tripObj.Name,
+        NumberOfDays:tripObj.Number_of_days,
+        distance: tripObj.Total_Distance,
+        waypoints: tripObj.Waypoints,
         Days: {
           Day1:{
-            DayName:"",
-            start:"",
-            end:""
+            DayName:tripObj.Days[0].Name,
+            start:tripObj.Days[0].Starting_Location,
+            end:tripObj.Days[0].Ending_Location
           },
           Day2:{
-            DayName:"",
-            start:"",
-            end:""
+            DayName:tripObj.Days[1].Name,
+            start:tripObj.Days[1].Starting_Location,
+            end:tripObj.Days[1].Ending_Location
           },
           Day3:{
-            DayName:"",
-            start:"",
-            end:""
+            DayName:tripObj.Days[2].Name,
+            start:tripObj.Days[2].Starting_Location,
+            end:tripObj.Days[2].Ending_Location
           },
         }
         
@@ -295,29 +340,30 @@ function addTrip(tripObj){
 
     case 4:
       db.collection(NAME).doc("trip"+tripNum).set({
-        TripName:"",
-        NumberOfDays:5,
-        distance: 12,
+        TripName:tripObj.Name,
+        NumberOfDays:tripObj.Number_of_days,
+        distance: tripObj.Total_Distance,
+        waypoints: tripObj.Waypoints,
         Days: {
           Day1:{
-            DayName:"",
-            start:"",
-            end:""
+            DayName:tripObj.Days[0].Name,
+            start:tripObj.Days[0].Starting_Location,
+            end:tripObj.Days[0].Ending_Location
           },
           Day2:{
-            DayName:"",
-            start:"",
-            end:""
+            DayName:tripObj.Days[1].Name,
+            start:tripObj.Days[1].Starting_Location,
+            end:tripObj.Days[1].Ending_Location
           },
           Day3:{
-            DayName:"",
-            start:"",
-            end:""
+            DayName:tripObj.Days[2].Name,
+            start:tripObj.Days[2].Starting_Location,
+            end:tripObj.Days[2].Ending_Location
           },
           Day4:{
-            DayName:"",
-            start:"",
-            end:""
+            DayName:tripObj.Days[3].Name,
+            start:tripObj.Days[3].Starting_Location,
+            end:tripObj.Days[3].Ending_Location
           }
         }
         
@@ -338,34 +384,35 @@ function addTrip(tripObj){
 
     case 5:
       db.collection(NAME).doc("trip"+tripNum).set({
-        TripName:"",
-        NumberOfDays:5,
-        distance: 12,
+        TripName:tripObj.Name,
+        NumberOfDays:tripObj.Number_of_days,
+        distance: tripObj.Total_Distance,
+        waypoints: tripObj.Waypoints,
         Days: {
           Day1:{
-            DayName:"",
-            start:"",
-            end:""
+            DayName:tripObj.Days[0].Name,
+            start:tripObj.Days[0].Starting_Location,
+            end:tripObj.Days[0].Ending_Location
           },
           Day2:{
-            DayName:"",
-            start:"",
-            end:""
+            DayName:tripObj.Days[1].Name,
+            start:tripObj.Days[1].Starting_Location,
+            end:tripObj.Days[1].Ending_Location
           },
           Day3:{
-            DayName:"",
-            start:"",
-            end:""
+            DayName:tripObj.Days[2].Name,
+            start:tripObj.Days[2].Starting_Location,
+            end:tripObj.Days[2].Ending_Location
           },
           Day4:{
-            DayName:"",
-            start:"",
-            end:""
+            DayName:tripObj.Days[3].Name,
+            start:tripObj.Days[3].Starting_Location,
+            end:tripObj.Days[3].Ending_Location
           },
           Day5:{
-            DayName:"",
-            start:"",
-            end:""
+            DayName:tripObj.Days[4].Name,
+            start:tripObj.Days[4].Starting_Location,
+            end:tripObj.Days[4].Ending_Location
           }
         }
         
@@ -380,6 +427,9 @@ function addTrip(tripObj){
       console.error("Error writing document: ", error);
       });
       break;
+
+    default:
+      console.log("Not Valid number of Days:", tripObj.Number_of_days )
 
   }
   
@@ -396,5 +446,77 @@ function logout(){
     alert("no" + error);
   });
   location.href = '/index.html'
+
+}
+
+
+
+
+function getall(){
+  var alltrips = "";
+  db.collection(NAME).doc("NumTrips").get().then((doc) => {
+    if (doc.exists) {
+      tripNum = doc.data().NextTripNum;
+      console.log("Number of trips + 1 =", tripNum);
+      for(let i=1; i < tripNum; i++){
+
+        db.collection(NAME).doc('trip'+i).get().then((doc) => {
+          if (doc.exists) {
+              if(doc.data()){
+                /*console.log("tripname", doc.data().TripName);
+                console.log(doc.data().NumberOfDays);
+                console.log(doc.data().distance);
+                console.log(doc.data().Days.Day1.DayName);
+                console.log(doc.data().Days.Day1.start);
+                console.log(doc.data().Days.Day1.end);
+                console.log(doc.data().waypoints);*/
+        
+                alltrips = alltrips + "\nTrip Name: " + doc.data().TripName+ "\nNumber of Days of the trip: " +doc.data().NumberOfDays+"\nTotal Distance of the trip: "+doc.data().distance;
+                if(doc.data().Days.Day1){
+                  alltrips = alltrips + "\n      Day 1\n            Name: "+ doc.data().Days.Day1.DayName+ "\n            Starting Camp:"+ shelters[doc.data().Days.Day1.start].name + "\n            Ending Camp:"+ shelters[doc.data().Days.Day1.end].name+"\n\n\n";
+                }
+                if(doc.data().Days.Day2){
+                  alltrips = alltrips + "\n      Day 2\n            Name: "+ doc.data().Days.Day2.DayName+ "\n            Starting Camp:"+ shelters[doc.data().Days.Day2.start].name + "\n            Ending Camp:"+ shelters[doc.data().Days.Day2.end].name+"\n\n\n";
+                }
+                if(doc.data().Days.Day3){
+                  alltrips = alltrips + "\n      Day 3\n            Name: "+ doc.data().Days.Day3.DayName+ "\n            Starting Camp:"+ shelters[doc.data().Days.Day3.start].name + "\n            Ending Camp:"+ shelters[doc.data().Days.Day3.end].name+"\n\n\n";
+                }
+                if(doc.data().Days.Day4){
+                  alltrips = alltrips + "\n      Day 4\n            Name: "+ doc.data().Days.Day4.DayName+ "\n            Starting Camp:"+ shelters[doc.data().Days.Day4.start].name + "\n            Ending Camp:"+ shelters[doc.data().Days.Day4.end].name+"\n\n\n";
+                }
+                if(doc.data().Days.Day5){
+                  alltrips = alltrips + "\n      Day 5\n            Name: "+ doc.data().Days.Day5.DayName+ "\n            Starting Camp:"+ shelters[doc.data().Days.Day5.start].name + "\n            Ending Camp:"+ shelters[doc.data().Days.Day5.end].name+"\n\n\n";
+                }
+              }
+              Email.send({
+                Host : "smtp.elasticemail.com",
+                Username : "athikinghelper@gmail.com",
+                Password : "C40C89BD8AE1AD3E37FCA1DC8CCA41ECEB5E",
+                To : NAME,
+                From : "athikinghelper@gmail.com",
+                Subject : "Your Saved Trips",
+                Body : alltrips
+              }).then(
+              
+              );
+              console.log(alltrips);
+          } else {
+              // doc.data() will be undefined in this case
+              console.log("No such document!");
+          }
+        }).catch((error) => {
+          console.log("Error getting document:", error);
+        });
+        
+      }
+    }else {
+      // doc.data() will be undefined in this case
+      console.log("No such document!");
+      
+  }
+  }).catch((error) => {
+    console.log("Error getting document:", error);
+  });
+
 
 }

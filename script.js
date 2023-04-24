@@ -240,6 +240,10 @@ function create_account_validate() {
           
         });
 
+        db.collection(email).doc("NumTrips").set({
+          NextTripNum: 1
+        });
+
         db.collection("User").doc("user").get().then((doc) => {
           if (doc.exists) {
               NAME =  doc.data().UserEmail //If the thing you're looking for 

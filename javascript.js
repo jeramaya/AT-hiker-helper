@@ -1,6 +1,12 @@
 
 let markersArray = [];
 
+let counter = 1;
+const max_days = 4;
+
+
+
+
 let shelters = [
     {name: "The Hemlocks",      latitude: 42.10968, longitude: -73.42865},	
     {name: "Glen Brook",        latitude: 42.11102, longitude: -73.42725},	
@@ -41,15 +47,14 @@ class Day {
         this.Ending_Location = endingLocation;
     }
 }
-//Class for each Trip
+//Class for each Trip hello
 class Trip {
-    constructor(name, numberOfDays, days, total_distance, startingLocation, endingLocation, waypoints) {
+    constructor(name, numberOfDays, days, total_distance, waypoints) {
         this.Name = name;
         this.Number_of_days = numberOfDays;
         this.Days = days;
         this.Total_Distance = total_distance;
-        this.Starting_Location = startingLocation;
-        this.Ending_Location = endingLocation;
+        
         this.Waypoints = waypoints;
     }
 }
@@ -60,18 +65,41 @@ class Saved_Trips {
         this.Trips = trips;
     }
 }
-const saved_trips = new Saved_Trips(0, []);
+//class for all hazards
+
+var saved_trips = new Saved_Trips(0, []);
 
 let hazard_report = [0,0,0,0,0,0,0,0,0,0]
+let zeroCmt;
+let zeroHaz;
+let oneCmt;
+let oneHaz;
+let twoCmt;
+let twoHaz;
+let threeHaz;
+let threeCmt;
+let fourHaz;
+let fourCmt;
+let fiveHaz;
+let fiveCmt;
+let sixHaz;
+let sixCmt;
+let sevenHaz;
+let sevenCmt;
+let nineHaz;
+let nineCmt;
 
+            
 
-let marker_hazard_list = []
-let infowindow_hazard_list = []
+let maker_hazard_index = 0;
+let marker_hazard_list = new Array(100);
+let infowindow_hazard_list  = new Array(100);
 
 
 var map;
 
 function initMap() {
+    
     const uluru = {
         lat: 42.112591,
         lng: -73.484285
@@ -197,134 +225,90 @@ var map = new google.maps.Map(document.getElementById('map'), {
             });
 
 
-
-            google.maps.event.addListener(marker1_camp, 'click', function() {
-                var infowindow_marker1_camp = new google.maps.InfoWindow({
-                    content:'<div>' +
-                    '<h1>Appalachian National Scenic Trail</h1>' +
-                    '<img src="/images/marker1_camp.jpg" alt="marker1_camp"></img>'+
-                    '<p>Address: Appalachian National Scenic Trail, Mt Washington, MA 01258</p>'+
-                    '<p>This campsite is 5.7 miles away from your current location.</p>'+
-                    '</div>'
-                    });
-                infowindow_marker1_camp.open(map,marker1_camp);
+            const infowindow_marker1_camp = new google.maps.InfoWindow({
+                content:'<div>' +
+                '<h1>Appalachian National Scenic Trail</h1>' +
+                '<img src="/images/marker1_camp.jpg" alt="marker1_camp"></img>'+
+                '<p>Address: Appalachian National Scenic Trail, Mt Washington, MA 01258</p>'+
+                '</div>'
             });
-
-            google.maps.event.addListener(marker2_camp, 'click', function() {
-                var infowindow_marker2_camp = new google.maps.InfoWindow({
-                    content:'<div>' +
-                    '<h1>Appalachian Trail and Guilder Hollow Rd.</h1>'+
-                    '<img src="/images/marker2_camp.jpg" alt="marker2_camp"></img>'+
-                    '<p>Address: 256 Guilder Hollow Rd, Egremont, MA 01230</p>'+
-                    '<p>Some inforamtion about this campsite would be listed here.</p>'+
-                    '<p>This campsite is 5.7 miles away from your current location.</p>'+
-                    '</div>'
-                    });
-                infowindow_marker2_camp.open(map,marker2_camp);
+            const infowindow_marker2_camp = new google.maps.InfoWindow({
+                content:'<div>' +
+                '<h1>Appalachian Trail and Guilder Hollow Rd.</h1>'+
+                '<img src="/images/marker2_camp.jpg" alt="marker2_camp"></img>'+
+                '<p>Address: 256 Guilder Hollow Rd, Egremont, MA 01230</p>'+
+                '<p>Some inforamtion about this campsite would be listed here.</p>'+
+                '</div>'
             });
-
-            google.maps.event.addListener(marker3_camp, 'click', function() {
-                var infowindow_marker3_camp = new google.maps.InfoWindow({
-                    content:'<div>' +
-                    '<h1>Appalachian Trail</h1>'+
-                    '<img src="/images/marker3_camp.jpg" alt="marker3_camp"></img>'+
-                    '<p>Address: Appalachian National Scenic Trail, Great Barrington, MA 01230</p>'+
-                    '<p>This campsite is 5.7 miles away from your current location.</p>'+
-                    '</div>'
-                    });
-                infowindow_marker3_camp.open(map,marker3_camp);
+            const infowindow_marker3_camp = new google.maps.InfoWindow({
+                content:'<div>' +
+                '<h1>Appalachian Trail</h1>'+
+                '<img src="/images/marker3_camp.jpg" alt="marker3_camp"></img>'+
+                '<p>Address: Appalachian National Scenic Trail, Great Barrington, MA 01230</p>'+
+                '</div>'
             });
-
-            google.maps.event.addListener(marker4_camp, 'click', function() {
-                var infowindow_marker4_camp = new google.maps.InfoWindow({
-                    content:'<div>' +
-                    '<h1>Appalachian Trail</h1>'+
-                    '<img src="/images/marker4_camp.jpg" alt="marker4_camp"></img>'+
-                    '<p>Address: Appalachian National Scenic Trail, Monterey, MA 01245</p>'+
-                    '<p>This campsite is 5.7 miles away from your current location.</p>'+
-                    '</div>'
-                    });
-                infowindow_marker4_camp.open(map,marker4_camp);
+            const infowindow_marker4_camp = new google.maps.InfoWindow({
+                content:'<div>' +
+                '<h1>Appalachian Trail</h1>'+
+                '<img src="/images/marker4_camp.jpg" alt="marker4_camp"></img>'+
+                '<p>Address: Appalachian National Scenic Trail, Monterey, MA 01245</p>'+
+                '</div>'
             });
-
-            google.maps.event.addListener(marker5_camp, 'click', function() {
-                var infowindow_marker5_camp = new google.maps.InfoWindow({
-                    content:'<div>' +
-                    '<h1>Appalachian Trail</h1>'+
-                    '<img src="/images/marker5_camp.jpg" alt="marker5_camp"></img>'+
-                    '<p>Address: Appalachian Trail, Monterey, MA 01245</p>'+
-                    '<p>This campsite is 5.7 miles away from your current location.</p>'+
-                    '</div>'
-                    });
-                infowindow_marker5_camp.open(map,marker5_camp);
+            const infowindow_marker5_camp = new google.maps.InfoWindow({
+                content:'<div>' +
+                '<h1>Appalachian Trail</h1>'+
+                '<img src="/images/marker5_camp.jpg" alt="marker5_camp"></img>'+
+                '<p>Address: Appalachian Trail, Monterey, MA 01245</p>'+
+                '</div>'
             });
-
-            google.maps.event.addListener(marker6_camp, 'click', function() {
-                var infowindow_marker6_camp = new google.maps.InfoWindow({
-                    content:'<div>' +
-                    '<h1>Appalachian Trail - Goose Pond Road</h1>'+
-                    '<img src="/images/marker6_camp.jpg" alt="marker6_camp"></img>'+
-                    '<p>Address: Appalachian National Scenic Trail, Lee, MA 01238</p>'+
-                    '<p>This campsite is 5.7 miles away from your current location.</p>'+
-                    '</div>'
-                    });
-                infowindow_marker6_camp.open(map,marker6_camp);
+            const infowindow_marker6_camp = new google.maps.InfoWindow({
+                content:'<div>' +
+                '<h1>Appalachian Trail - Goose Pond Road</h1>'+
+                '<img src="/images/marker6_camp.jpg" alt="marker6_camp"></img>'+
+                '<p>Address: Appalachian National Scenic Trail, Lee, MA 01238</p>'+
+                '</div>'
             });
-
-            google.maps.event.addListener(marker7_camp, 'click', function() {
-                var infowindow_marker7_camp = new google.maps.InfoWindow({
-                    content:'<div>' +
-                    '<h1>Appalachian Trail</h1>'+
-                    '<img src="/images/marker7_camp.jpg" alt="marker7_camp"></img>'+
-                    '<p>Address: Washington, MA 01223</p>'+
-                    '<p>Some inforamtion about this campsite would be listed here.</p>'+
-                    '<p>This campsite is 5.7 miles away from your current location.</p>'+
-                    '</div>'
-                    });
-                infowindow_marker7_camp.open(map,marker7_camp);
+            const infowindow_marker7_camp = new google.maps.InfoWindow({
+                content:'<div>' +
+                '<h1>Appalachian Trail</h1>'+
+                '<img src="/images/marker7_camp.jpg" alt="marker7_camp"></img>'+
+                '<p>Address: Washington, MA 01223</p>'+
+                '<p>Some inforamtion about this campsite would be listed here.</p>'+
+                '</div>'
             });
-
-            google.maps.event.addListener(marker8_camp, 'click', function() {
-                var infowindow_marker8_camp = new google.maps.InfoWindow({
-                    content:'<div>' +
-                    '<h1>Appalachian Trail Parking (Gulf Road)</h1>'+
-                    '<img src="/images/marker8_camp.jpg" alt="marker8_camp"></img>'+
-                    '<p>Address: 71 Gulf Rd, Dalton, MA 01226</p>'+
-                    '<p>This campsite is 5.7 miles away from your current location.</p>'+
-                    '</div>'
-                    });
-                infowindow_marker8_camp.open(map,marker8_camp);
+            const infowindow_marker8_camp = new google.maps.InfoWindow({
+                content:'<div>' +
+                '<h1>Appalachian Trail Parking (Gulf Road)</h1>'+
+                '<img src="/images/marker8_camp.jpg" alt="marker8_camp"></img>'+
+                '<p>Address: 71 Gulf Rd, Dalton, MA 01226</p>'+
+                '</div>'
             });
-
-            google.maps.event.addListener(marker9_camp, 'click', function() {
-                var infowindow_marker9_camp = new google.maps.InfoWindow({
-                    content:'<div>' +
-                    '<h1>Appalachian Trailhead</h1>'+
-                    '<img src="/images/marker9_camp.jpg" alt="marker9_camp"></img>'+
-                    '<p>Address: 149-99 Furnace Hill, Cheshire, MA 01225</p>'+
-                    '<p>Some inforamtion about this campsite would be listed here.</p>'+
-                    '<p>This campsite is 5.7 miles away from your current location.</p>'+
-                    '</div>'
-                    });
-                infowindow_marker9_camp.open(map,marker9_camp);
+            const infowindow_marker9_camp = new google.maps.InfoWindow({
+                content:'<div>' +
+                '<h1>Appalachian Trailhead</h1>'+
+                '<img src="/images/marker9_camp.jpg" alt="marker9_camp"></img>'+
+                '<p>Address: 149-99 Furnace Hill, Cheshire, MA 01225</p>'+
+                '<p>Some inforamtion about this campsite would be listed here.</p>'+
+                '</div>'
             });
-
-            google.maps.event.addListener(marker10_camp, 'click', function() {
-                var infowindow_marker10_camp = new google.maps.InfoWindow({
-                    content:'<div>' +
-                    '<h1>Wilbur Clearing Lean-To, Appalachian Trail</h1>'+
-                    '<img src="/images/marker10_camp.jpg" alt="marker10_camp"></img>'+
-                    '<p>Address: Williamstown, MA 01267</p>'+
-                    '<p>Some inforamtion about this campsite would be listed here.</p>'+
-                    '<p>This campsite is 5.7 miles away from your current location.</p>'+
-                    '</div>'
-                    });
-                infowindow_marker10_camp.open(map,marker10_camp);
+            const infowindow_marker10_camp = new google.maps.InfoWindow({
+                content:'<div>' +
+                '<h1>Wilbur Clearing Lean-To, Appalachian Trail</h1>'+
+                '<img src="/images/marker10_camp.jpg" alt="marker10_camp"></img>'+
+                '<p>Address: Williamstown, MA 01267</p>'+
+                '<p>Some inforamtion about this campsite would be listed here.</p>'+
+                '</div>'
             });
-
-
-
-
+            google.maps.event.addListener(marker1_camp, 'click', function() { infowindow_marker1_camp.open(map,marker1_camp); });
+            google.maps.event.addListener(marker2_camp, 'click', function() { infowindow_marker2_camp.open(map,marker2_camp); });
+            google.maps.event.addListener(marker3_camp, 'click', function() { infowindow_marker3_camp.open(map,marker3_camp); });
+            google.maps.event.addListener(marker4_camp, 'click', function() { infowindow_marker4_camp.open(map,marker4_camp); });
+            google.maps.event.addListener(marker5_camp, 'click', function() { infowindow_marker5_camp.open(map,marker5_camp); });
+            google.maps.event.addListener(marker6_camp, 'click', function() { infowindow_marker6_camp.open(map,marker6_camp); });
+            google.maps.event.addListener(marker7_camp, 'click', function() { infowindow_marker7_camp.open(map,marker7_camp); });
+            google.maps.event.addListener(marker8_camp, 'click', function() { infowindow_marker8_camp.open(map,marker8_camp); });
+            google.maps.event.addListener(marker9_camp, 'click', function() { infowindow_marker9_camp.open(map,marker9_camp); });
+            google.maps.event.addListener(marker10_camp, 'click', function() {infowindow_marker10_camp.open(map,marker10_camp); });
 
             
         } else {
@@ -332,13 +316,13 @@ var map = new google.maps.Map(document.getElementById('map'), {
             marker1_camp.setMap(null);
             marker2_camp.setMap(null);
             marker3_camp.setMap(null);
-              marker4_camp.setMap(null);
-              marker5_camp.setMap(null);
-              marker6_camp.setMap(null);
-              marker7_camp.setMap(null);
-              marker8_camp.setMap(null);
-              marker9_camp.setMap(null);
-              marker10_camp.setMap(null);
+            marker4_camp.setMap(null);
+            marker5_camp.setMap(null);
+            marker6_camp.setMap(null);
+            marker7_camp.setMap(null);
+            marker8_camp.setMap(null);
+            marker9_camp.setMap(null);
+            marker10_camp.setMap(null);
         }
             });
         
@@ -509,234 +493,153 @@ var map = new google.maps.Map(document.getElementById('map'), {
                           icon: '/images/parking_spots.png',
                
                     });
-
-                    google.maps.event.addListener(marker1_parking, 'click', function() {
-                        var infowindow_marker1_parking = new google.maps.InfoWindow({
-                            content:'<div>' +
-                            '<h1>Appalachian Trail Parking</h1>' +
-                            '<img src="images/marker1_parking.jpg" alt="marker1_parking"></img>'+
-                            '<p>Address: CT-41, Salisbury, CT 06068</p>'+
-                            '<p>This campsite is 5.7 miles away from your current location.</p>'+
-                            '</div>'
-                            });
-                        infowindow_marker1_parking.open(map,marker1_parking);
+                    const infowindow_marker1_parking = new google.maps.InfoWindow({
+                        content:'<div>' +
+                        '<h1>Appalachian Trail Parking</h1>' +
+                        '<img src="images/marker1_parking.jpg" alt="marker1_parking"></img>'+
+                        '<p>Address: CT-41, Salisbury, CT 06068</p>'+
+                        '</div>'
                     });
-                    
-                    google.maps.event.addListener(marker2_parking, 'click', function() {
-                        var infowindow_marker2_parking = new google.maps.InfoWindow({
-                            content:'<div>' +
-                            '<h1>Race Brook Falls Trailhead & Parking</h1>' +
-                            '<img src="/images/marker2_parking.jpg" alt="marker2_parking"></img>'+
-                            '<p>Address: 716-732 S Undermountain Rd, Sheffield, MA 01257</p>'+
-                            '<p>This campsite is 5.7 miles away from your current location.</p>'+
-                            '</div>'
-                            });
-                        infowindow_marker2_parking.open(map,marker2_parking);
+                    const infowindow_marker2_parking = new google.maps.InfoWindow({
+                        content:'<div>' +
+                        '<h1>Race Brook Falls Trailhead & Parking</h1>' +
+                        '<img src="/images/marker2_parking.jpg" alt="marker2_parking"></img>'+
+                        '<p>Address: 716-732 S Undermountain Rd, Sheffield, MA 01257</p>'+
+                        '</div>'
                     });
-
-                    google.maps.event.addListener(marker3_parking, 'click', function() {
-                        var infowindow_marker3_parking = new google.maps.InfoWindow({
-                            content:'<div>' +
-                            '<h1>Guilder Pond Parking Area</h1>' +
-                            '<img src="/images/marker3_parking.jpg" alt="marker3_parking"></img>'+
-                            '<p>Address: Mt Washington, MA 01258</p>'+
-                            '<p>This campsite is 5.7 miles away from your current location.</p>'+
-                            '</div>'
-                            });
-                        infowindow_marker3_parking.open(map,marker3_parking);
+                    const infowindow_marker3_parking = new google.maps.InfoWindow({
+                        content:'<div>' +
+                        '<h1>Guilder Pond Parking Area</h1>' +
+                        '<img src="/images/marker3_parking.jpg" alt="marker3_parking"></img>'+
+                        '<p>Address: Mt Washington, MA 01258</p>'+                      
+                        '</div>'
                     });
-                    
-                    google.maps.event.addListener(marker4_parking, 'click', function() {
-                        var infowindow_marker4_parking = new google.maps.InfoWindow({
-                            content:'<div>' +
-                            '<h1>Appalachian Trail Parking</h1>' +
-                            '<img src="/images/marker4_parking.jpg" alt="marker4_parking"></img>'+
-                            '<p>Address: 102-110 Lake Buel Rd, Great Barrington, MA 01230</p>'+
-                            '<p>This campsite is 5.7 miles away from your current location.</p>'+
-                            '</div>'
-                            });
-                        infowindow_marker4_parking.open(map,marker4_parking);
+                    const infowindow_marker4_parking = new google.maps.InfoWindow({
+                        content:'<div>' +
+                        '<h1>Appalachian Trail Parking</h1>' +
+                        '<img src="/images/marker4_parking.jpg" alt="marker4_parking"></img>'+
+                        '<p>Address: 102-110 Lake Buel Rd, Great Barrington, MA 01230</p>'+                       
+                        '</div>'
                     });
-
-                    google.maps.event.addListener(marker5_parking, 'click', function() {
-                        var infowindow_marker5_parking = new google.maps.InfoWindow({
-                            content:'<div>' +
-                            '<h1>AT Parking at Massachusetts 183</h1>' +
-                            '<img src="/images/marker5_parking.jpg" alt="marker5_parking"></img>'+
-                            '<p>Address: Appalachian National Scenic Trail, Monterey, MA 01245</p>'+
-                            '<p>This campsite is 5.7 miles away from your current location.</p>'+
-                            '</div>'
-                            });
-                        infowindow_marker5_parking.open(map,marker5_parking);
+                    const infowindow_marker5_parking = new google.maps.InfoWindow({
+                        content:'<div>' +
+                        '<h1>AT Parking at Massachusetts 183</h1>' +
+                        '<img src="/images/marker5_parking.jpg" alt="marker5_parking"></img>'+
+                        '<p>Address: Appalachian National Scenic Trail, Monterey, MA 01245</p>'+                       
+                        '</div>'
                     });
-                    
-                    google.maps.event.addListener(marker6_parking, 'click', function() {
-                        var infowindow_marker6_parking = new google.maps.InfoWindow({
-                            content:'<div>' +
-                            '<h1>Appalachian Trail</h1>' +
-                            '<img src="/images/marker6_parking.jpg" alt="marker6_parking"></img>'+
-                            '<p>Address: Appalachian National Scenic Trail, Tyringham, MA 01264</p>'+
-                            '<p>This campsite is 5.7 miles away from your current location.</p>'+
-                            '</div>'
-                            });
-                        infowindow_marker6_parking.open(map,marker6_parking);
+                    const infowindow_marker6_parking = new google.maps.InfoWindow({
+                        content:'<div>' +
+                        '<h1>Appalachian Trail</h1>' +
+                        '<img src="/images/marker6_parking.jpg" alt="marker6_parking"></img>'+
+                        '<p>Address: Appalachian National Scenic Trail, Tyringham, MA 01264</p>'+                      
+                        '</div>'
                     });
-
-                    google.maps.event.addListener(marker7_parking, 'click', function() {
-                        var infowindow_marker7_parking = new google.maps.InfoWindow({
-                            content:'<div>' +
-                            '<h1>Appalachian Trail - Goose Pond Road</h1>' +
-                            '<img src="/images/marker7_parking.jpg" alt="marker7_parking"></img>'+
-                            '<p>Address: Appalachian National Scenic Trail, Lee, MA 01238</p>'+
-                            '<p>This campsite is 5.7 miles away from your current location.</p>'+
-                            '</div>'
-                            });
-                        infowindow_marker7_parking.open(map,marker7_parking);
+                    const infowindow_marker7_parking = new google.maps.InfoWindow({
+                        content:'<div>' +
+                        '<h1>Appalachian Trail - Goose Pond Road</h1>' +
+                        '<img src="/images/marker7_parking.jpg" alt="marker7_parking"></img>'+
+                        '<p>Address: Appalachian National Scenic Trail, Lee, MA 01238</p>'+                        
+                        '</div>'
                     });
-
-                    google.maps.event.addListener(marker8_parking, 'click', function() {
-                        var infowindow_marker8_parking = new google.maps.InfoWindow({
-                            content:'<div>' +
-                            '<h1>Jacob\'s Ladder Scenic Byway and Appalachian Trail Parking Area</h1>' +
-                            '<img src="/images/marker8_parking.jpg" alt="marker8_parking"></img>'+
-                            '<p>Address: Lee, MA 01238</p>'+
-                            '<p>This campsite is 5.7 miles away from your current location.</p>'+
-                            '</div>'
-                            });
-                        infowindow_marker8_parking.open(map,marker8_parking);
+                    const infowindow_marker8_parking = new google.maps.InfoWindow({
+                        content:'<div>' +
+                        '<h1>Jacob\'s Ladder Scenic Byway and Appalachian Trail Parking Area</h1>' +
+                        '<img src="/images/marker8_parking.jpg" alt="marker8_parking"></img>'+
+                        '<p>Address: Lee, MA 01238</p>'+                      
+                        '</div>'
                     });
-
-                    google.maps.event.addListener(marker9_parking, 'click', function() {
-                        var infowindow_marker9_parking = new google.maps.InfoWindow({
-                            content:'<div>' +
-                            '<h1>Appalachian Trail Parking</h1>' +
-                            '<img src="/images/marker9_parking.jpg" alt="marker9_parking"></img>'+
-                            '<p>Address: Washington, MA 01223</p>'+
-                            '<p>This campsite is 5.7 miles away from your current location.</p>'+
-                            '</div>'
-                            });
-                        infowindow_marker9_parking.open(map,marker9_parking);
+                    const infowindow_marker9_parking = new google.maps.InfoWindow({
+                        content:'<div>' +
+                        '<h1>Appalachian Trail Parking</h1>' +
+                        '<img src="/images/marker9_parking.jpg" alt="marker9_parking"></img>'+
+                        '<p>Address: Washington, MA 01223</p>'+
+                        '</div>'
                     });
-
-                    google.maps.event.addListener(marker10_parking, 'click', function() {
-                        var infowindow_marker10_parking = new google.maps.InfoWindow({
-                            content:'<div>' +
-                            '<h1>Appalachian Trail Parking</h1>' +
-                            '<img src="/images/marker10_parking.jpg" alt="marker10_parking"></img>'+
-                            '<p>Address: Washington, MA 01223</p>'+
-                            '<p>This campsite is 5.7 miles away from your current location.</p>'+
-                            '</div>'
-                            });
-                        infowindow_marker10_parking.open(map,marker10_parking);
+                    const infowindow_marker10_parking = new google.maps.InfoWindow({
+                        content:'<div>' +
+                        '<h1>Appalachian Trail Parking</h1>' +
+                        '<img src="/images/marker10_parking.jpg" alt="marker10_parking"></img>'+
+                        '<p>Address: Washington, MA 01223</p>'+
+                        '</div>'
                     });
-
-                    google.maps.event.addListener(marker11_parking, 'click', function() {
-                        var infowindow_marker11_parking = new google.maps.InfoWindow({
-                            content:'<div>' +
-                            '<h1>Appalachian Trail Parking (Gulf Road)</h1>' +
-                            '<img src="/images/marker11_parking.jpg" alt="marker11_parking"></img>'+
-                            '<p>Address: Washington, MA 01223</p>'+
-                            '<p>This campsite is 5.7 miles away from your current location.</p>'+
-                            '</div>'
-                            });
-                        infowindow_marker11_parking.open(map,marker11_parking);
+                    const infowindow_marker11_parking = new google.maps.InfoWindow({
+                        content:'<div>' +
+                        '<h1>Appalachian Trail Parking (Gulf Road)</h1>' +
+                        '<img src="/images/marker11_parking.jpg" alt="marker11_parking"></img>'+
+                        '<p>Address: Washington, MA 01223</p>'+
+                        '</div>'
                     });
-
-                    google.maps.event.addListener(marker12_parking, 'click', function() {
-                        var infowindow_marker12_parking = new google.maps.InfoWindow({
-                            content:'<div>' +
-                            '<h1>Ashuwillticook Rail Trail parking area</h1>' +
-                            '<img src="/images/marker12_parking.jpg" alt="marker12_parking"></img>'+
-                            '<p>Address: Railroad St, Cheshire, MA 01225</p>'+
-                            '<p>This campsite is 5.7 miles away from your current location.</p>'+
-                            '</div>'
-                            });
-                        infowindow_marker12_parking.open(map,marker12_parking);
+                    const infowindow_marker12_parking = new google.maps.InfoWindow({
+                        content:'<div>' +
+                        '<h1>Ashuwillticook Rail Trail parking area</h1>' +
+                        '<img src="/images/marker12_parking.jpg" alt="marker12_parking"></img>'+
+                        '<p>Address: Railroad St, Cheshire, MA 01225</p>'+
+                        '</div>'
                     });
-
-                    google.maps.event.addListener(marker13_parking, 'click', function() {
-                        var infowindow_marker13_parking = new google.maps.InfoWindow({
-                            content:'<div>' +
-                            '<h1>Jones Nose Trailhead</h1>' +
-                            '<img src="/images/marker13_parking.jpg" alt="marker13_parking"></img>'+
-                            '<p>Address: Rockwell Rd, New Ashford, MA 01237</p>'+
-                            '<p>This campsite is 5.7 miles away from your current location.</p>'+
-                            '</div>'
-                            });
-                        infowindow_marker13_parking.open(map,marker13_parking);
+                    const infowindow_marker13_parking = new google.maps.InfoWindow({
+                        content:'<div>' +
+                        '<h1>Jones Nose Trailhead</h1>' +
+                        '<img src="/images/marker13_parking.jpg" alt="marker13_parking"></img>'+
+                        '<p>Address: Rockwell Rd, New Ashford, MA 01237</p>'+
+                        '</div>'
                     });
-
-                    google.maps.event.addListener(marker14_parking, 'click', function() {
-                        var infowindow_marker14_parking = new google.maps.InfoWindow({
-                            content:'<div>' +
-                            '<h1>Mt. Greylock Campground Parking Lot</h1>' +
-                            '<img src="/images/marker14_parking.jpg" alt="marker14_parking"></img>'+
-                            '<p>Address: Adams, MA 01220</p>'+
-                            '<p>This campsite is 5.7 miles away from your current location.</p>'+
-                            '</div>'
-                            });
-                        infowindow_marker14_parking.open(map,marker14_parking);
+                    const infowindow_marker14_parking = new google.maps.InfoWindow({
+                        content:'<div>' +
+                        '<h1>Mt. Greylock Campground Parking Lot</h1>' +
+                        '<img src="/images/marker14_parking.jpg" alt="marker14_parking"></img>'+
+                        '<p>Address: Adams, MA 01220</p>'+
+                        '</div>'
                     });
-
-                    google.maps.event.addListener(marker14_parking, 'click', function() {
-                        var infowindow_marker14_parking = new google.maps.InfoWindow({
-                            content:'<div>' +
-                            '<h1>Mt. Greylock Campground Parking Lot</h1>' +
-                            '<img src="/images/marker14_parking.jpg" alt="marker14_parking"></img>'+
-                            '<p>Address: Adams, MA 01220</p>'+
-                            '<p>This campsite is 5.7 miles away from your current location.</p>'+
-                            '</div>'
-                            });
-                        infowindow_marker14_parking.open(map,marker14_parking);
+                    const infowindow_marker15_parking = new google.maps.InfoWindow({
+                        content:'<div>' +
+                        '<h1>Appalachian Trail Pattison Road</h1>' +
+                        '<img src="/images/marker15_parking.jpg" alt="marker15_parking"></img>'+
+                        '<p>Address: 381 Pattison Rd, North Adams, MA 01247</p>'+
+                        '</div>'
                     });
-
-                    google.maps.event.addListener(marker15_parking, 'click', function() {
-                        var infowindow_marker15_parking = new google.maps.InfoWindow({
-                            content:'<div>' +
-                            '<h1>Appalachian Trail Pattison Road</h1>' +
-                            '<img src="/images/marker15_parking.jpg" alt="marker15_parking"></img>'+
-                            '<p>Address: 381 Pattison Rd, North Adams, MA 01247</p>'+
-                            '<p>This campsite is 5.7 miles away from your current location.</p>'+
-                            '</div>'
-                            });
-                        infowindow_marker15_parking.open(map,marker15_parking);
+                    const infowindow_marker16_parking = new google.maps.InfoWindow({
+                        content:'<div>' +
+                        '<h1>Appalachian Trail Parking</h1>' +
+                        '<img src="/images/marker16_parking.jpg" alt="marker16_parking"></img>'+
+                        '<p>State Rd, North Adams, MA 01247</p>'+
+                        '</div>'
                     });
-
-                    google.maps.event.addListener(marker16_parking, 'click', function() {
-                        var infowindow_marker16_parking = new google.maps.InfoWindow({
-                            content:'<div>' +
-                            '<h1>Appalachian Trail Parking</h1>' +
-                            '<img src="/images/marker16_parking.jpg" alt="marker16_parking"></img>'+
-                            '<p>State Rd, North Adams, MA 01247</p>'+
-                            '<p>This campsite is 5.7 miles away from your current location.</p>'+
-                            '</div>'
-                            });
-                        infowindow_marker16_parking.open(map,marker16_parking);
-                    });
-                    
+                    google.maps.event.addListener(marker1_parking, 'click', function() { infowindow_marker1_parking.open(map,marker1_parking); });
+                    google.maps.event.addListener(marker2_parking, 'click', function() { infowindow_marker2_parking.open(map,marker2_parking); });
+                    google.maps.event.addListener(marker3_parking, 'click', function() { infowindow_marker3_parking.open(map,marker3_parking); });
+                    google.maps.event.addListener(marker4_parking, 'click', function() { infowindow_marker4_parking.open(map,marker4_parking); });
+                    google.maps.event.addListener(marker5_parking, 'click', function() { infowindow_marker5_parking.open(map,marker5_parking); });
+                    google.maps.event.addListener(marker6_parking, 'click', function() { infowindow_marker6_parking.open(map,marker6_parking); });
+                    google.maps.event.addListener(marker7_parking, 'click', function() { infowindow_marker7_parking.open(map,marker7_parking); });
+                    google.maps.event.addListener(marker8_parking, 'click', function() { infowindow_marker8_parking.open(map,marker8_parking); });
+                    google.maps.event.addListener(marker9_parking, 'click', function() { infowindow_marker9_parking.open(map,marker9_parking); });
+                    google.maps.event.addListener(marker10_parking, 'click', function() { infowindow_marker10_parking.open(map,marker10_parking); });
+                    google.maps.event.addListener(marker11_parking, 'click', function() { infowindow_marker11_parking.open(map,marker11_parking); });
+                    google.maps.event.addListener(marker12_parking, 'click', function() { infowindow_marker12_parking.open(map,marker12_parking); });
+                    google.maps.event.addListener(marker13_parking, 'click', function() { infowindow_marker13_parking.open(map,marker13_parking); });
+                    google.maps.event.addListener(marker14_parking, 'click', function() { infowindow_marker14_parking.open(map,marker14_parking); });
+                    google.maps.event.addListener(marker15_parking, 'click', function() { infowindow_marker15_parking.open(map,marker15_parking); });
+                    google.maps.event.addListener(marker16_parking, 'click', function() { infowindow_marker16_parking.open(map,marker16_parking); });
+            
                 } else {
                     // Remove the marker if the checkbox is unchecked
                     marker1_parking.setMap(null);
-                     
                     marker2_parking.setMap(null);
                     marker10_parking.setMap(null);
-                  
                     marker11_parking.setMap(null);
                     marker12_parking.setMap(null);
-                     marker13_parking.setMap(null);
+                    marker13_parking.setMap(null);
                     marker14_parking.setMap(null);
                     marker15_parking.setMap(null);
                     marker16_parking.setMap(null);
                     marker3_parking.setMap(null);
-                     marker5_parking.setMap(null);
+                    marker5_parking.setMap(null);
                     marker9_parking.setMap(null);
-                     marker6_parking.setMap(null);
+                    marker6_parking.setMap(null);
                     marker7_parking.setMap(null);
                     marker8_parking.setMap(null);
-                     
                     marker4_parking.setMap(null);
-                 
-                  
                 }
             });
 
@@ -745,7 +648,7 @@ var map = new google.maps.Map(document.getElementById('map'), {
             checkbox3.addEventListener('change', function () {
                 if (checkbox3.checked) {
                     // Create the marker if the checkbox is checked
-                    marker1_hazard = new google.maps.Marker({
+                    /*marker1_hazard = new google.maps.Marker({
                         position: {
                             lat: shelters[0].latitude, lng: shelters[0].longitude
                         },
@@ -753,17 +656,14 @@ var map = new google.maps.Map(document.getElementById('map'), {
                         title: 'Marker',
                         icon: '/images/hazard_spots.png',   
                     });
-
-                    google.maps.event.addListener(marker1_hazard, 'click', function() {
-                        var infowindow_marker1_hazard = new google.maps.InfoWindow({
-                            content:'<div>' +
-                            '<h1>Path Obstruction</h1>' +
-                            '<h2>large object in path</h2>' +
-                            '</div>'
-                            });
-                        infowindow_marker1_hazard.open(map,marker1_hazard);
+                    const infowindow_marker1_hazard = new google.maps.InfoWindow({
+                        content:'<div>' +
+                        '<h1>Path Obstruction</h1>' +
+                        '<h2>large object in path</h2>' +
+                        '</div>'
                     });
-
+                    google.maps.event.addListener(marker1_hazard, 'click', function() { infowindow_marker1_hazard.open(map,marker1_hazard);});
+                    */
                     
                     /*marker_hazard_list[0] = new google.maps.Marker({
                         position: {
@@ -777,25 +677,28 @@ var map = new google.maps.Map(document.getElementById('map'), {
                     
                     
                     //infowindow_hazard_list[0].open(map,marker_hazard_list[0]);
-                    
-                    
+                   
                     
                     if(hazard_report[0]) 
                     {
+                        //zeroHaz = "other"
+                        //zeroCmt = "comment\nline 2"
                         marker1_hazard = new google.maps.Marker({
                             position: {
                                 lat: shelters[0].latitude, lng: shelters[0].longitude
                             },
                             map: map,
-                            title: 'Marker 3',
+                            title: 'Marker 1',
                             icon: '/images/hazard_spots.png',   
                         });
-
+                            
                         google.maps.event.addListener(marker1_hazard, 'click', function() {
                             var infowindow_marker1_hazard = new google.maps.InfoWindow({
                                 content:'<div>' +
-                                '<h1>Hazard Report</h1>' +
-                                '<h2 id="cmt"></h2>' +
+                                '<h1>Type of Hazard:</h1>' +
+                                '<p>'+zeroHaz+'</p>'+
+                                '<h2>User Comment</h2>' +
+                                '<textArea readonly style = "min-width:200px; min-height:100px; max-width:200px; max-height:100px; resize:none; border: none; outline: none;">'+zeroCmt+'</textArea>'+
                                 '</div>'
                                 });
                             infowindow_marker1_hazard.open(map,marker1_hazard);
@@ -814,12 +717,14 @@ var map = new google.maps.Map(document.getElementById('map'), {
                        
                     });
                     google.maps.event.addListener(marker2_hazard, 'click', function() {
-                        var infowindow_marker1_hazard = new google.maps.InfoWindow({
+                        var infowindow_marker2_hazard = new google.maps.InfoWindow({
                             content:'<div>' +
-                            '<h1>Hazard Report</h1>' +
-                            '<h2>Comment:</h2>' +
-                            '</div>'
-                            });
+                                '<h1>Type of Hazard:</h1>' +
+                                '<p>'+oneHaz+'</p>'+
+                                '<h2>User Comment</h2>' +
+                                '<textArea readonly style = "min-width:200px; min-height:100px; max-width:200px; max-height:100px; resize:none; border: none; outline: none;">'+oneCmt+'</textArea>'+
+                                '</div>'
+                                });
                         infowindow_marker2_hazard.open(map,marker2_hazard);
                     });
                 }
@@ -836,10 +741,12 @@ var map = new google.maps.Map(document.getElementById('map'), {
                     google.maps.event.addListener(marker3_hazard, 'click', function() {
                         var infowindow_marker3_hazard = new google.maps.InfoWindow({
                             content:'<div>' +
-                            '<h1>Hazard Report</h1>' +
-                            '<h2>Comment:</h2>' +
-                            '</div>'
-                            });
+                                '<h1>Type of Hazard:</h1>' +
+                                '<p>'+twoHaz+'</p>'+
+                                '<h2>User Comment</h2>' +
+                                '<textArea readonly style = "min-width:200px; min-height:100px; max-width:200px; max-height:100px; resize:none; border: none; outline: none;">'+twoCmt+'</textArea>'+
+                                '</div>'
+                                });
                         infowindow_marker3_hazard.open(map,marker3_hazard);
                     });
                 }
@@ -856,10 +763,12 @@ var map = new google.maps.Map(document.getElementById('map'), {
                     google.maps.event.addListener(marker4_hazard, 'click', function() {
                         var infowindow_marker4_hazard = new google.maps.InfoWindow({
                             content:'<div>' +
-                            '<h1>Hazard Report</h1>' +
-                            '<h2>Comment:</h2>' +
-                            '</div>'
-                            });
+                                '<h1>Type of Hazard:</h1>' +
+                                '<p>'+threeHaz+'</p>'+
+                                '<h2>User Comment</h2>' +
+                                '<textArea readonly style = "min-width:200px; min-height:100px; max-width:200px; max-height:100px; resize:none; border: none; outline: none;">'+threeCmt+'</textArea>'+
+                                '</div>'
+                                });
                         infowindow_marker4_hazard.open(map,marker4_hazard);
                     });
                 }
@@ -876,8 +785,10 @@ var map = new google.maps.Map(document.getElementById('map'), {
                     google.maps.event.addListener(marker5_hazard, 'click', function() {
                         var infowindow_marker5_hazard = new google.maps.InfoWindow({
                             content:'<div>' +
-                            '<h1>Hazard Report</h1>' +
-                            '<h2>Comment:</h2>' +
+                            '<h1>Type of Hazard:</h1>' +
+                            '<p>'+fourHaz+'</p>'+
+                            '<h2>User Comment</h2>' +
+                            '<textArea readonly style = "min-width:200px; min-height:100px; max-width:200px; max-height:100px; resize:none; border: none; outline: none;">'+fourCmt+'</textArea>'+
                             '</div>'
                             });
                         infowindow_marker5_hazard.open(map,marker5_hazard);
@@ -896,10 +807,12 @@ var map = new google.maps.Map(document.getElementById('map'), {
                     google.maps.event.addListener(marker6_hazard, 'click', function() {
                         var infowindow_marker6_hazard = new google.maps.InfoWindow({
                             content:'<div>' +
-                            '<h1>Hazard Report</h1>' +
-                            '<h2>Comment:</h2>' +
-                            '</div>'
-                            });
+                                '<h1>Type of Hazard:</h1>' +
+                                '<p>'+fiveHaz+'</p>'+
+                                '<h2>User Comment</h2>' +
+                                '<textArea readonly style = "min-width:200px; min-height:100px; max-width:200px; max-height:100px; resize:none; border: none; outline: none;">'+fiveCmt+'</textArea>'+
+                                '</div>'
+                                });
                         infowindow_marker6_hazard.open(map,marker6_hazard);
                     });
                 }
@@ -916,10 +829,12 @@ var map = new google.maps.Map(document.getElementById('map'), {
                     google.maps.event.addListener(marker7_hazard, 'click', function() {
                         var infowindow_marker7_hazard = new google.maps.InfoWindow({
                             content:'<div>' +
-                            '<h1>Hazard Report</h1>' +
-                            '<h2>Comment:</h2>' +
-                            '</div>'
-                            });
+                                '<h1>Type of Hazard:</h1>' +
+                                '<p>'+sixHaz+'</p>'+
+                                '<h2>User Comment</h2>' +
+                                '<textArea readonly style = "min-width:200px; min-height:100px; max-width:200px; max-height:100px; resize:none; border: none; outline: none;">'+sixCmt+'</textArea>'+
+                                '</div>'
+                                });
                         infowindow_marker7_hazard.open(map,marker7_hazard);
                     });
                 }
@@ -936,10 +851,12 @@ var map = new google.maps.Map(document.getElementById('map'), {
                     google.maps.event.addListener(marker8_hazard, 'click', function() {
                         var infowindow_marker8_hazard = new google.maps.InfoWindow({
                             content:'<div>' +
-                            '<h1>Hazard Report</h1>' +
-                            '<h2>Comment: large object in path</h2>' +
-                            '</div>'
-                            });
+                                '<h1>Type of Hazard:</h1>' +
+                                '<p>'+sevenHaz+'</p>'+
+                                '<h2>User Comment</h2>' +
+                                '<textArea readonly style = "min-width:200px; min-height:100px; max-width:200px; max-height:100px; resize:none; border: none; outline: none;">'+sevenCmt+'</textArea>'+
+                                '</div>'
+                                });
                         infowindow_marker8_hazard.open(map,marker8_hazard);
                     });
                 }
@@ -956,10 +873,12 @@ var map = new google.maps.Map(document.getElementById('map'), {
                     google.maps.event.addListener(marker9_hazard, 'click', function() {
                         var infowindow_marker9_hazard = new google.maps.InfoWindow({
                             content:'<div>' +
-                            '<h1>Hazard Report</h1>' +
-                            '<h2>Comment:</h2>' +
-                            '</div>'
-                            });
+                                '<h1>Type of Hazard:</h1>' +
+                                '<p>'+eightHaz+'</p>'+
+                                '<h2>User Comment</h2>' +
+                                '<textArea readonly style = "min-width:200px; min-height:100px; max-width:200px; max-height:100px; resize:none; border: none; outline: none;">'+eightCmt+'</textArea>'+
+                                '</div>'
+                                });
                         infowindow_marker9_hazard.open(map,marker9_hazard);
                     });
                 }
@@ -976,10 +895,12 @@ var map = new google.maps.Map(document.getElementById('map'), {
                     google.maps.event.addListener(marker10_hazard, 'click', function() {
                         var infowindow_marker10_hazard = new google.maps.InfoWindow({
                             content:'<div>' +
-                            '<h1>Hazard Report</h1>' +
-                            '<h2>Comment:</h2>' +
-                            '</div>'
-                            });
+                                '<h1>Type of Hazard:</h1>' +
+                                '<p>'+nineHaz+'</p>'+
+                                '<h2>User Comment</h2>' +
+                                '<textArea readonly style = "min-width:200px; min-height:100px; max-width:200px; max-height:100px; resize:none; border: none; outline: none;">'+nineCmt+'</textArea>'+
+                                '</div>'
+                                });
                         infowindow_marker10_hazard.open(map,marker10_hazard);
                     });
                 }
@@ -1013,7 +934,7 @@ var map = new google.maps.Map(document.getElementById('map'), {
 
                 } else {
                     // Remove the marker if the checkbox is unchecked
-                    //if(hazard_report[0]) 
+                    if(hazard_report[0]) 
                     {
                         marker1_hazard.setMap(null);
                     } 
@@ -1062,33 +983,11 @@ var map = new google.maps.Map(document.getElementById('map'), {
     
     let startingMarker = null;
     let endingMarker = null;
+    
+    
+           
 
 
-
-
-
-    function markerclearer(markers, locationType, map) {
-        if (markers.length > 0) {
-          for (let i = 0; i < markers.length; i++) {
-        
-          
-            markers[i].setMap(null); // remove marker from map
-        
-          }
-          markers.length = 0; // clear markers array
-        }
-        
-        if (locationType === 'starting') {
-          startingLocation = null;
-        } else if (locationType === 'ending') {
-          endingLocation = null;
-        }
-      }
-      
-      function AddDays() {
-        console.log("button clicked");
-      }
-      
     
     
       function dropMarker(map, location, markerType, locationType) {
@@ -1189,7 +1088,7 @@ startingLocationSelect.addEventListener("change", () => {
       (park) => park.name === selectedStartingLocationName
     );
 
-   
+    const endingLoc = $('#ending-location').val();
   
     // Call a function to clear existing markers
     
@@ -1200,10 +1099,19 @@ startingLocationSelect.addEventListener("change", () => {
     } else if (startingParking) {
       dropMarker(map, startingParking, 'parking', 'starting');
     }
-    */
+    
     var request = {
         origin: {lat: startingShelter.latitude, lng: startingShelter.longitude},
         destination: {lat: endingShelter.latitude, lng: endingShelter.longitude},
+        travelMode: google.maps.DirectionsTravelMode.WALKING
+    };
+    directionsService.route(request, function(result, status) {
+        if(status == 'OK') directionsDisplay.setDirections(result);
+    });
+    */
+    var request = {
+        origin: {lat: shelters[selectedStartingLocationName].latitude, lng: shelters[selectedStartingLocationName].longitude},
+        destination: {lat: shelters[endingLoc].latitude, lng: shelters[endingLoc].longitude},
         travelMode: google.maps.DirectionsTravelMode.WALKING
     };
     directionsService.route(request, function(result, status) {
@@ -1236,10 +1144,21 @@ startingLocationSelect.addEventListener("change", () => {
     } else if (endingParking) {
       dropMarker(map, endingParking, 'parking', 'ending');
     }
-    */
+    
     var request = {
         origin: {lat: startingShelter.latitude, lng: startingShelter.longitude},
         destination: {lat: endingShelter.latitude, lng: endingShelter.longitude},
+        travelMode: google.maps.DirectionsTravelMode.WALKING
+    };
+    directionsService.route(request, function(result, status) {
+        if(status == 'OK') directionsDisplay.setDirections(result);
+    });
+    */
+
+    const startingLoc = $('#starting-location').val();
+    var request = {
+        origin: {lat: shelters[startingLoc].latitude, lng: shelters[startingLoc].longitude},
+        destination: {lat: shelters[selectedEndingLocationName].latitude, lng: shelters[selectedEndingLocationName].longitude},
         travelMode: google.maps.DirectionsTravelMode.WALKING
     };
     directionsService.route(request, function(result, status) {
@@ -1269,12 +1188,8 @@ startingLocationSelect.addEventListener("change", () => {
     $('.Custom-Trip3').css({display:'none'});
     console.log('Markers saved:', savedMarkers);
     
-    trip2_hidden = false;
     }
-
- 
-
-    /////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////
     //
     // Work for the Saved Trips Below
     //
@@ -1282,25 +1197,37 @@ startingLocationSelect.addEventListener("change", () => {
     
     var saved_trips_tab = document.getElementById('saved_button');
     saved_trips_tab.addEventListener('click', function () {
+        console.log(saved_trips.Trips);
         document.getElementById('saved_trips_box').innerHTML = '';
         for(let i = 0; i < saved_trips.number_of_trips; i++) {
-            document.getElementById('saved_trips_box').innerHTML += `<div id="saved_trip${i}_box" class="Saved_Trip_Box">`
-            +`<label for="trip${i}"><b>Trip ${i}</b></label>`
-            +`<input id="saved_trip${i}" type="checkbox" name="trip${i}" required>`
-            +`<p class = "Distance-of-Hike">Total Distance: ${saved_trips.Trips[i].Total_Distance}</p>`
+            document.getElementById('saved_trips_box').innerHTML += `<div id="saved_trip${i}_box" class="Saved_Trip_Box" >`
+            +`<label for="trip${i}"><b>${saved_trips.Trips[i].Name}</b></label>`
+            +` <input class = "chkbx" id="saved_trip${i}" type="checkbox" onclick = "chkbox(${i})" name="trip${i}" required>`
+            +`<p class = "Distance-of-Hike">Total Distance: ${saved_trips.Trips[i].Total_Distance} Miles</p>`
             +`</div>`;
-            var trip = document.getElementById(`saved_trip${i}`);
         } 
-        //this does not fully work yet, only working for the last trip made, probably due to the last event listener overriding the others maybe?
+        const trip = new Array(saved_trips.number_of_trips);
         for(let i = 0; i < saved_trips.number_of_trips; i++) {
-            console.log("hello?");
-            trip.addEventListener('click', function () {
-                console.log("here");
-                if(trip.checked) {
+            waypts = [];
+            if(saved_trips.Trips[i].Waypoints.length != 0) {
+                console.log(saved_trips.Trips[i].Waypoints[0]);
+                console.log(saved_trips.Trips[i].Waypoints[saved_trips.Trips[i].Waypoints.length -1]);
+                for(let j = saved_trips.Trips[i].Waypoints[0]; j < saved_trips.Trips[i].Waypoints[saved_trips.Trips[i].Waypoints.length-1]; j++) {
+                    console.log("here");
+                    waypts.push({
+                        location:new google.maps.LatLng(shelters[j].latitude,shelters[j].longitude)
+                    });
+                }
+            }
+            trip[i] = document.getElementById(`saved_trip${i}`);
+            trip[i].addEventListener('change', function () {
+                console.log(saved_trips.Trips[i].Days.length - 1);
+                console.log(trip[i].checked);
+                if(trip[i].checked) {
                     var request = {
-                        origin: {lat: shelters[saved_trips.Trips[i].Starting_Location].latitude, lng: shelters[saved_trips.Trips[i].Starting_Location].longitude},
-                        destination: {lat: shelters[saved_trips.Trips[i].Ending_Location].latitude, lng: shelters[saved_trips.Trips[i].Ending_Location].longitude},
-                        waypoints: saved_trips.Trips[i].Waypoints,
+                        origin: {lat: shelters[saved_trips.Trips[i].Days[0].Starting_Location].latitude, lng: shelters[saved_trips.Trips[i].Days[0].Starting_Location].longitude},
+                        destination: {lat: shelters[saved_trips.Trips[i].Days[saved_trips.Trips[i].Days.length - 1].Ending_Location].latitude, lng: shelters[saved_trips.Trips[i].Days[saved_trips.Trips[i].Days.length - 1].Ending_Location].longitude},
+                        waypoints: waypts,
                         travelMode: google.maps.DirectionsTravelMode.WALKING
                     };
                     directionsService.route(request, function(result, status) {
@@ -1312,75 +1239,17 @@ startingLocationSelect.addEventListener("change", () => {
                 }
             });
         }
+        console.log(saved_trips);
     });
     
-   /*
-    var trip1 = document.getElementById('saved-trip1');
-    var trip2 = document.getElementById('saved-trip2');
-    var saved_trips_tab = document.getElementById('saved_button');
-    var trip1_hidden = true;
-    var trip2_hidden = true;
-    saved_trips_tab.addEventListener('click', function () {
-        if(trip1_hidden == true) {
-            $('#saved_trip1_box').css({display:'none'});
-        }
-        else {
-            $('#saved_trip1_box').css({display:'block'});
-        }
-        if(trip2_hidden == true) {
-            $('#saved_trip2_box').css({display:'none'});
-        }
-        else {
-            $('#saved_trip2_box').css({display:'block'});
-        }
-    });
-    trip1.addEventListener('change', function () {
-        if(trip1.checked) {
-            var request = {
-                origin: {lat: shelters[arr_index].latitude, lng: shelters[arr_index].longitude},
-                destination: {lat: shelters[arr_index_end].latitude, lng: shelters[arr_index_end].longitude},
-                waypoints: waypts,
-                travelMode: google.maps.DirectionsTravelMode.WALKING
-            };
-            directionsService.route(request, function(result, status) {
-                if(status == 'OK') directionsDisplay.setDirections(result);
-            });
-        }
-        else {
-            directionsDisplay.set('directions',null);
-        }
-    });
-    trip2.addEventListener('change', function () {
-        if(trip2.checked) {
-            var request = {
-                origin: {lat: startingShelter.latitude, lng: startingShelter.longitude},
-                destination: {lat: endingShelter.latitude, lng: endingShelter.longitude},
-                travelMode: google.maps.DirectionsTravelMode.WALKING
-            };
-            directionsService.route(request, function(result, status) {
-                if(status == 'OK') directionsDisplay.setDirections(result);
-            });
-        }
-        else {
-            directionsDisplay.set('directions',null);
-        }
-    });
-    */
+   
     // Add the sidebar to the map
     map.controls[google.maps.ControlPosition.LEFT_TOP].push(sidebar);
 
     //document.getElementById('sidebar-toggle').addEventListener('click', function () {
     //    sidebar.classList.toggle('collapsed');
     //});
-
-
-
-
-
    
-    
-    
-
     /////////////////////////////////////////////////////////////////////
     //
     // Work for the Trip Helper Below
@@ -1393,7 +1262,7 @@ startingLocationSelect.addEventListener("change", () => {
     var checkbox1_TH = document.getElementById('TH_Trip1_check');
     var checkbox2_TH = document.getElementById('TH_Trip2_check');
     var choose_trips_TH = document.getElementById('choose_trips_TH');
-    var arr_index, arr_index_end, distance, waypoints_int, num_of_days = 1;
+    var arr_index, arr_index_end, distance = 0, waypoints_int = [], num_of_days = 1;
     var waypts;
     num_of_days_TH.addEventListener('click', function() {
         num_of_days = $('#Number_of_days').val();
@@ -1461,7 +1330,7 @@ startingLocationSelect.addEventListener("change", () => {
             arr_index_end = Number(arr_index_end);
             if(arr_index < arr_index_end) {
                 for(let i = (1 + arr_index); i < arr_index_end; i++) {
-                    if(i == (Number(num_of_days)+1)) break;
+                    if(waypoints_int.length == (Number(num_of_days)-1)) break;
                     waypts.push({
                         location:new google.maps.LatLng(shelters[i].latitude,shelters[i].longitude)
                     });
@@ -1470,24 +1339,23 @@ startingLocationSelect.addEventListener("change", () => {
             }
             else {
                 for(let i = (arr_index - 1); i > arr_index_end; i--) {
-                    if(i == (Number(num_of_days))) break;
+                    if(waypoints_int.length == (Number(num_of_days)-1)) break;
                     waypts.push({
                         location:new google.maps.LatLng(shelters[i].latitude,shelters[i].longitude)
                     });
                     waypoints_int.push(i);   
                 }
             }
-            if(checkbox1_TH.checked) {
-                var request = {
-                    origin: {lat: shelters[arr_index].latitude, lng: shelters[arr_index].longitude},
-                    destination: {lat: shelters[arr_index_end].latitude, lng: shelters[arr_index_end].longitude},
-                    waypoints: waypts,
-                    travelMode: google.maps.DirectionsTravelMode.WALKING
-                };
-                directionsService.route(request, function(result, status) {
-                    if(status == 'OK') directionsDisplay.setDirections(result);
-                });
-            }
+            var request = {
+                origin: {lat: shelters[arr_index].latitude, lng: shelters[arr_index].longitude},
+                destination: {lat: shelters[arr_index_end].latitude, lng: shelters[arr_index_end].longitude},
+                waypoints: waypts,
+                travelMode: google.maps.DirectionsTravelMode.WALKING
+            };
+            directionsService.route(request, function(result, status) {
+                if(status == 'OK') directionsDisplay.setDirections(result);
+            });
+
         }
         else {
             directionsDisplay.set('directions',null);
@@ -1503,6 +1371,7 @@ startingLocationSelect.addEventListener("change", () => {
             if(arr_index < arr_index_end) {
                 for(let i = (1 + arr_index); i < arr_index_end; i++) {
                     if(i <= (arr_index_end - Number(num_of_days))) continue;
+                    if(waypoints_int.length == (Number(num_of_days)-1)) break;
                     waypts.push({
                         location:new google.maps.LatLng(shelters[i].latitude,shelters[i].longitude)
                     });
@@ -1512,23 +1381,22 @@ startingLocationSelect.addEventListener("change", () => {
             else {
                 for(let i = (arr_index - 1); i > arr_index_end; i--) {
                     if(i > (arr_index - Number(num_of_days))) continue;
+                    if(waypoints_int.length == (Number(num_of_days)-1)) break;
                     waypts.push({
                         location:new google.maps.LatLng(shelters[i].latitude,shelters[i].longitude)
                     });   
                     waypoints_int.push(i);
                 }
             }
-            if(checkbox2_TH.checked) {
-                var request = {
-                    origin: {lat: shelters[arr_index].latitude, lng: shelters[arr_index].longitude},
-                    destination: {lat: shelters[arr_index_end].latitude, lng: shelters[arr_index_end].longitude},
-                    waypoints: waypts,
-                    travelMode: google.maps.DirectionsTravelMode.WALKING
-                };
-                directionsService.route(request, function(result, status) {
-                    if(status == 'OK') directionsDisplay.setDirections(result);
-                });
-            }
+            var request = {
+                origin: {lat: shelters[arr_index].latitude, lng: shelters[arr_index].longitude},
+                destination: {lat: shelters[arr_index_end].latitude, lng: shelters[arr_index_end].longitude},
+                waypoints: waypts,
+                travelMode: google.maps.DirectionsTravelMode.WALKING
+            };
+            directionsService.route(request, function(result, status) {
+                if(status == 'OK') directionsDisplay.setDirections(result);
+            });
         }
         else {
             directionsDisplay.set('directions',null);
@@ -1538,11 +1406,15 @@ startingLocationSelect.addEventListener("change", () => {
     
     //This is the Button that creates the trip, once all specs have been chosen
     choose_trips_TH.addEventListener('click', function () {
-        trip1_hidden = false;
-        const trip_TH = new Trip("My Trip", num_of_days, [], distance, arr_index, arr_index_end, waypts);
-        console.log(waypoints_int.length);
+        var trip_name = document.getElementById('Numb');
+        const trip_TH = new Trip(trip_name.value, Number(num_of_days), [], distance, waypoints_int);
+        console.log("Waypoints Length: " + waypoints_int.length);
         for(let i = 0; i <= waypoints_int.length; i++) {
-            if(i == 0){
+            if(waypoints_int.length == 0) { //if there is only 1 day
+                const day = new Day(`Day ${i+1}`, arr_index, arr_index_end);
+                trip_TH.Days.push(day);
+            }
+            else if(i == 0){
                 const day = new Day(`Day ${i+1}`, arr_index, waypoints_int[i]);
                 trip_TH.Days.push(day);
             }else if(i == waypoints_int.length) {
@@ -1553,15 +1425,11 @@ startingLocationSelect.addEventListener("change", () => {
                 trip_TH.Days.push(day);
             }
         }
-        /*
-        for(let i = 1; i <= num_of_days; i++) {
-            const day = new Day(`Day ${i}`, i, i+1);
-            trip_TH.Days.push(day);
-        }
-        */
-        saved_trips.Trips.push(trip_TH);
-        saved_trips.number_of_trips++;
-        console.log(saved_trips);
+        UploadTrip(trip_TH);
+        DownloadTrips();
+        //saved_trips.Trips.push(trip_TH);
+        //saved_trips.number_of_trips++;
+        //console.log(saved_trips);
     });
     /*
     ///////////////////////////////////////////////////////////////////////////
@@ -1572,10 +1440,10 @@ startingLocationSelect.addEventListener("change", () => {
     */
     //var marker_hazard = document.getElementById('checkbox3');
        
-    document.getElementById("hzrdBtn").addEventListener("click", function () {
+   /* document.getElementById("hzrdBtn").addEventListener("click", function () {
         var type = document.getElementById('type').value;
         var strt = document.getElementById('SL1').value;
-        var nd = document.getElementById('EL1').value;
+        var nd = 1//document.getElementById('EL1').value;
         var com = document.getElementById('cmt').value;
 
         var strt_long = 0;
@@ -1601,7 +1469,13 @@ startingLocationSelect.addEventListener("change", () => {
         
           
         //if (google.maps.event.checked) {
-        marker_hazard = new google.maps.Marker({
+        checkbox3.addEventListener('change', function () {
+        if (checkbox3.checked) {
+
+        //    for(var i = 0; i <100; i++) {
+      //          if(marker_hazard_list[i] == null) {
+        //marker_hazard = new google.maps.Marker({
+        marker_hazard_list[maker_hazard_index] = new google.maps.Marker({
             position: {
             lat: strt_lat, lng:strt_long
             }, 
@@ -1609,10 +1483,21 @@ startingLocationSelect.addEventListener("change", () => {
             title: 'Marker 3',
             icon: '/images/hazard_spots.png'
         
-        });
-        google.maps.event.addListener(marker_hazard, 'click', function() {
-            
-            var infowindow_hazard = new google.maps.InfoWindow({
+    });
+    //}
+//}
+
+
+
+
+        for(var i = 0; i <100; i++) {
+            if(marker_hazard_list[i] != null && i == maker_hazard_index) {
+                
+        google.maps.event.addListener(marker_hazard_list[maker_hazard_index], 'click', function() {
+            console.log(maker_hazard_index);
+            //var infowindow_hazard = new google.maps.InfoWindow({
+            infowindow_hazard_list[maker_hazard_index] = new google.maps.InfoWindow({
+                
                 content:'<div>' +
                 //'<h1>Path Obstruction Reported in this Area</h1>' +
                 '<h1>Hazard Report</h1>' +
@@ -1624,26 +1509,261 @@ startingLocationSelect.addEventListener("change", () => {
                 '<pre style = "min-width:500px; min-height:100px;">'+ com + '</pre>'+
                 '</div>'
                 });
-                infowindow_hazard.open(map,marker_hazard);
+                infowindow_hazard_list[maker_hazard_index].open(map,marker_hazard_list[maker_hazard_index - 1]);
 
             
-        
-        });      
-    });
+            
+            });
+        }  
+        }
+
+            
+            //alert(maker_hazard_index);
+            maker_hazard_index++;
+        }
+        else {
+            for(var i = 0; i < 2; i++) {
+                if(marker_hazard_list[i] != null) {
+                    //marker_hazard_list[i].setMap(null);
+                    //maker_hazard_index--;
+                }
+            }
+        }    
+        });
+
+    });*/
 }
 window.onload = function () {
     if(document.readyState == 'complete') {
+        
         initMap;
     }
+   
 }
-
-function addHaz() {
+function addHaz(hz, cm, campp) {
     //alert("hazardreport")
+    var hazType = hz;
+    console.log("hazType", hz);
+    var userComment = cm;
+    console.log("comment", cm);
+    console.log("camp", campp);
+
+    switch(Number(campp)){
+        case 0:
+            zeroCmt = userComment;
+            zeroHaz = hazType;
+            hazard_report[0] = 1;
+            break;
+        case 1:
+            oneCmt = userComment;
+            oneHaz = hazType;
+            hazard_report[1] = 1;
+            break;
+        case 2:
+            twoCmt = userComment;
+            twoHaz = hazType;
+            hazard_report[2] = 1;
+            break;
+        case 3:
+            threeCmt = userComment;
+            threeHaz = hazType;
+            hazard_report[3] = 1;
+            break;
+        case 4:
+            fourCmt = userComment;
+            fourHaz = hazType;
+            hazard_report[4] = 1;
+            break;
+        case 5:
+            fiveCmt = userComment;
+            fiveHaz = hazType;
+            hazard_report[5] = 1;
+            break;
+        case 6:
+            sixCmt = userComment;
+            sixHaz = hazType;
+            hazard_report[6] = 1;
+            break;
+        case 7:
+            sevenCmt = userComment;
+            sevenHaz = hazType;
+            hazard_report[7] = 1;
+            break;
+        case 8:
+            eightCmt = userComment;
+            eightHaz = hazType;
+            hazard_report[8] = 1;
+            break;
+        case 9:
+            nineCmt = userComment;
+            nineHaz = hazType;
+            hazard_report[9] = 1;
+            break;
+    }
     
-    
-    marker.setMap(map);
+    //marker.setMap(map);
+}
+
+function chkbox(gum){
+    var elements = document.getElementsByClassName('chkbx');
+    for (let i = 0; i < elements.length; i++) {
+        elements[i].checked = false;
+    }
+
+    document.getElementById("saved_trip"+ gum).checked = true;
 }
 
 
+var waypoints_int_CT = [];
+var num_of_days_CT = 0;
+var days_CT = [];    
+var distance_CT = 0;
+
+function CustomTripStart() {
+    waypoints_int_CT = [];
+    num_of_days_CT = 0;
+    days_CT = [];
+    distance_CT = 0;
+    counter = 1;
+    let day = document.getElementById("Day-Number");
+    day.innerHTML = "Day " + 1;
+}
+
+function AddDays() {
+        
+    console.log('hello');
+        
+    const TripTitle = document.getElementById("trip_name_textbox").value;
+    const dayTitle = document.getElementById("Day-Title").value;
+    const startingLocation = document.getElementById("starting-location").value;
+    const endingLocation = document.getElementById("ending-location").value;
+    
+    let day = document.getElementById("Day-Number");
+    let dayValue = day.innerHTML.split(" ")[1]; 
+    let newDayValue = parseInt(dayValue) + 1; 
+    day.innerHTML = "Day " + newDayValue;
+
+    //const endingLocationValue = endingLocation.value;
+
+    if (counter >= max_days) {
+        const newDay = new Day(dayTitle, startingLocation, endingLocation);
+        for(let i = startingLocation; i < endingLocation; i++) {
+            distance_CT += distances[i];
+        }
+        console.log(distance_CT);
+        num_of_days_CT = counter;
+        waypoints_int_CT.push(Number(endingLocation));
+        days_CT.push(newDay);
+        document.getElementById("Day-Title").value = "";
+        const addDayButton = document.getElementById("add-day-btn");
+        addDayButton.disabled = true;
+    } else {
+        const newDay = new Day(dayTitle, startingLocation, endingLocation);
+        for(let i = startingLocation; i < endingLocation; i++) {
+            distance_CT += distances[i];
+        }
+        console.log(distance_CT);
+        num_of_days_CT = counter;
+        waypoints_int_CT.push(Number(endingLocation));
+        days_CT.push(newDay);
+        document.getElementById("Day-Title").value = "";
+        /*
+        for (let i = 0; i < startingLocation.options.length; i++) {
+            if (startingLocation.options[i].value === endingLocationValue) 
+            {
+              startingLocation.selectedIndex = i;
+              break;
+
+            }
+          }
+          */
+        //document.getElementById("starting-location").value = "";
+        //document.getElementById("ending-location").value = "";
+        counter++;
+        console.log(counter);
+    }
+        
+  
+  
+  
+   
+    
+    //const trip_CT = new Trip(TripTitle.value, Number(num_of_days_CT), [], distance, waypoints_int);
+    /*
+    for(let i = 0; i <= waypoints_int.length; i++) {
+        if(waypoints_int.length == 0) { //if there is only 1 day
+            const day = new Day(`Day ${i+1}`, arr_index, arr_index_end);
+            trip_CT.Days.push(day);
+        }
+        else if(i == 0){
+            const day = new Day(`Day ${i+1}`, arr_index, waypoints_int[i]);
+            trip_CT.Days.push(day);
+        }else if(i == waypoints_int.length) {
+            const day = new Day(`Day ${i+1}`, waypoints_int[i-1], arr_index_end);
+            trip_CT.Days.push(day);
+        }else {
+            const day = new Day(`Day ${i+1}`, waypoints_int[i-1], waypoints_int[i]);
+            trip_CT.Days.push(day);
+        }
+    }
+    
+    days_CT.push(newDay);
+    num_of_days_CT++;
+    distance_CT = calculate_distance(startingLocation, endingLocation);
+    /*for(let i = startingLocation; i < endingLocation; i++) {
+        distance_CT += distances[i];
+    }
+    waypoints_int_CT += newDay.Ending_Location;
+    */
+}
+    
+
+    
+function SaveTrips() {
+    const TripTitle = document.getElementById("trip_name_textbox").value;
+    const dayTitle = document.getElementById("Day-Title").value;
+    const startingLocation = document.getElementById("starting-location").value;
+    const endingLocation = document.getElementById("ending-location").value;
+    
 
 
+    if (counter >= max_days) {
+        const addDayButton = document.getElementById("add-day-btn");
+        addDayButton.disabled = true;
+    } else {
+        const newDay = new Day(dayTitle, startingLocation, endingLocation);
+        for(let i = startingLocation; i < endingLocation; i++) {
+            distance_CT += distances[i];
+        }
+        num_of_days_CT = counter;
+        days_CT.push(newDay);
+       
+    }
+
+    var trip_name = document.getElementById("trip_name_textbox");
+    const trip_CT = new Trip(trip_name.value, Number(num_of_days_CT), days_CT, distance_CT, waypoints_int_CT);
+    console.log(trip_CT);
+    UploadTrip(trip_CT);
+    DownloadTrips();
+
+   
+}
+
+function markerclearer(markers, locationType, map) {
+    if (markers.length > 0) {
+      for (let i = 0; i < markers.length; i++) {
+    
+      
+        markers[i].setMap(null); // remove marker from map
+    
+      }
+      markers.length = 0; // clear markers array
+    }
+    
+    if (locationType === 'starting') {
+      startingLocation = null;
+    } else if (locationType === 'ending') {
+      endingLocation = null;
+    }
+  }
+  
