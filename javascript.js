@@ -324,848 +324,637 @@ var map = new google.maps.Map(document.getElementById('map'), {
             marker9_camp.setMap(null);
             marker10_camp.setMap(null);
         }
-            });
+    });
         
-        
-            checkbox2.addEventListener('change', function () {
-                if (checkbox2.checked) {
-                    // Create the marker if the checkbox is checked
-                    
-                 
-                    marker1_parking = new google.maps.Marker({
-                        position: {
-                        lat: parking[0].latitude, lng: parking[0].longitude 
-                        }, 
-                        map: map,
-                        title: 'Marker 2',
-                          icon: '/images/parking_spots.png',
-               
-                    });
-
-                    
-                       // Create the marker if the checkbox is checked
-                    marker2_parking = new google.maps.Marker({
-                        position: {
-                        lat: parking[1].latitude, lng: parking[1].longitude 
-                        }, 
-                        map: map,
-                        title: 'Marker 2',
-                          icon: '/images/parking_spots.png',
-               
-                    });
-                       // Create the marker if the checkbox is checked
-                    marker3_parking = new google.maps.Marker({
-                        position: {
-                        lat: parking[2].latitude, lng: parking[2].longitude 
-                        }, 
-                        map: map,
-                        title: 'Marker 2',
-                          icon: '/images/parking_spots.png',
-               
-                    });
-                       // Create the marker if the checkbox is checked
-                    marker4_parking= new google.maps.Marker({
-                        position: {
-                        lat: parking[3].latitude, lng: parking[3].longitude 
-                        }, 
-                        map: map,
-                        title: 'Marker 2',
-                          icon: '/images/parking_spots.png',
-               
-                    });
-                       // Create the marker if the checkbox is checked
-                    marker5_parking = new google.maps.Marker({
-                        position: {
-                        lat: parking[4].latitude, lng: parking[4].longitude 
-                        }, 
-                        map: map,
-                        title: 'Marker 2',
-                          icon: '/images/parking_spots.png',
-               
-                    });
-                       // Create the marker if the checkbox is checked
-                    marker6_parking = new google.maps.Marker({
-                        position: {
-                        lat: parking[5].latitude, lng: parking[5].longitude 
-                        }, 
-                        map: map,
-                        title: 'Marker 2',
-                          icon: '/images/parking_spots.png',
-               
-                    });
-                       // Create the marker if the checkbox is checked
-                    marker7_parking = new google.maps.Marker({
-                        position: {
-                        lat: parking[6].latitude, lng: parking[6].longitude 
-                        }, 
-                        map: map,
-                        title: 'Marker 2',
-                          icon: '/images/parking_spots.png',
-               
-                    });
-                       // Create the marker if the checkbox is checked
-                    marker8_parking = new google.maps.Marker({
-                        position: {
-                        lat: parking[7].latitude, lng: parking[7].longitude 
-                        }, 
-                        map: map,
-                        title: 'Marker 2',
-                          icon: '/images/parking_spots.png',
-               
-                    });
-                       // Create the marker if the checkbox is checked
-                    marker9_parking = new google.maps.Marker({
-                        position: {
-                        lat: parking[8].latitude, lng: parking[8].longitude 
-                        }, 
-                        map: map,
-                        title: 'Marker 2',
-                          icon: '/images/parking_spots.png',
-               
-                    });
-                       // Create the marker if the checkbox is checked
-                    marker10_parking = new google.maps.Marker({
-                        position: {
-                        lat: parking[9].latitude, lng: parking[9].longitude 
-                        }, 
-                        map: map,
-                        title: 'Marker 2',
-                          icon: '/images/parking_spots.png',
-               
-                    });
-                       // Create the marker if the checkbox is checked
-                    marker11_parking = new google.maps.Marker({
-                        position: {
-                        lat: parking[10].latitude, lng: parking[10].longitude 
-                        }, 
-                        map: map,
-                        title: 'Marker 2',
-                          icon: '/images/parking_spots.png',
-               
-                    });
-                       // Create the marker if the checkbox is checked
-                    marker12_parking = new google.maps.Marker({
-                        position: {
-                        lat: parking[11].latitude, lng: parking[11].longitude 
-                        }, 
-                        map: map,
-                        title: 'Marker 2',
-                          icon: '/images/parking_spots.png',
-               
-                    });
-                       // Create the marker if the checkbox is checked
-                    marker13_parking = new google.maps.Marker({
-                        position: {
-                        lat: parking[12].latitude, lng: parking[12].longitude 
-                        }, 
-                        map: map,
-                        title: 'Marker 2',
-                          icon: '/images/parking_spots.png',
-               
-                    });
-                       // Create the marker if the checkbox is checked
-                    marker14_parking = new google.maps.Marker({
-                        position: {
-                        lat: parking[13].latitude, lng: parking[13].longitude 
-                        }, 
-                        map: map,
-                        title: 'Marker 2',
-                          icon: '/images/parking_spots.png',
-               
-                    });
-                       // Create the marker if the checkbox is checked
-                    marker15_parking = new google.maps.Marker({
-                        position: {
-                        lat: parking[14].latitude, lng: parking[14].longitude 
-                        }, 
-                        map: map,
-                        title: 'Marker 2',
-                          icon: '/images/parking_spots.png',
-               
-                    });
-                       // Create the marker if the checkbox is checked
-                    marker16_parking = new google.maps.Marker({
-                        position: {
-                        lat: parking[15].latitude, lng: parking[15].longitude 
-                        }, 
-                        map: map,
-                        title: 'Marker 2',
-                          icon: '/images/parking_spots.png',
-               
-                    });
-                    const infowindow_marker1_parking = new google.maps.InfoWindow({
-                        content:'<div>' +
-                        '<h1>Appalachian Trail Parking</h1>' +
-                        '<img src="images/marker1_parking.jpg" alt="marker1_parking"></img>'+
-                        '<p>Address: CT-41, Salisbury, CT 06068</p>'+
-                        '</div>'
-                    });
-                    const infowindow_marker2_parking = new google.maps.InfoWindow({
-                        content:'<div>' +
-                        '<h1>Race Brook Falls Trailhead & Parking</h1>' +
-                        '<img src="/images/marker2_parking.jpg" alt="marker2_parking"></img>'+
-                        '<p>Address: 716-732 S Undermountain Rd, Sheffield, MA 01257</p>'+
-                        '</div>'
-                    });
-                    const infowindow_marker3_parking = new google.maps.InfoWindow({
-                        content:'<div>' +
-                        '<h1>Guilder Pond Parking Area</h1>' +
-                        '<img src="/images/marker3_parking.jpg" alt="marker3_parking"></img>'+
-                        '<p>Address: Mt Washington, MA 01258</p>'+                      
-                        '</div>'
-                    });
-                    const infowindow_marker4_parking = new google.maps.InfoWindow({
-                        content:'<div>' +
-                        '<h1>Appalachian Trail Parking</h1>' +
-                        '<img src="/images/marker4_parking.jpg" alt="marker4_parking"></img>'+
-                        '<p>Address: 102-110 Lake Buel Rd, Great Barrington, MA 01230</p>'+                       
-                        '</div>'
-                    });
-                    const infowindow_marker5_parking = new google.maps.InfoWindow({
-                        content:'<div>' +
-                        '<h1>AT Parking at Massachusetts 183</h1>' +
-                        '<img src="/images/marker5_parking.jpg" alt="marker5_parking"></img>'+
-                        '<p>Address: Appalachian National Scenic Trail, Monterey, MA 01245</p>'+                       
-                        '</div>'
-                    });
-                    const infowindow_marker6_parking = new google.maps.InfoWindow({
-                        content:'<div>' +
-                        '<h1>Appalachian Trail</h1>' +
-                        '<img src="/images/marker6_parking.jpg" alt="marker6_parking"></img>'+
-                        '<p>Address: Appalachian National Scenic Trail, Tyringham, MA 01264</p>'+                      
-                        '</div>'
-                    });
-                    const infowindow_marker7_parking = new google.maps.InfoWindow({
-                        content:'<div>' +
-                        '<h1>Appalachian Trail - Goose Pond Road</h1>' +
-                        '<img src="/images/marker7_parking.jpg" alt="marker7_parking"></img>'+
-                        '<p>Address: Appalachian National Scenic Trail, Lee, MA 01238</p>'+                        
-                        '</div>'
-                    });
-                    const infowindow_marker8_parking = new google.maps.InfoWindow({
-                        content:'<div>' +
-                        '<h1>Jacob\'s Ladder Scenic Byway and Appalachian Trail Parking Area</h1>' +
-                        '<img src="/images/marker8_parking.jpg" alt="marker8_parking"></img>'+
-                        '<p>Address: Lee, MA 01238</p>'+                      
-                        '</div>'
-                    });
-                    const infowindow_marker9_parking = new google.maps.InfoWindow({
-                        content:'<div>' +
-                        '<h1>Appalachian Trail Parking</h1>' +
-                        '<img src="/images/marker9_parking.jpg" alt="marker9_parking"></img>'+
-                        '<p>Address: Washington, MA 01223</p>'+
-                        '</div>'
-                    });
-                    const infowindow_marker10_parking = new google.maps.InfoWindow({
-                        content:'<div>' +
-                        '<h1>Appalachian Trail Parking</h1>' +
-                        '<img src="/images/marker10_parking.jpg" alt="marker10_parking"></img>'+
-                        '<p>Address: Washington, MA 01223</p>'+
-                        '</div>'
-                    });
-                    const infowindow_marker11_parking = new google.maps.InfoWindow({
-                        content:'<div>' +
-                        '<h1>Appalachian Trail Parking (Gulf Road)</h1>' +
-                        '<img src="/images/marker11_parking.jpg" alt="marker11_parking"></img>'+
-                        '<p>Address: Washington, MA 01223</p>'+
-                        '</div>'
-                    });
-                    const infowindow_marker12_parking = new google.maps.InfoWindow({
-                        content:'<div>' +
-                        '<h1>Ashuwillticook Rail Trail parking area</h1>' +
-                        '<img src="/images/marker12_parking.jpg" alt="marker12_parking"></img>'+
-                        '<p>Address: Railroad St, Cheshire, MA 01225</p>'+
-                        '</div>'
-                    });
-                    const infowindow_marker13_parking = new google.maps.InfoWindow({
-                        content:'<div>' +
-                        '<h1>Jones Nose Trailhead</h1>' +
-                        '<img src="/images/marker13_parking.jpg" alt="marker13_parking"></img>'+
-                        '<p>Address: Rockwell Rd, New Ashford, MA 01237</p>'+
-                        '</div>'
-                    });
-                    const infowindow_marker14_parking = new google.maps.InfoWindow({
-                        content:'<div>' +
-                        '<h1>Mt. Greylock Campground Parking Lot</h1>' +
-                        '<img src="/images/marker14_parking.jpg" alt="marker14_parking"></img>'+
-                        '<p>Address: Adams, MA 01220</p>'+
-                        '</div>'
-                    });
-                    const infowindow_marker15_parking = new google.maps.InfoWindow({
-                        content:'<div>' +
-                        '<h1>Appalachian Trail Pattison Road</h1>' +
-                        '<img src="/images/marker15_parking.jpg" alt="marker15_parking"></img>'+
-                        '<p>Address: 381 Pattison Rd, North Adams, MA 01247</p>'+
-                        '</div>'
-                    });
-                    const infowindow_marker16_parking = new google.maps.InfoWindow({
-                        content:'<div>' +
-                        '<h1>Appalachian Trail Parking</h1>' +
-                        '<img src="/images/marker16_parking.jpg" alt="marker16_parking"></img>'+
-                        '<p>State Rd, North Adams, MA 01247</p>'+
-                        '</div>'
-                    });
-                    google.maps.event.addListener(marker1_parking, 'click', function() { infowindow_marker1_parking.open(map,marker1_parking); });
-                    google.maps.event.addListener(marker2_parking, 'click', function() { infowindow_marker2_parking.open(map,marker2_parking); });
-                    google.maps.event.addListener(marker3_parking, 'click', function() { infowindow_marker3_parking.open(map,marker3_parking); });
-                    google.maps.event.addListener(marker4_parking, 'click', function() { infowindow_marker4_parking.open(map,marker4_parking); });
-                    google.maps.event.addListener(marker5_parking, 'click', function() { infowindow_marker5_parking.open(map,marker5_parking); });
-                    google.maps.event.addListener(marker6_parking, 'click', function() { infowindow_marker6_parking.open(map,marker6_parking); });
-                    google.maps.event.addListener(marker7_parking, 'click', function() { infowindow_marker7_parking.open(map,marker7_parking); });
-                    google.maps.event.addListener(marker8_parking, 'click', function() { infowindow_marker8_parking.open(map,marker8_parking); });
-                    google.maps.event.addListener(marker9_parking, 'click', function() { infowindow_marker9_parking.open(map,marker9_parking); });
-                    google.maps.event.addListener(marker10_parking, 'click', function() { infowindow_marker10_parking.open(map,marker10_parking); });
-                    google.maps.event.addListener(marker11_parking, 'click', function() { infowindow_marker11_parking.open(map,marker11_parking); });
-                    google.maps.event.addListener(marker12_parking, 'click', function() { infowindow_marker12_parking.open(map,marker12_parking); });
-                    google.maps.event.addListener(marker13_parking, 'click', function() { infowindow_marker13_parking.open(map,marker13_parking); });
-                    google.maps.event.addListener(marker14_parking, 'click', function() { infowindow_marker14_parking.open(map,marker14_parking); });
-                    google.maps.event.addListener(marker15_parking, 'click', function() { infowindow_marker15_parking.open(map,marker15_parking); });
-                    google.maps.event.addListener(marker16_parking, 'click', function() { infowindow_marker16_parking.open(map,marker16_parking); });
+    checkbox2.addEventListener('change', function () {
+        if (checkbox2.checked) {
+            // Create the marker if the checkbox is checked
             
-                } else {
-                    // Remove the marker if the checkbox is unchecked
-                    marker1_parking.setMap(null);
-                    marker2_parking.setMap(null);
-                    marker10_parking.setMap(null);
-                    marker11_parking.setMap(null);
-                    marker12_parking.setMap(null);
-                    marker13_parking.setMap(null);
-                    marker14_parking.setMap(null);
-                    marker15_parking.setMap(null);
-                    marker16_parking.setMap(null);
-                    marker3_parking.setMap(null);
-                    marker5_parking.setMap(null);
-                    marker9_parking.setMap(null);
-                    marker6_parking.setMap(null);
-                    marker7_parking.setMap(null);
-                    marker8_parking.setMap(null);
-                    marker4_parking.setMap(null);
-                }
+            
+            marker1_parking = new google.maps.Marker({
+                position: {
+                lat: parking[0].latitude, lng: parking[0].longitude 
+                }, 
+                map: map,
+                title: 'Marker 2',
+                    icon: '/images/parking_spots.png',
+        
             });
 
+            
+                // Create the marker if the checkbox is checked
+            marker2_parking = new google.maps.Marker({
+                position: {
+                lat: parking[1].latitude, lng: parking[1].longitude 
+                }, 
+                map: map,
+                title: 'Marker 2',
+                    icon: '/images/parking_spots.png',
+        
+            });
+                // Create the marker if the checkbox is checked
+            marker3_parking = new google.maps.Marker({
+                position: {
+                lat: parking[2].latitude, lng: parking[2].longitude 
+                }, 
+                map: map,
+                title: 'Marker 2',
+                    icon: '/images/parking_spots.png',
+        
+            });
+                // Create the marker if the checkbox is checked
+            marker4_parking= new google.maps.Marker({
+                position: {
+                lat: parking[3].latitude, lng: parking[3].longitude 
+                }, 
+                map: map,
+                title: 'Marker 2',
+                    icon: '/images/parking_spots.png',
+        
+            });
+                // Create the marker if the checkbox is checked
+            marker5_parking = new google.maps.Marker({
+                position: {
+                lat: parking[4].latitude, lng: parking[4].longitude 
+                }, 
+                map: map,
+                title: 'Marker 2',
+                    icon: '/images/parking_spots.png',
+        
+            });
+                // Create the marker if the checkbox is checked
+            marker6_parking = new google.maps.Marker({
+                position: {
+                lat: parking[5].latitude, lng: parking[5].longitude 
+                }, 
+                map: map,
+                title: 'Marker 2',
+                    icon: '/images/parking_spots.png',
+        
+            });
+                // Create the marker if the checkbox is checked
+            marker7_parking = new google.maps.Marker({
+                position: {
+                lat: parking[6].latitude, lng: parking[6].longitude 
+                }, 
+                map: map,
+                title: 'Marker 2',
+                    icon: '/images/parking_spots.png',
+        
+            });
+                // Create the marker if the checkbox is checked
+            marker8_parking = new google.maps.Marker({
+                position: {
+                lat: parking[7].latitude, lng: parking[7].longitude 
+                }, 
+                map: map,
+                title: 'Marker 2',
+                    icon: '/images/parking_spots.png',
+        
+            });
+                // Create the marker if the checkbox is checked
+            marker9_parking = new google.maps.Marker({
+                position: {
+                lat: parking[8].latitude, lng: parking[8].longitude 
+                }, 
+                map: map,
+                title: 'Marker 2',
+                    icon: '/images/parking_spots.png',
+        
+            });
+                // Create the marker if the checkbox is checked
+            marker10_parking = new google.maps.Marker({
+                position: {
+                lat: parking[9].latitude, lng: parking[9].longitude 
+                }, 
+                map: map,
+                title: 'Marker 2',
+                    icon: '/images/parking_spots.png',
+        
+            });
+                // Create the marker if the checkbox is checked
+            marker11_parking = new google.maps.Marker({
+                position: {
+                lat: parking[10].latitude, lng: parking[10].longitude 
+                }, 
+                map: map,
+                title: 'Marker 2',
+                    icon: '/images/parking_spots.png',
+        
+            });
+                // Create the marker if the checkbox is checked
+            marker12_parking = new google.maps.Marker({
+                position: {
+                lat: parking[11].latitude, lng: parking[11].longitude 
+                }, 
+                map: map,
+                title: 'Marker 2',
+                    icon: '/images/parking_spots.png',
+        
+            });
+                // Create the marker if the checkbox is checked
+            marker13_parking = new google.maps.Marker({
+                position: {
+                lat: parking[12].latitude, lng: parking[12].longitude 
+                }, 
+                map: map,
+                title: 'Marker 2',
+                    icon: '/images/parking_spots.png',
+        
+            });
+                // Create the marker if the checkbox is checked
+            marker14_parking = new google.maps.Marker({
+                position: {
+                lat: parking[13].latitude, lng: parking[13].longitude 
+                }, 
+                map: map,
+                title: 'Marker 2',
+                    icon: '/images/parking_spots.png',
+        
+            });
+                // Create the marker if the checkbox is checked
+            marker15_parking = new google.maps.Marker({
+                position: {
+                lat: parking[14].latitude, lng: parking[14].longitude 
+                }, 
+                map: map,
+                title: 'Marker 2',
+                    icon: '/images/parking_spots.png',
+        
+            });
+                // Create the marker if the checkbox is checked
+            marker16_parking = new google.maps.Marker({
+                position: {
+                lat: parking[15].latitude, lng: parking[15].longitude 
+                }, 
+                map: map,
+                title: 'Marker 2',
+                    icon: '/images/parking_spots.png',
+        
+            });
+            const infowindow_marker1_parking = new google.maps.InfoWindow({
+                content:'<div>' +
+                '<h1>Appalachian Trail Parking</h1>' +
+                '<img src="images/marker1_parking.jpg" alt="marker1_parking"></img>'+
+                '<p>Address: CT-41, Salisbury, CT 06068</p>'+
+                '</div>'
+            });
+            const infowindow_marker2_parking = new google.maps.InfoWindow({
+                content:'<div>' +
+                '<h1>Race Brook Falls Trailhead & Parking</h1>' +
+                '<img src="/images/marker2_parking.jpg" alt="marker2_parking"></img>'+
+                '<p>Address: 716-732 S Undermountain Rd, Sheffield, MA 01257</p>'+
+                '</div>'
+            });
+            const infowindow_marker3_parking = new google.maps.InfoWindow({
+                content:'<div>' +
+                '<h1>Guilder Pond Parking Area</h1>' +
+                '<img src="/images/marker3_parking.jpg" alt="marker3_parking"></img>'+
+                '<p>Address: Mt Washington, MA 01258</p>'+                      
+                '</div>'
+            });
+            const infowindow_marker4_parking = new google.maps.InfoWindow({
+                content:'<div>' +
+                '<h1>Appalachian Trail Parking</h1>' +
+                '<img src="/images/marker4_parking.jpg" alt="marker4_parking"></img>'+
+                '<p>Address: 102-110 Lake Buel Rd, Great Barrington, MA 01230</p>'+                       
+                '</div>'
+            });
+            const infowindow_marker5_parking = new google.maps.InfoWindow({
+                content:'<div>' +
+                '<h1>AT Parking at Massachusetts 183</h1>' +
+                '<img src="/images/marker5_parking.jpg" alt="marker5_parking"></img>'+
+                '<p>Address: Appalachian National Scenic Trail, Monterey, MA 01245</p>'+                       
+                '</div>'
+            });
+            const infowindow_marker6_parking = new google.maps.InfoWindow({
+                content:'<div>' +
+                '<h1>Appalachian Trail</h1>' +
+                '<img src="/images/marker6_parking.jpg" alt="marker6_parking"></img>'+
+                '<p>Address: Appalachian National Scenic Trail, Tyringham, MA 01264</p>'+                      
+                '</div>'
+            });
+            const infowindow_marker7_parking = new google.maps.InfoWindow({
+                content:'<div>' +
+                '<h1>Appalachian Trail - Goose Pond Road</h1>' +
+                '<img src="/images/marker7_parking.jpg" alt="marker7_parking"></img>'+
+                '<p>Address: Appalachian National Scenic Trail, Lee, MA 01238</p>'+                        
+                '</div>'
+            });
+            const infowindow_marker8_parking = new google.maps.InfoWindow({
+                content:'<div>' +
+                '<h1>Jacob\'s Ladder Scenic Byway and Appalachian Trail Parking Area</h1>' +
+                '<img src="/images/marker8_parking.jpg" alt="marker8_parking"></img>'+
+                '<p>Address: Lee, MA 01238</p>'+                      
+                '</div>'
+            });
+            const infowindow_marker9_parking = new google.maps.InfoWindow({
+                content:'<div>' +
+                '<h1>Appalachian Trail Parking</h1>' +
+                '<img src="/images/marker9_parking.jpg" alt="marker9_parking"></img>'+
+                '<p>Address: Washington, MA 01223</p>'+
+                '</div>'
+            });
+            const infowindow_marker10_parking = new google.maps.InfoWindow({
+                content:'<div>' +
+                '<h1>Appalachian Trail Parking</h1>' +
+                '<img src="/images/marker10_parking.jpg" alt="marker10_parking"></img>'+
+                '<p>Address: Washington, MA 01223</p>'+
+                '</div>'
+            });
+            const infowindow_marker11_parking = new google.maps.InfoWindow({
+                content:'<div>' +
+                '<h1>Appalachian Trail Parking (Gulf Road)</h1>' +
+                '<img src="/images/marker11_parking.jpg" alt="marker11_parking"></img>'+
+                '<p>Address: Washington, MA 01223</p>'+
+                '</div>'
+            });
+            const infowindow_marker12_parking = new google.maps.InfoWindow({
+                content:'<div>' +
+                '<h1>Ashuwillticook Rail Trail parking area</h1>' +
+                '<img src="/images/marker12_parking.jpg" alt="marker12_parking"></img>'+
+                '<p>Address: Railroad St, Cheshire, MA 01225</p>'+
+                '</div>'
+            });
+            const infowindow_marker13_parking = new google.maps.InfoWindow({
+                content:'<div>' +
+                '<h1>Jones Nose Trailhead</h1>' +
+                '<img src="/images/marker13_parking.jpg" alt="marker13_parking"></img>'+
+                '<p>Address: Rockwell Rd, New Ashford, MA 01237</p>'+
+                '</div>'
+            });
+            const infowindow_marker14_parking = new google.maps.InfoWindow({
+                content:'<div>' +
+                '<h1>Mt. Greylock Campground Parking Lot</h1>' +
+                '<img src="/images/marker14_parking.jpg" alt="marker14_parking"></img>'+
+                '<p>Address: Adams, MA 01220</p>'+
+                '</div>'
+            });
+            const infowindow_marker15_parking = new google.maps.InfoWindow({
+                content:'<div>' +
+                '<h1>Appalachian Trail Pattison Road</h1>' +
+                '<img src="/images/marker15_parking.jpg" alt="marker15_parking"></img>'+
+                '<p>Address: 381 Pattison Rd, North Adams, MA 01247</p>'+
+                '</div>'
+            });
+            const infowindow_marker16_parking = new google.maps.InfoWindow({
+                content:'<div>' +
+                '<h1>Appalachian Trail Parking</h1>' +
+                '<img src="/images/marker16_parking.jpg" alt="marker16_parking"></img>'+
+                '<p>State Rd, North Adams, MA 01247</p>'+
+                '</div>'
+            });
+            google.maps.event.addListener(marker1_parking, 'click', function() { infowindow_marker1_parking.open(map,marker1_parking); });
+            google.maps.event.addListener(marker2_parking, 'click', function() { infowindow_marker2_parking.open(map,marker2_parking); });
+            google.maps.event.addListener(marker3_parking, 'click', function() { infowindow_marker3_parking.open(map,marker3_parking); });
+            google.maps.event.addListener(marker4_parking, 'click', function() { infowindow_marker4_parking.open(map,marker4_parking); });
+            google.maps.event.addListener(marker5_parking, 'click', function() { infowindow_marker5_parking.open(map,marker5_parking); });
+            google.maps.event.addListener(marker6_parking, 'click', function() { infowindow_marker6_parking.open(map,marker6_parking); });
+            google.maps.event.addListener(marker7_parking, 'click', function() { infowindow_marker7_parking.open(map,marker7_parking); });
+            google.maps.event.addListener(marker8_parking, 'click', function() { infowindow_marker8_parking.open(map,marker8_parking); });
+            google.maps.event.addListener(marker9_parking, 'click', function() { infowindow_marker9_parking.open(map,marker9_parking); });
+            google.maps.event.addListener(marker10_parking, 'click', function() { infowindow_marker10_parking.open(map,marker10_parking); });
+            google.maps.event.addListener(marker11_parking, 'click', function() { infowindow_marker11_parking.open(map,marker11_parking); });
+            google.maps.event.addListener(marker12_parking, 'click', function() { infowindow_marker12_parking.open(map,marker12_parking); });
+            google.maps.event.addListener(marker13_parking, 'click', function() { infowindow_marker13_parking.open(map,marker13_parking); });
+            google.maps.event.addListener(marker14_parking, 'click', function() { infowindow_marker14_parking.open(map,marker14_parking); });
+            google.maps.event.addListener(marker15_parking, 'click', function() { infowindow_marker15_parking.open(map,marker15_parking); });
+            google.maps.event.addListener(marker16_parking, 'click', function() { infowindow_marker16_parking.open(map,marker16_parking); });
+    
+        } else {
+            // Remove the marker if the checkbox is unchecked
+            marker1_parking.setMap(null);
+            marker2_parking.setMap(null);
+            marker10_parking.setMap(null);
+            marker11_parking.setMap(null);
+            marker12_parking.setMap(null);
+            marker13_parking.setMap(null);
+            marker14_parking.setMap(null);
+            marker15_parking.setMap(null);
+            marker16_parking.setMap(null);
+            marker3_parking.setMap(null);
+            marker5_parking.setMap(null);
+            marker9_parking.setMap(null);
+            marker6_parking.setMap(null);
+            marker7_parking.setMap(null);
+            marker8_parking.setMap(null);
+            marker4_parking.setMap(null);
+        }
+    });
 
 
-            checkbox3.addEventListener('change', function () {
-                if (checkbox3.checked) {
-                    // Create the marker if the checkbox is checked
-                    /*marker1_hazard = new google.maps.Marker({
-                        position: {
-                            lat: shelters[0].latitude, lng: shelters[0].longitude
-                        },
-                        map: map,
-                        title: 'Marker',
-                        icon: '/images/hazard_spots.png',   
-                    });
-                    const infowindow_marker1_hazard = new google.maps.InfoWindow({
+    checkbox3.addEventListener('change', function () {
+        if (checkbox3.checked) {
+            if(hazard_report[0]) 
+            {
+                //zeroHaz = "other"
+                //zeroCmt = "comment\nline 2"
+                marker1_hazard = new google.maps.Marker({
+                    position: {
+                        lat: shelters[0].latitude, lng: shelters[0].longitude
+                    },
+                    map: map,
+                    title: 'Marker 1',
+                    icon: '/images/hazard_spots.png',   
+                });
+                    
+                google.maps.event.addListener(marker1_hazard, 'click', function() {
+                    var infowindow_marker1_hazard = new google.maps.InfoWindow({
                         content:'<div>' +
-                        '<h1>Path Obstruction</h1>' +
-                        '<h2>large object in path</h2>' +
+                        '<h1>Type of Hazard:</h1>' +
+                        '<p>'+zeroHaz+'</p>'+
+                        '<h2>User Comment</h2>' +
+                        '<textArea readonly style = "min-width:200px; min-height:100px; max-width:200px; max-height:100px; resize:none; border: none; outline: none;">'+zeroCmt+'</textArea>'+
                         '</div>'
-                    });
-                    google.maps.event.addListener(marker1_hazard, 'click', function() { infowindow_marker1_hazard.open(map,marker1_hazard);});
-                    */
-                    
-                    /*marker_hazard_list[0] = new google.maps.Marker({
-                        position: {
-                        lat: strt_lat, lng:strt_long
-                        }, 
-                        map: map,
-                        title: 'Marker 3',
-                        icon: '/images/hazard_spots.png'
-                    
-                    });*/
-                    
-                    
-                    //infowindow_hazard_list[0].open(map,marker_hazard_list[0]);
-                   
-                    
-                    if(hazard_report[0]) 
-                    {
-                        //zeroHaz = "other"
-                        //zeroCmt = "comment\nline 2"
-                        marker1_hazard = new google.maps.Marker({
-                            position: {
-                                lat: shelters[0].latitude, lng: shelters[0].longitude
-                            },
-                            map: map,
-                            title: 'Marker 1',
-                            icon: '/images/hazard_spots.png',   
                         });
-                            
-                        google.maps.event.addListener(marker1_hazard, 'click', function() {
-                            var infowindow_marker1_hazard = new google.maps.InfoWindow({
-                                content:'<div>' +
-                                '<h1>Type of Hazard:</h1>' +
-                                '<p>'+zeroHaz+'</p>'+
-                                '<h2>User Comment</h2>' +
-                                '<textArea readonly style = "min-width:200px; min-height:100px; max-width:200px; max-height:100px; resize:none; border: none; outline: none;">'+zeroCmt+'</textArea>'+
-                                '</div>'
-                                });
-                            infowindow_marker1_hazard.open(map,marker1_hazard);
-                        });
-                    }
-                    
-                    if(hazard_report[1]) 
-                    {
-                    marker2_hazard = new google.maps.Marker({
-                        position: {
-                        lat: shelters[1].latitude, lng: shelters[1].longitude 
-                        }, 
-                        map: map,
-                        title: 'Marker 2',
-                        icon: '/images/hazard_spots.png',
-                       
-                    });
-                    google.maps.event.addListener(marker2_hazard, 'click', function() {
-                        var infowindow_marker2_hazard = new google.maps.InfoWindow({
-                            content:'<div>' +
-                                '<h1>Type of Hazard:</h1>' +
-                                '<p>'+oneHaz+'</p>'+
-                                '<h2>User Comment</h2>' +
-                                '<textArea readonly style = "min-width:200px; min-height:100px; max-width:200px; max-height:100px; resize:none; border: none; outline: none;">'+oneCmt+'</textArea>'+
-                                '</div>'
-                                });
-                        infowindow_marker2_hazard.open(map,marker2_hazard);
-                    });
-                }
-                if(hazard_report[2]) {
-                     marker3_hazard = new google.maps.Marker({
-                        position: {
-                        lat: shelters[2].latitude, lng: shelters[2].longitude 
-                        }, 
-                        map: map,
-                        title: 'Marker 3',
-                        icon: '/images/hazard_spots.png',
-                       
-                    });
-                    google.maps.event.addListener(marker3_hazard, 'click', function() {
-                        var infowindow_marker3_hazard = new google.maps.InfoWindow({
-                            content:'<div>' +
-                                '<h1>Type of Hazard:</h1>' +
-                                '<p>'+twoHaz+'</p>'+
-                                '<h2>User Comment</h2>' +
-                                '<textArea readonly style = "min-width:200px; min-height:100px; max-width:200px; max-height:100px; resize:none; border: none; outline: none;">'+twoCmt+'</textArea>'+
-                                '</div>'
-                                });
-                        infowindow_marker3_hazard.open(map,marker3_hazard);
-                    });
-                }
-                if(hazard_report[3]) {
-                     marker4_hazard = new google.maps.Marker({
-                        position: {
-                        lat: shelters[3].latitude, lng: shelters[3].longitude 
-                        }, 
-                        map: map,
-                        title: 'Marker 4',
-                        icon: '/images/hazard_spots.png',
-                       
-                    });
-                    google.maps.event.addListener(marker4_hazard, 'click', function() {
-                        var infowindow_marker4_hazard = new google.maps.InfoWindow({
-                            content:'<div>' +
-                                '<h1>Type of Hazard:</h1>' +
-                                '<p>'+threeHaz+'</p>'+
-                                '<h2>User Comment</h2>' +
-                                '<textArea readonly style = "min-width:200px; min-height:100px; max-width:200px; max-height:100px; resize:none; border: none; outline: none;">'+threeCmt+'</textArea>'+
-                                '</div>'
-                                });
-                        infowindow_marker4_hazard.open(map,marker4_hazard);
-                    });
-                }
-                if(hazard_report[4]) {
-                     marker5_hazard = new google.maps.Marker({
-                        position: {
-                        lat: shelters[4].latitude, lng: shelters[4].longitude 
-                        }, 
-                        map: map,
-                        title: 'Marker 5',
-                        icon: '/images/hazard_spots.png',
-                       
-                    });
-                    google.maps.event.addListener(marker5_hazard, 'click', function() {
-                        var infowindow_marker5_hazard = new google.maps.InfoWindow({
-                            content:'<div>' +
-                            '<h1>Type of Hazard:</h1>' +
-                            '<p>'+fourHaz+'</p>'+
-                            '<h2>User Comment</h2>' +
-                            '<textArea readonly style = "min-width:200px; min-height:100px; max-width:200px; max-height:100px; resize:none; border: none; outline: none;">'+fourCmt+'</textArea>'+
-                            '</div>'
-                            });
-                        infowindow_marker5_hazard.open(map,marker5_hazard);
-                    });
-                }
-                if(hazard_report[5]) {
-                     marker6_hazard = new google.maps.Marker({
-                        position: {
-                        lat: shelters[5].latitude, lng: shelters[5].longitude 
-                        }, 
-                        map: map,
-                        title: 'Marker 6',
-                        icon: '/images/hazard_spots.png',
-                       
-                    });
-                    google.maps.event.addListener(marker6_hazard, 'click', function() {
-                        var infowindow_marker6_hazard = new google.maps.InfoWindow({
-                            content:'<div>' +
-                                '<h1>Type of Hazard:</h1>' +
-                                '<p>'+fiveHaz+'</p>'+
-                                '<h2>User Comment</h2>' +
-                                '<textArea readonly style = "min-width:200px; min-height:100px; max-width:200px; max-height:100px; resize:none; border: none; outline: none;">'+fiveCmt+'</textArea>'+
-                                '</div>'
-                                });
-                        infowindow_marker6_hazard.open(map,marker6_hazard);
-                    });
-                }
-                if(hazard_report[6]) {
-                     marker7_hazard = new google.maps.Marker({
-                        position: {
-                        lat: shelters[6].latitude, lng: shelters[6].longitude 
-                        }, 
-                        map: map,
-                        title: 'Marker 7',
-                        icon: '/images/hazard_spots.png',
-                       
-                    });
-                    google.maps.event.addListener(marker7_hazard, 'click', function() {
-                        var infowindow_marker7_hazard = new google.maps.InfoWindow({
-                            content:'<div>' +
-                                '<h1>Type of Hazard:</h1>' +
-                                '<p>'+sixHaz+'</p>'+
-                                '<h2>User Comment</h2>' +
-                                '<textArea readonly style = "min-width:200px; min-height:100px; max-width:200px; max-height:100px; resize:none; border: none; outline: none;">'+sixCmt+'</textArea>'+
-                                '</div>'
-                                });
-                        infowindow_marker7_hazard.open(map,marker7_hazard);
-                    });
-                }
-                if(hazard_report[7]) {
-                     marker8_hazard = new google.maps.Marker({
-                        position: {
-                        lat: shelters[7].latitude, lng: shelters[7].longitude 
-                        }, 
-                        map: map,
-                        title: 'Marker 8',
-                        icon: '/images/hazard_spots.png',
-                       
-                    });
-                    google.maps.event.addListener(marker8_hazard, 'click', function() {
-                        var infowindow_marker8_hazard = new google.maps.InfoWindow({
-                            content:'<div>' +
-                                '<h1>Type of Hazard:</h1>' +
-                                '<p>'+sevenHaz+'</p>'+
-                                '<h2>User Comment</h2>' +
-                                '<textArea readonly style = "min-width:200px; min-height:100px; max-width:200px; max-height:100px; resize:none; border: none; outline: none;">'+sevenCmt+'</textArea>'+
-                                '</div>'
-                                });
-                        infowindow_marker8_hazard.open(map,marker8_hazard);
-                    });
-                }
-                if(hazard_report[8]) {
-                     marker9_hazard = new google.maps.Marker({
-                        position: {
-                        lat: shelters[8].latitude, lng: shelters[8].longitude 
-                        }, 
-                        map: map,
-                        title: 'Marker 9',
-                        icon: '/images/hazard_spots.png',
-                       
-                    });
-                    google.maps.event.addListener(marker9_hazard, 'click', function() {
-                        var infowindow_marker9_hazard = new google.maps.InfoWindow({
-                            content:'<div>' +
-                                '<h1>Type of Hazard:</h1>' +
-                                '<p>'+eightHaz+'</p>'+
-                                '<h2>User Comment</h2>' +
-                                '<textArea readonly style = "min-width:200px; min-height:100px; max-width:200px; max-height:100px; resize:none; border: none; outline: none;">'+eightCmt+'</textArea>'+
-                                '</div>'
-                                });
-                        infowindow_marker9_hazard.open(map,marker9_hazard);
-                    });
-                }
-                if(hazard_report[9]) {
-                     marker10_hazard = new google.maps.Marker({
-                        position: {
-                        lat: shelters[9].latitude, lng: shelters[9].longitude 
-                        }, 
-                        map: map,
-                        title: 'Marker 10',
-                        icon: '/images/hazard_spots.png',
-                       
-                    });
-                    google.maps.event.addListener(marker10_hazard, 'click', function() {
-                        var infowindow_marker10_hazard = new google.maps.InfoWindow({
-                            content:'<div>' +
-                                '<h1>Type of Hazard:</h1>' +
-                                '<p>'+nineHaz+'</p>'+
-                                '<h2>User Comment</h2>' +
-                                '<textArea readonly style = "min-width:200px; min-height:100px; max-width:200px; max-height:100px; resize:none; border: none; outline: none;">'+nineCmt+'</textArea>'+
-                                '</div>'
-                                });
-                        infowindow_marker10_hazard.open(map,marker10_hazard);
-                    });
-                }
-
+                    infowindow_marker1_hazard.open(map,marker1_hazard);
+                });
+            }
+            
+            if(hazard_report[1]) 
+            {
+            marker2_hazard = new google.maps.Marker({
+                position: {
+                lat: shelters[1].latitude, lng: shelters[1].longitude 
+                }, 
+                map: map,
+                title: 'Marker 2',
+                icon: '/images/hazard_spots.png',
                 
-        
-
-                    /*google.maps.event.addListener(marker1_hazard, 'click', function() {
-                        var infowindow_marker1_hazard = new google.maps.InfoWindow({
-                            content:'<div>' +
-                            '<h1>Path Obstruction Reported in this Area</h1>' +
-                            /*'<h2>Another user reported an obstruction on this path!</h2>' +
-                            '<p>"The obstruction I am referring to is a fallen<br>'+
-                            'tree that is blocking the trail. The tree is<br>'+
-                            'quite large and there is no way around it,<br>'+
-                            'wicch forced me to turn back and cut my hike short"<p/>' +*/
-                    
-                      /*      '</div>'
-                            });
-                        infowindow_marker1_hazard.open(map,marker1_hazard);
-                        */
-                        
-                    
-                    //});
-
-
-
-/**/
-
-                    
-
-                } else {
-                    // Remove the marker if the checkbox is unchecked
-                    if(hazard_report[0]) 
-                    {
-                        marker1_hazard.setMap(null);
-                    } 
-                    if(hazard_report[1]) 
-                    {
-                    marker2_hazard.setMap(null);
-                    }
-                    if(hazard_report[2]) {
-                    marker3_hazard.setMap(null);
-                    }
-                    if(hazard_report[3]) {
-                    marker4_hazard.setMap(null);
-                    }
-                    if(hazard_report[4]) {
-                    marker5_hazard.setMap(null);
-                    }
-                    if(hazard_report[5]) {
-                    marker6_hazard.setMap(null);
-                    }
-                    if(hazard_report[6]) {
-                    marker7_hazard.setMap(null);
-                    }
-                    if(hazard_report[7]) {
-                    marker8_hazard.setMap(null);
-                    }
-                    if(hazard_report[8]) {
-                    marker9_hazard.setMap(null);
-                    }
-                    if(hazard_report[9]) {
-                    marker10_hazard.setMap(null);
-                    }
-                }
             });
+            google.maps.event.addListener(marker2_hazard, 'click', function() {
+                var infowindow_marker2_hazard = new google.maps.InfoWindow({
+                    content:'<div>' +
+                        '<h1>Type of Hazard:</h1>' +
+                        '<p>'+oneHaz+'</p>'+
+                        '<h2>User Comment</h2>' +
+                        '<textArea readonly style = "min-width:200px; min-height:100px; max-width:200px; max-height:100px; resize:none; border: none; outline: none;">'+oneCmt+'</textArea>'+
+                        '</div>'
+                        });
+                infowindow_marker2_hazard.open(map,marker2_hazard);
+            });
+        }
+        if(hazard_report[2]) {
+                marker3_hazard = new google.maps.Marker({
+                position: {
+                lat: shelters[2].latitude, lng: shelters[2].longitude 
+                }, 
+                map: map,
+                title: 'Marker 3',
+                icon: '/images/hazard_spots.png',
+                
+            });
+            google.maps.event.addListener(marker3_hazard, 'click', function() {
+                var infowindow_marker3_hazard = new google.maps.InfoWindow({
+                    content:'<div>' +
+                        '<h1>Type of Hazard:</h1>' +
+                        '<p>'+twoHaz+'</p>'+
+                        '<h2>User Comment</h2>' +
+                        '<textArea readonly style = "min-width:200px; min-height:100px; max-width:200px; max-height:100px; resize:none; border: none; outline: none;">'+twoCmt+'</textArea>'+
+                        '</div>'
+                        });
+                infowindow_marker3_hazard.open(map,marker3_hazard);
+            });
+        }
+        if(hazard_report[3]) {
+                marker4_hazard = new google.maps.Marker({
+                position: {
+                lat: shelters[3].latitude, lng: shelters[3].longitude 
+                }, 
+                map: map,
+                title: 'Marker 4',
+                icon: '/images/hazard_spots.png',
+                
+            });
+            google.maps.event.addListener(marker4_hazard, 'click', function() {
+                var infowindow_marker4_hazard = new google.maps.InfoWindow({
+                    content:'<div>' +
+                        '<h1>Type of Hazard:</h1>' +
+                        '<p>'+threeHaz+'</p>'+
+                        '<h2>User Comment</h2>' +
+                        '<textArea readonly style = "min-width:200px; min-height:100px; max-width:200px; max-height:100px; resize:none; border: none; outline: none;">'+threeCmt+'</textArea>'+
+                        '</div>'
+                        });
+                infowindow_marker4_hazard.open(map,marker4_hazard);
+            });
+        }
+        if(hazard_report[4]) {
+                marker5_hazard = new google.maps.Marker({
+                position: {
+                lat: shelters[4].latitude, lng: shelters[4].longitude 
+                }, 
+                map: map,
+                title: 'Marker 5',
+                icon: '/images/hazard_spots.png',
+                
+            });
+            google.maps.event.addListener(marker5_hazard, 'click', function() {
+                var infowindow_marker5_hazard = new google.maps.InfoWindow({
+                    content:'<div>' +
+                    '<h1>Type of Hazard:</h1>' +
+                    '<p>'+fourHaz+'</p>'+
+                    '<h2>User Comment</h2>' +
+                    '<textArea readonly style = "min-width:200px; min-height:100px; max-width:200px; max-height:100px; resize:none; border: none; outline: none;">'+fourCmt+'</textArea>'+
+                    '</div>'
+                    });
+                infowindow_marker5_hazard.open(map,marker5_hazard);
+            });
+        }
+        if(hazard_report[5]) {
+                marker6_hazard = new google.maps.Marker({
+                position: {
+                lat: shelters[5].latitude, lng: shelters[5].longitude 
+                }, 
+                map: map,
+                title: 'Marker 6',
+                icon: '/images/hazard_spots.png',
+                
+            });
+            google.maps.event.addListener(marker6_hazard, 'click', function() {
+                var infowindow_marker6_hazard = new google.maps.InfoWindow({
+                    content:'<div>' +
+                        '<h1>Type of Hazard:</h1>' +
+                        '<p>'+fiveHaz+'</p>'+
+                        '<h2>User Comment</h2>' +
+                        '<textArea readonly style = "min-width:200px; min-height:100px; max-width:200px; max-height:100px; resize:none; border: none; outline: none;">'+fiveCmt+'</textArea>'+
+                        '</div>'
+                        });
+                infowindow_marker6_hazard.open(map,marker6_hazard);
+            });
+        }
+        if(hazard_report[6]) {
+                marker7_hazard = new google.maps.Marker({
+                position: {
+                lat: shelters[6].latitude, lng: shelters[6].longitude 
+                }, 
+                map: map,
+                title: 'Marker 7',
+                icon: '/images/hazard_spots.png',
+                
+            });
+            google.maps.event.addListener(marker7_hazard, 'click', function() {
+                var infowindow_marker7_hazard = new google.maps.InfoWindow({
+                    content:'<div>' +
+                        '<h1>Type of Hazard:</h1>' +
+                        '<p>'+sixHaz+'</p>'+
+                        '<h2>User Comment</h2>' +
+                        '<textArea readonly style = "min-width:200px; min-height:100px; max-width:200px; max-height:100px; resize:none; border: none; outline: none;">'+sixCmt+'</textArea>'+
+                        '</div>'
+                        });
+                infowindow_marker7_hazard.open(map,marker7_hazard);
+            });
+        }
+        if(hazard_report[7]) {
+                marker8_hazard = new google.maps.Marker({
+                position: {
+                lat: shelters[7].latitude, lng: shelters[7].longitude 
+                }, 
+                map: map,
+                title: 'Marker 8',
+                icon: '/images/hazard_spots.png',
+                
+            });
+            google.maps.event.addListener(marker8_hazard, 'click', function() {
+                var infowindow_marker8_hazard = new google.maps.InfoWindow({
+                    content:'<div>' +
+                        '<h1>Type of Hazard:</h1>' +
+                        '<p>'+sevenHaz+'</p>'+
+                        '<h2>User Comment</h2>' +
+                        '<textArea readonly style = "min-width:200px; min-height:100px; max-width:200px; max-height:100px; resize:none; border: none; outline: none;">'+sevenCmt+'</textArea>'+
+                        '</div>'
+                        });
+                infowindow_marker8_hazard.open(map,marker8_hazard);
+            });
+        }
+        if(hazard_report[8]) {
+                marker9_hazard = new google.maps.Marker({
+                position: {
+                lat: shelters[8].latitude, lng: shelters[8].longitude 
+                }, 
+                map: map,
+                title: 'Marker 9',
+                icon: '/images/hazard_spots.png',
+                
+            });
+            google.maps.event.addListener(marker9_hazard, 'click', function() {
+                var infowindow_marker9_hazard = new google.maps.InfoWindow({
+                    content:'<div>' +
+                        '<h1>Type of Hazard:</h1>' +
+                        '<p>'+eightHaz+'</p>'+
+                        '<h2>User Comment</h2>' +
+                        '<textArea readonly style = "min-width:200px; min-height:100px; max-width:200px; max-height:100px; resize:none; border: none; outline: none;">'+eightCmt+'</textArea>'+
+                        '</div>'
+                        });
+                infowindow_marker9_hazard.open(map,marker9_hazard);
+            });
+        }
+        if(hazard_report[9]) {
+                marker10_hazard = new google.maps.Marker({
+                position: {
+                lat: shelters[9].latitude, lng: shelters[9].longitude 
+                }, 
+                map: map,
+                title: 'Marker 10',
+                icon: '/images/hazard_spots.png',
+                
+            });
+            google.maps.event.addListener(marker10_hazard, 'click', function() {
+                var infowindow_marker10_hazard = new google.maps.InfoWindow({
+                    content:'<div>' +
+                        '<h1>Type of Hazard:</h1>' +
+                        '<p>'+nineHaz+'</p>'+
+                        '<h2>User Comment</h2>' +
+                        '<textArea readonly style = "min-width:200px; min-height:100px; max-width:200px; max-height:100px; resize:none; border: none; outline: none;">'+nineCmt+'</textArea>'+
+                        '</div>'
+                        });
+                infowindow_marker10_hazard.open(map,marker10_hazard);
+            });
+        }
+
+        } else {
+            // Remove the marker if the checkbox is unchecked
+            if(hazard_report[0]) 
+            {
+                marker1_hazard.setMap(null);
+            } 
+            if(hazard_report[1]) 
+            {
+            marker2_hazard.setMap(null);
+            }
+            if(hazard_report[2]) {
+            marker3_hazard.setMap(null);
+            }
+            if(hazard_report[3]) {
+            marker4_hazard.setMap(null);
+            }
+            if(hazard_report[4]) {
+            marker5_hazard.setMap(null);
+            }
+            if(hazard_report[5]) {
+            marker6_hazard.setMap(null);
+            }
+            if(hazard_report[6]) {
+            marker7_hazard.setMap(null);
+            }
+            if(hazard_report[7]) {
+            marker8_hazard.setMap(null);
+            }
+            if(hazard_report[8]) {
+            marker9_hazard.setMap(null);
+            }
+            if(hazard_report[9]) {
+            marker10_hazard.setMap(null);
+            }
+        }
+    });
             
-            map.controls[google.maps.ControlPosition.LEFT_TOP].push(sidebar);
+    map.controls[google.maps.ControlPosition.LEFT_TOP].push(sidebar);
           
     
     /////////////////////////////////////////////////////////////////////
     //
     // Work for the custom Trips Below
     //
-    ///////////////////////////////////////////////////////////////////// 
-
-    let startingMarkers = [];
-    let endingMarkers = [];
+    /////////////////////////////////////////////////////////////////////
     
-    let startingMarker = null;
-    let endingMarker = null;
+    // Add event listener for startingLocationSelect
+    startingLocationSelect.addEventListener("change", () => {
+        // Get the selected value
+        const selectedStartingLocationName = startingLocationSelect.value;
     
-    
-           
-
-
-    
-    
-      function dropMarker(map, location, markerType, locationType) {
-        let markers;
-        let marker;
-        
-        // Determine which array of markers to use based on locationType
-        if (locationType === 'starting') {
-          markers = startingMarkers;
-        } else if (locationType === 'ending') {
-          markers = endingMarkers;
+        var endingLoc = $('#ending-location').val();
+        if(endingLoc == '') {
+            endingLoc = 0;
         }
-        
-        // Call function to clear existing markers
-        markerclearer(markers, locationType, map);
-        
-        
-        // Add new marker
-        
-        marker = new google.maps.Marker({
-          position: { lat: location.latitude, lng: location.longitude },
-          map: map,
-          icon: null
-        });
-        
-        
-        // Add click listener to marker
-        marker.addListener("click", () => {
-          let infoWindow = new google.maps.InfoWindow({
-            content: `${location.name}`,
-          });
-          infoWindow.open(map, marker);
-        });
-        
-        
-        // Zoom map to marker
-        map.setCenter(marker.getPosition());
-        map.setZoom(12);
-        
-        // Store marker in appropriate variable and array
-        if (locationType === 'starting') {
-          startingMarker = marker;
-          startingMarkers.push(marker);
-        } else if (locationType === 'ending') {
-          endingMarker = marker;
-          endingMarkers.push(marker);
-        }
-        
-        // Check if there are two markers and draw walking route
-        if (startingMarkers.length > 0 && endingMarkers.length > 0) {
-          // Call function to draw walking route
-          drawWalkingRoute(startingMarkers[0].getPosition(), endingMarkers[0].getPosition(), map);
-        }
-      }
-      
-    
-      function drawWalkingRoute(startingLocation, endingLocation, map, locationType) {
-        const directionsService = new google.maps.DirectionsService();
-        const directionsRenderer = new google.maps.DirectionsRenderer({
-          polylineOptions: {
-            strokeColor: 'blue'
-          }
-        });
-      
-        directionsRenderer.setMap(map);
-        
-        
-        /*
-        const request = {
-          origin: startingLocation,
-          destination: endingLocation,
-          travelMode: google.maps.TravelMode.WALKING
+        var request = {
+            origin: {lat: shelters[selectedStartingLocationName].latitude, lng: shelters[selectedStartingLocationName].longitude},
+            destination: {lat: shelters[endingLoc].latitude, lng: shelters[endingLoc].longitude},
+            travelMode: google.maps.DirectionsTravelMode.WALKING
         };
-   
-      
         directionsService.route(request, function(result, status) {
-          if (status == google.maps.DirectionsStatus.OK) {
-            directionsRenderer.setDirections(result);
-          }
+            if(status == 'OK') directionsDisplay.setDirections(result);
         });
-        */
-      }
-      
+    });
     
-    
-// Add event listener for startingLocationSelect
-startingLocationSelect.addEventListener("change", () => {
-    // Get the selected value
-    const selectedStartingLocationName = startingLocationSelect.value;
-  
-    // Find the corresponding shelter object in the array
-    startingShelter = shelters.find(
-      (shelter) => shelter.name === selectedStartingLocationName
-    );
-  
-    // Find the corresponding parking object in the array
-    startingParking = parking.find(
-      (park) => park.name === selectedStartingLocationName
-    );
+    // Add event listener for endingLocationSelect
+    endingLocationSelect.addEventListener("change", () => {
+        // Get the selected value
+        const selectedEndingLocationName = endingLocationSelect.value;
 
-    const endingLoc = $('#ending-location').val();
-  
-    // Call a function to clear existing markers
-    
-    // Call a function to drop the marker on the map for the selected starting location
-    /*
-    if (startingShelter) {
-      dropMarker(map, startingShelter, 'shelter', 'starting');
-    } else if (startingParking) {
-      dropMarker(map, startingParking, 'parking', 'starting');
-    }
-    
-    var request = {
-        origin: {lat: startingShelter.latitude, lng: startingShelter.longitude},
-        destination: {lat: endingShelter.latitude, lng: endingShelter.longitude},
-        travelMode: google.maps.DirectionsTravelMode.WALKING
-    };
-    directionsService.route(request, function(result, status) {
-        if(status == 'OK') directionsDisplay.setDirections(result);
+        var startingLoc = $('#starting-location').val();
+        if(startingLoc == '') {
+            startingLoc = 0;
+        }
+        var request = {
+            origin: {lat: shelters[startingLoc].latitude, lng: shelters[startingLoc].longitude},
+            destination: {lat: shelters[selectedEndingLocationName].latitude, lng: shelters[selectedEndingLocationName].longitude},
+            travelMode: google.maps.DirectionsTravelMode.WALKING
+        };
+        directionsService.route(request, function(result, status) {
+            if(status == 'OK') directionsDisplay.setDirections(result);
+        });
     });
-    */
-    var request = {
-        origin: {lat: shelters[selectedStartingLocationName].latitude, lng: shelters[selectedStartingLocationName].longitude},
-        destination: {lat: shelters[endingLoc].latitude, lng: shelters[endingLoc].longitude},
-        travelMode: google.maps.DirectionsTravelMode.WALKING
-    };
-    directionsService.route(request, function(result, status) {
-        if(status == 'OK') directionsDisplay.setDirections(result);
-    });
-  });
-  
-  // Add event listener for endingLocationSelect
-  endingLocationSelect.addEventListener("change", () => {
-    // Get the selected value
-    const selectedEndingLocationName = endingLocationSelect.value;
-  
-    // Find the corresponding shelter object in the array
-    endingShelter = shelters.find(
-      (shelter) => shelter.name === selectedEndingLocationName
-    );
-  
-    // Find the corresponding parking object in the array
-    endingParking = parking.find(
-      (park) => park.name === selectedEndingLocationName
-    );
-  
-    // Call a function to clear existing markers
-    markerclearer(endingMarkers, endingShelter);
-    markerclearer(endingMarkers, endingParking);
-    // Call a function to drop the marker on the map for the selected ending location
-    /*
-    if (endingShelter) {
-      dropMarker(map, endingShelter, 'shelter', 'ending');
-    } else if (endingParking) {
-      dropMarker(map, endingParking, 'parking', 'ending');
-    }
-    
-    var request = {
-        origin: {lat: startingShelter.latitude, lng: startingShelter.longitude},
-        destination: {lat: endingShelter.latitude, lng: endingShelter.longitude},
-        travelMode: google.maps.DirectionsTravelMode.WALKING
-    };
-    directionsService.route(request, function(result, status) {
-        if(status == 'OK') directionsDisplay.setDirections(result);
-    });
-    */
 
-    const startingLoc = $('#starting-location').val();
-    var request = {
-        origin: {lat: shelters[startingLoc].latitude, lng: shelters[startingLoc].longitude},
-        destination: {lat: shelters[selectedEndingLocationName].latitude, lng: shelters[selectedEndingLocationName].longitude},
-        travelMode: google.maps.DirectionsTravelMode.WALKING
-    };
-    directionsService.route(request, function(result, status) {
-        if(status == 'OK') directionsDisplay.setDirections(result);
-    });
-  });
-    var startingShelter, startingParking, endingShelter, endingParking;
     
     // define a global array to store the marker data
     let savedMarkers = [];
@@ -1176,15 +965,7 @@ startingLocationSelect.addEventListener("change", () => {
 
     // function to save the marker data
     function saveMarkers() {
-    // loop through all the markers and store their position data in the savedMarkers array
-    /*
-    for (let i = 0; i < markers.length; i++) {
-        const marker = markers[i];
-        savedMarkers.push({
-        lat: marker.position.lat(),
-        lng: marker.position.lng()
-        });
-    }*/
+   
     $('.Custom-Trip3').css({display:'none'});
     console.log('Markers saved:', savedMarkers);
     
@@ -1197,7 +978,6 @@ startingLocationSelect.addEventListener("change", () => {
     
     var saved_trips_tab = document.getElementById('saved_button');
     saved_trips_tab.addEventListener('click', function () {
-        console.log(saved_trips.Trips);
         document.getElementById('saved_trips_box').innerHTML = '';
         for(let i = 0; i < saved_trips.number_of_trips; i++) {
             document.getElementById('saved_trips_box').innerHTML += `<div id="saved_trip${i}_box" class="Saved_Trip_Box" >`
@@ -1208,22 +988,17 @@ startingLocationSelect.addEventListener("change", () => {
         } 
         const trip = new Array(saved_trips.number_of_trips);
         for(let i = 0; i < saved_trips.number_of_trips; i++) {
-            waypts = [];
-            if(saved_trips.Trips[i].Waypoints.length != 0) {
-                console.log(saved_trips.Trips[i].Waypoints[0]);
-                console.log(saved_trips.Trips[i].Waypoints[saved_trips.Trips[i].Waypoints.length -1]);
-                for(let j = saved_trips.Trips[i].Waypoints[0]; j < saved_trips.Trips[i].Waypoints[saved_trips.Trips[i].Waypoints.length-1]; j++) {
-                    console.log("here");
-                    waypts.push({
-                        location:new google.maps.LatLng(shelters[j].latitude,shelters[j].longitude)
-                    });
-                }
-            }
             trip[i] = document.getElementById(`saved_trip${i}`);
             trip[i].addEventListener('change', function () {
-                console.log(saved_trips.Trips[i].Days.length - 1);
-                console.log(trip[i].checked);
                 if(trip[i].checked) {
+                    waypts = [];
+                    if(saved_trips.Trips[i].Waypoints.length != 0) {
+                        for(let j = saved_trips.Trips[i].Waypoints[0]; j <= saved_trips.Trips[i].Waypoints[saved_trips.Trips[i].Waypoints.length - 1]; j++) {
+                            waypts.push({
+                                location:new google.maps.LatLng(shelters[j].latitude,shelters[j].longitude)
+                            });
+                        }
+                    }
                     var request = {
                         origin: {lat: shelters[saved_trips.Trips[i].Days[0].Starting_Location].latitude, lng: shelters[saved_trips.Trips[i].Days[0].Starting_Location].longitude},
                         destination: {lat: shelters[saved_trips.Trips[i].Days[saved_trips.Trips[i].Days.length - 1].Ending_Location].latitude, lng: shelters[saved_trips.Trips[i].Days[saved_trips.Trips[i].Days.length - 1].Ending_Location].longitude},
@@ -1246,9 +1021,6 @@ startingLocationSelect.addEventListener("change", () => {
     // Add the sidebar to the map
     map.controls[google.maps.ControlPosition.LEFT_TOP].push(sidebar);
 
-    //document.getElementById('sidebar-toggle').addEventListener('click', function () {
-    //    sidebar.classList.toggle('collapsed');
-    //});
    
     /////////////////////////////////////////////////////////////////////
     //
@@ -1313,11 +1085,7 @@ startingLocationSelect.addEventListener("change", () => {
         }
         if(arr_index_end == null) {
             arr_index_end = 0;
-        }/*
-        if(arr_index == (arr_index_end + 1) || arr_index == (arr_index_end - 1)) {
-            $('.Trip2').css({display:'none'});
-            document.getElementById('TH_Trip1').innerHTML = "Total Distance: " + distance + " miles";
-        }*/
+        }
         document.getElementById('TH_Trip1').innerHTML = "Total Distance: " + distance + " miles";
         document.getElementById('TH_Trip2').innerHTML = "Total Distance: " + distance + " miles";
 
@@ -1427,119 +1195,32 @@ startingLocationSelect.addEventListener("change", () => {
         }
         UploadTrip(trip_TH);
         DownloadTrips();
-        //saved_trips.Trips.push(trip_TH);
-        //saved_trips.number_of_trips++;
-        //console.log(saved_trips);
     });
-    /*
-    ///////////////////////////////////////////////////////////////////////////
-    //
-    // Hazard Report Code below
-    //
-    ///////////////////////////////////////////////////////////////////////////
-    */
-    //var marker_hazard = document.getElementById('checkbox3');
-       
-   /* document.getElementById("hzrdBtn").addEventListener("click", function () {
-        var type = document.getElementById('type').value;
-        var strt = document.getElementById('SL1').value;
-        var nd = 1//document.getElementById('EL1').value;
-        var com = document.getElementById('cmt').value;
 
-        var strt_long = 0;
-        var strt_lat = 0;
-        
-        var end_long = 0;
-        var end_lat = 0;
-
-        console.log("start: " + strt);
-        console.log("end: " + nd);
-    
-        strt_long = shelters[strt].longitude;
-        strt_lat = shelters[strt].latitude;
-    
-        console.log("start long: " + strt_long);
-        console.log("start lat: " + strt_lat);
-    
-        end_long = shelters[nd].longitude;
-        end_lat = shelters[nd].latitude;
-
-        console.log("end long: " + end_long);
-        console.log("end lat: " + end_lat);
-        
-          
-        //if (google.maps.event.checked) {
-        checkbox3.addEventListener('change', function () {
-        if (checkbox3.checked) {
-
-        //    for(var i = 0; i <100; i++) {
-      //          if(marker_hazard_list[i] == null) {
-        //marker_hazard = new google.maps.Marker({
-        marker_hazard_list[maker_hazard_index] = new google.maps.Marker({
-            position: {
-            lat: strt_lat, lng:strt_long
-            }, 
-            map: map,
-            title: 'Marker 3',
-            icon: '/images/hazard_spots.png'
-        
-    });
-    //}
-//}
-
-
-
-
-        for(var i = 0; i <100; i++) {
-            if(marker_hazard_list[i] != null && i == maker_hazard_index) {
-                
-        google.maps.event.addListener(marker_hazard_list[maker_hazard_index], 'click', function() {
-            console.log(maker_hazard_index);
-            //var infowindow_hazard = new google.maps.InfoWindow({
-            infowindow_hazard_list[maker_hazard_index] = new google.maps.InfoWindow({
-                
-                content:'<div>' +
-                //'<h1>Path Obstruction Reported in this Area</h1>' +
-                '<h1>Hazard Report</h1>' +
-                '<p style = "font-size: 18px;"><strong style = "font-size: 20px;">Type:</strong>:'+type+'</p>' +
-                '<h1>Between two Campsite</h1>' +
-                '<p style = "font-size: 18px;"><strong style = "font-size: 20px;">First Camp:</strong>:'+shelters[strt].name+'</p>' +
-                '<p style = "font-size: 18px;"><strong style = "font-size: 20px;">Second Camp:</strong>:'+shelters[nd].name+'</p>' +
-                '<h2>Comment:</h2>' +
-                '<pre style = "min-width:500px; min-height:100px;">'+ com + '</pre>'+
-                '</div>'
-                });
-                infowindow_hazard_list[maker_hazard_index].open(map,marker_hazard_list[maker_hazard_index - 1]);
-
-            
-            
-            });
-        }  
-        }
-
-            
-            //alert(maker_hazard_index);
-            maker_hazard_index++;
-        }
-        else {
-            for(var i = 0; i < 2; i++) {
-                if(marker_hazard_list[i] != null) {
-                    //marker_hazard_list[i].setMap(null);
-                    //maker_hazard_index--;
-                }
-            }
-        }    
-        });
-
-    });*/
 }
+//////////////////////////////////////////////////////////////////////////////
+//
+//
+// Starting Main Function Up
+//
+//
+//////////////////////////////////////////////////////////////////////////////
+
 window.onload = function () {
     if(document.readyState == 'complete') {
-        
         initMap;
     }
    
 }
+
+//////////////////////////////////////////////////////////////////////////////
+//
+//
+// Hazard Report Code
+//
+//
+//////////////////////////////////////////////////////////////////////////////
+
 function addHaz(hz, cm, campp) {
     //alert("hazardreport")
     var hazType = hz;
@@ -1604,6 +1285,14 @@ function addHaz(hz, cm, campp) {
     //marker.setMap(map);
 }
 
+//////////////////////////////////////////////////////////////////////////////
+//
+//
+// Functions used by Custom Trip
+//
+//
+//////////////////////////////////////////////////////////////////////////////
+
 function chkbox(gum){
     var elements = document.getElementsByClassName('chkbx');
     for (let i = 0; i < elements.length; i++) {
@@ -1631,9 +1320,6 @@ function CustomTripStart() {
 
 function AddDays() {
         
-    console.log('hello');
-        
-    const TripTitle = document.getElementById("trip_name_textbox").value;
     const dayTitle = document.getElementById("Day-Title").value;
     const startingLocation = document.getElementById("starting-location").value;
     const endingLocation = document.getElementById("ending-location").value;
@@ -1643,14 +1329,11 @@ function AddDays() {
     let newDayValue = parseInt(dayValue) + 1; 
     day.innerHTML = "Day " + newDayValue;
 
-    //const endingLocationValue = endingLocation.value;
-
     if (counter >= max_days) {
         const newDay = new Day(dayTitle, startingLocation, endingLocation);
         for(let i = startingLocation; i < endingLocation; i++) {
             distance_CT += distances[i];
         }
-        console.log(distance_CT);
         num_of_days_CT = counter;
         waypoints_int_CT.push(Number(endingLocation));
         days_CT.push(newDay);
@@ -1662,70 +1345,21 @@ function AddDays() {
         for(let i = startingLocation; i < endingLocation; i++) {
             distance_CT += distances[i];
         }
-        console.log(distance_CT);
         num_of_days_CT = counter;
         waypoints_int_CT.push(Number(endingLocation));
         days_CT.push(newDay);
         document.getElementById("Day-Title").value = "";
-        /*
-        for (let i = 0; i < startingLocation.options.length; i++) {
-            if (startingLocation.options[i].value === endingLocationValue) 
-            {
-              startingLocation.selectedIndex = i;
-              break;
-
-            }
-          }
-          */
-        //document.getElementById("starting-location").value = "";
-        //document.getElementById("ending-location").value = "";
         counter++;
         console.log(counter);
     }
-        
-  
-  
-  
-   
-    
-    //const trip_CT = new Trip(TripTitle.value, Number(num_of_days_CT), [], distance, waypoints_int);
-    /*
-    for(let i = 0; i <= waypoints_int.length; i++) {
-        if(waypoints_int.length == 0) { //if there is only 1 day
-            const day = new Day(`Day ${i+1}`, arr_index, arr_index_end);
-            trip_CT.Days.push(day);
-        }
-        else if(i == 0){
-            const day = new Day(`Day ${i+1}`, arr_index, waypoints_int[i]);
-            trip_CT.Days.push(day);
-        }else if(i == waypoints_int.length) {
-            const day = new Day(`Day ${i+1}`, waypoints_int[i-1], arr_index_end);
-            trip_CT.Days.push(day);
-        }else {
-            const day = new Day(`Day ${i+1}`, waypoints_int[i-1], waypoints_int[i]);
-            trip_CT.Days.push(day);
-        }
-    }
-    
-    days_CT.push(newDay);
-    num_of_days_CT++;
-    distance_CT = calculate_distance(startingLocation, endingLocation);
-    /*for(let i = startingLocation; i < endingLocation; i++) {
-        distance_CT += distances[i];
-    }
-    waypoints_int_CT += newDay.Ending_Location;
-    */
 }
     
 
     
 function SaveTrips() {
-    const TripTitle = document.getElementById("trip_name_textbox").value;
     const dayTitle = document.getElementById("Day-Title").value;
     const startingLocation = document.getElementById("starting-location").value;
     const endingLocation = document.getElementById("ending-location").value;
-    
-
 
     if (counter >= max_days) {
         const addDayButton = document.getElementById("add-day-btn");
@@ -1745,25 +1379,5 @@ function SaveTrips() {
     console.log(trip_CT);
     UploadTrip(trip_CT);
     DownloadTrips();
-
-   
 }
-
-function markerclearer(markers, locationType, map) {
-    if (markers.length > 0) {
-      for (let i = 0; i < markers.length; i++) {
-    
-      
-        markers[i].setMap(null); // remove marker from map
-    
-      }
-      markers.length = 0; // clear markers array
-    }
-    
-    if (locationType === 'starting') {
-      startingLocation = null;
-    } else if (locationType === 'ending') {
-      endingLocation = null;
-    }
-  }
   
